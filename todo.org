@@ -1,0 +1,10 @@
+* Was bleibt zu tun?
+** TODO Aufschreiben der gesammelten Erfahrungen
+** Fehlende Funktionalitäten
+*** TODO Auswahlbox für Dozenten in Lehrveranstaltungen
+*** TODO Sicherheitsabfragen zum Beispiel beim Löschen von Moduln oder Manipel
+*** TODO Sicherheitsabfrage für "Plane Quartal"
+*** TODO Die Änderung der Semesterzuordnung für Manipel
+*** TODO Datensicherung
+** TODO Git-Projekt anlegen
+*** TODO Github Pages nutzen

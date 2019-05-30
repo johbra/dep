@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/simple-sidebar.css"  type="text/css">
+<link rel="icon" href="https://clojurescript.org/images/cljs-logo-icon-32.png">
+</head>
+<body>
+<div id="app">
+</div> <!-- end of app div -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>    
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script
+src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="cljs-out/dev-main.js" type="text/javascript"></script>
+</body>
+</html>
