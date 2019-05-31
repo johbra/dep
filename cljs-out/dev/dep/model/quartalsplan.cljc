@@ -1,4 +1,0 @@
-(ns dep.model.quartalsplan)
-
-
-

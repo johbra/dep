@@ -85,7 +85,7 @@ goog.addDependency("../reagent_forms/core.js", ['reagent_forms.core'], ['goog.st
 goog.addDependency("../dep/helpers/sortable_csstable.js", ['dep.helpers.sortable_csstable'], ['reagent_modals.modals', 'reagent.core', 'cljs.core', 'reagent_forms.core']);
 goog.addDependency("../dep/components/datamanagement.js", ['dep.components.datamanagement'], ['reagent_modals.modals', 'reagent.core', 'cljs.core', 'dep.helpers.sortable_csstable']);
 goog.addDependency("../dep/components/dozentenauslastung.js", ['dep.components.dozentenauslastung'], ['cljs.core', 'dep.model.dozent', 'dep.components.datamanagement']);
-goog.addDependency("../saxjs/sax.js", ['ext.saxjs'], [], {'foreign-lib': true});
+goog.addDependency("../_saxjs/sax.js", ['ext.saxjs'], [], {'foreign-lib': true});
 goog.addDependency("../tubax/core.js", ['tubax.core'], ['ext.saxjs', 'cljs.core']);
 goog.addDependency("../cljs/tools/reader/impl/commons.js", ['cljs.tools.reader.impl.commons'], ['cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'cljs.tools.reader.impl.utils']);
 goog.addDependency("../cljs/tools/reader.js", ['cljs.tools.reader'], ['cljs.tools.reader.impl.commons', 'goog.string', 'cljs.tools.reader.impl.errors', 'cljs.core', 'cljs.tools.reader.reader_types', 'goog.string.StringBuffer', 'cljs.tools.reader.impl.utils', 'goog.array']);
