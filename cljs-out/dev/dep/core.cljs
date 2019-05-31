@@ -2,7 +2,7 @@
   "dep steht für Dozenteneinsatzplanung.
   Figwheel compiliert in die Datei target/public/cljs-out/dev-main.js.
   Diese muss in index.html aktiviert werden:
-  <script src='cljs-out/dev-main.js' ..." 
+  <script src='cljs-out/dev-main.js' ..."
   
   (:require
    [goog.dom :as gdom]

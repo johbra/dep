@@ -6,7 +6,7 @@
         cljs-http {:mvn/version "0.1.46"}
         funcool/tubax {:mvn/version "0.2.0"}
         com.bhauman/figwheel-main {:mvn/version "0.2.0"}}
- :paths ["src" "resources"]
+ :paths ["src" "resources" "test" "target"]
  :externs ["externs.js"]
  :aliases {:fig {:extra-deps
                  {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}

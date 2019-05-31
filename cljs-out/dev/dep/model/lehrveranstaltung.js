@@ -29,8 +29,8 @@ return (((dep.model.lehrveranstaltung.semesterWochenstunden.call(null,lv) * (10)
 dep.model.lehrveranstaltung.lvstunden_dozent = (function dep$model$lehrveranstaltung$lvstunden_dozent(lven,doz_nam){
 return cljs.core.reduce.call(null,cljs.core._PLUS_,(0),cljs.core.map.call(null,(function (lv){
 return dep.model.lehrveranstaltung.lvStunden.call(null,lv);
-}),cljs.core.filter.call(null,(function (p1__16806_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__16806_SHARP_),doz_nam);
+}),cljs.core.filter.call(null,(function (p1__20499_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__20499_SHARP_),doz_nam);
 }),lven)));
 });
 /**
@@ -40,14 +40,14 @@ return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"dozent","dozent",157
 dep.model.lehrveranstaltung.manipel_modullisten_map_fuer_quartal = (function dep$model$lehrveranstaltung$manipel_modullisten_map_fuer_quartal(manipels,module,quartal){
 var modulliste = cljs.core.second;
 return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,((function (modulliste){
-return (function (p1__16807_SHARP_){
-return !(cljs.core.empty_QMARK_.call(null,modulliste.call(null,p1__16807_SHARP_)));
+return (function (p1__20500_SHARP_){
+return !(cljs.core.empty_QMARK_.call(null,modulliste.call(null,p1__20500_SHARP_)));
 });})(modulliste))
 ,cljs.core.map.call(null,((function (modulliste){
 return (function (mpl){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [mpl,cljs.core.filter.call(null,((function (modulliste){
-return (function (p1__16808_SHARP_){
-return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(null,p1__16808_SHARP_,mpl,quartal);
+return (function (p1__20501_SHARP_){
+return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(null,p1__20501_SHARP_,mpl,quartal);
 });})(modulliste))
 ,module)], null);
 });})(modulliste))
@@ -59,8 +59,8 @@ return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(nul
  */
 dep.model.lehrveranstaltung.lven_vector = (function dep$model$lehrveranstaltung$lven_vector(lv_map,quartal){
 return cljs.core.into.call(null,cljs.core.PersistentVector.EMPTY,cljs.core.mapcat.call(null,(function (ml){
-return cljs.core.map.call(null,(function (p1__16809_SHARP_){
-return dep.model.lehrveranstaltung.__GT_Lehrveranstaltung.call(null,p1__16809_SHARP_,quartal,"NN",(1),cljs.core.key.call(null,ml));
+return cljs.core.map.call(null,(function (p1__20502_SHARP_){
+return dep.model.lehrveranstaltung.__GT_Lehrveranstaltung.call(null,p1__20502_SHARP_,quartal,"NN",(1),cljs.core.key.call(null,ml));
 }),cljs.core.val.call(null,ml));
 }),lv_map));
 });
@@ -76,16 +76,16 @@ return dep.model.lehrveranstaltung.lven_vector.call(null,dep.model.lehrveranstal
  *   Lehrveranstaltungen in lvn
  */
 dep.model.lehrveranstaltung.dozentenstunden = (function dep$model$lehrveranstaltung$dozentenstunden(lvn,dozenten,quartal){
-return cljs.core.mapv.call(null,(function (p1__16810_SHARP_){
-return dep.model.dozent.schreiben_stunden_auf_quartal.call(null,p1__16810_SHARP_,dep.model.lehrveranstaltung.lvstunden_dozent.call(null,cljs.core.get.call(null,lvn,quartal),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__16810_SHARP_)),quartal);
+return cljs.core.mapv.call(null,(function (p1__20503_SHARP_){
+return dep.model.dozent.schreiben_stunden_auf_quartal.call(null,p1__20503_SHARP_,dep.model.lehrveranstaltung.lvstunden_dozent.call(null,cljs.core.get.call(null,lvn,quartal),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__20503_SHARP_)),quartal);
 }),dozenten);
 });
 /**
  * Liefert die Lehrveranstaltung mit der gegebenen id.
  */
 dep.model.lehrveranstaltung.lv_mit_id = (function dep$model$lehrveranstaltung$lv_mit_id(lven,id){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__16811_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__16811_SHARP_),id);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__20504_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__20504_SHARP_),id);
 }),lven));
 });
 /**
@@ -116,8 +116,8 @@ return dep.model.manipel.semesterInQuartal.call(null,new cljs.core.Keyword(null,
  * Wandelt die Lehrveranstaltungen (lvn) für die Darstellung als Tabelle um. 
  */
 dep.model.lehrveranstaltung.lvn__GT_table = (function dep$model$lehrveranstaltung$lvn__GT_table(lvn){
-return cljs.core.mapv.call(null,(function (p1__16812_SHARP_){
-return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Modul","Modul",-499019270),new cljs.core.Keyword(null,"Mnpl","Mnpl",953604339),new cljs.core.Keyword(null,"Smstr","Smstr",1193714432),new cljs.core.Keyword(null,"SWS","SWS",1550316894),new cljs.core.Keyword(null,"WdhFkt","WdhFkt",-471348027),new cljs.core.Keyword(null,"Grpn","Grpn",-1254012610),new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975),new cljs.core.Keyword(null,"Id","Id",-2148601)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"modul","modul",-1113395939).cljs$core$IFn$_invoke$arity$1(p1__16812_SHARP_)),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"manipel","manipel",1067015228).cljs$core$IFn$_invoke$arity$1(p1__16812_SHARP_)),dep.model.lehrveranstaltung.semester.call(null,p1__16812_SHARP_),dep.model.lehrveranstaltung.semesterWochenstunden.call(null,p1__16812_SHARP_),new cljs.core.Keyword(null,"wiederholungsFaktor","wiederholungsFaktor",1064907940).cljs$core$IFn$_invoke$arity$1(p1__16812_SHARP_),new cljs.core.Keyword(null,"anzahlGruppen","anzahlGruppen",317177965).cljs$core$IFn$_invoke$arity$1(p1__16812_SHARP_),new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__16812_SHARP_),new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__16812_SHARP_)]);
+return cljs.core.mapv.call(null,(function (p1__20505_SHARP_){
+return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Modul","Modul",-499019270),new cljs.core.Keyword(null,"Mnpl","Mnpl",953604339),new cljs.core.Keyword(null,"Smstr","Smstr",1193714432),new cljs.core.Keyword(null,"SWS","SWS",1550316894),new cljs.core.Keyword(null,"WdhFkt","WdhFkt",-471348027),new cljs.core.Keyword(null,"Grpn","Grpn",-1254012610),new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975),new cljs.core.Keyword(null,"Id","Id",-2148601)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"modul","modul",-1113395939).cljs$core$IFn$_invoke$arity$1(p1__20505_SHARP_)),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"manipel","manipel",1067015228).cljs$core$IFn$_invoke$arity$1(p1__20505_SHARP_)),dep.model.lehrveranstaltung.semester.call(null,p1__20505_SHARP_),dep.model.lehrveranstaltung.semesterWochenstunden.call(null,p1__20505_SHARP_),new cljs.core.Keyword(null,"wiederholungsFaktor","wiederholungsFaktor",1064907940).cljs$core$IFn$_invoke$arity$1(p1__20505_SHARP_),new cljs.core.Keyword(null,"anzahlGruppen","anzahlGruppen",317177965).cljs$core$IFn$_invoke$arity$1(p1__20505_SHARP_),new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__20505_SHARP_),new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__20505_SHARP_)]);
 }),lvn);
 });
 /**

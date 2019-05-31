@@ -62,29 +62,29 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
  * Die Auswahlboxen für Geschäftsjahr und Quartal und die Planungsschaltfläche.
  */
 dep.components.side_nav_bar.geschaeftjahr_quartal_form = (function dep$components$side_nav_bar$geschaeftjahr_quartal_form(welt){
-return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.form-inline","div.form-inline",-557536095),dep.components.side_nav_bar.inputs.call(null,"Gesch\u00E4ftsjahr: ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__16821_SHARP_){
-dep.components.side_nav_bar.set_value_BANG_.call(null,welt,new cljs.core.Keyword(null,"geschaeftsjahr","geschaeftsjahr",1407893286),parseInt(p1__16821_SHARP_.target.value));
+return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.form-inline","div.form-inline",-557536095),dep.components.side_nav_bar.inputs.call(null,"Gesch\u00E4ftsjahr: ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__20539_SHARP_){
+dep.components.side_nav_bar.set_value_BANG_.call(null,welt,new cljs.core.Keyword(null,"geschaeftsjahr","geschaeftsjahr",1407893286),parseInt(p1__20539_SHARP_.target.value));
 
 return dep.components.side_nav_bar.set_value_BANG_.call(null,welt,new cljs.core.Keyword(null,"quartal","quartal",-467113586),cljs.core.first.call(null,dep.model.quartal.quartale_fuer_jahr.call(null,new cljs.core.Keyword(null,"geschaeftsjahr","geschaeftsjahr",1407893286).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,welt)))));
-})], null),(function (){var iter__4324__auto__ = (function dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__16823(s__16824){
+})], null),(function (){var iter__4324__auto__ = (function dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__20541(s__20542){
 return (new cljs.core.LazySeq(null,(function (){
-var s__16824__$1 = s__16824;
+var s__20542__$1 = s__20542;
 while(true){
-var temp__5457__auto__ = cljs.core.seq.call(null,s__16824__$1);
+var temp__5457__auto__ = cljs.core.seq.call(null,s__20542__$1);
 if(temp__5457__auto__){
-var s__16824__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__16824__$2)){
-var c__4322__auto__ = cljs.core.chunk_first.call(null,s__16824__$2);
+var s__20542__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__20542__$2)){
+var c__4322__auto__ = cljs.core.chunk_first.call(null,s__20542__$2);
 var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
-var b__16826 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
-if((function (){var i__16825 = (0);
+var b__20544 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
+if((function (){var i__20543 = (0);
 while(true){
-if((i__16825 < size__4323__auto__)){
-var j = cljs.core._nth.call(null,c__4322__auto__,i__16825);
-cljs.core.chunk_append.call(null,b__16826,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),j], null),j], null));
+if((i__20543 < size__4323__auto__)){
+var j = cljs.core._nth.call(null,c__4322__auto__,i__20543);
+cljs.core.chunk_append.call(null,b__20544,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),j], null),j], null));
 
-var G__16831 = (i__16825 + (1));
-i__16825 = G__16831;
+var G__20549 = (i__20543 + (1));
+i__20543 = G__20549;
 continue;
 } else {
 return true;
@@ -92,13 +92,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16826),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__16823.call(null,cljs.core.chunk_rest.call(null,s__16824__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__20544),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__20541.call(null,cljs.core.chunk_rest.call(null,s__20542__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16826),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__20544),null);
 }
 } else {
-var j = cljs.core.first.call(null,s__16824__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),j], null),j], null),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__16823.call(null,cljs.core.rest.call(null,s__16824__$2)));
+var j = cljs.core.first.call(null,s__20542__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),j], null),j], null),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__20541.call(null,cljs.core.rest.call(null,s__20542__$2)));
 }
 } else {
 return null;
@@ -108,27 +108,27 @@ break;
 }),null,null));
 });
 return iter__4324__auto__.call(null,new cljs.core.Keyword(null,"jahre","jahre",2053865477).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,welt)));
-})()], null),"Quartal: ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__16822_SHARP_){
-return dep.components.side_nav_bar.set_value_BANG_.call(null,welt,new cljs.core.Keyword(null,"quartal","quartal",-467113586),dep.model.quartal.string__GT_quartal.call(null,p1__16822_SHARP_.target.value));
-})], null),(function (){var iter__4324__auto__ = (function dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__16827(s__16828){
+})()], null),"Quartal: ",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"on-change","on-change",-732046149),(function (p1__20540_SHARP_){
+return dep.components.side_nav_bar.set_value_BANG_.call(null,welt,new cljs.core.Keyword(null,"quartal","quartal",-467113586),dep.model.quartal.string__GT_quartal.call(null,p1__20540_SHARP_.target.value));
+})], null),(function (){var iter__4324__auto__ = (function dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__20545(s__20546){
 return (new cljs.core.LazySeq(null,(function (){
-var s__16828__$1 = s__16828;
+var s__20546__$1 = s__20546;
 while(true){
-var temp__5457__auto__ = cljs.core.seq.call(null,s__16828__$1);
+var temp__5457__auto__ = cljs.core.seq.call(null,s__20546__$1);
 if(temp__5457__auto__){
-var s__16828__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__16828__$2)){
-var c__4322__auto__ = cljs.core.chunk_first.call(null,s__16828__$2);
+var s__20546__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__20546__$2)){
+var c__4322__auto__ = cljs.core.chunk_first.call(null,s__20546__$2);
 var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
-var b__16830 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
-if((function (){var i__16829 = (0);
+var b__20548 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
+if((function (){var i__20547 = (0);
 while(true){
-if((i__16829 < size__4323__auto__)){
-var q = cljs.core._nth.call(null,c__4322__auto__,i__16829);
-cljs.core.chunk_append.call(null,b__16830,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),dep.model.quartal.quartal__GT_string.call(null,q)], null),dep.model.quartal.quartal__GT_string.call(null,q)], null));
+if((i__20547 < size__4323__auto__)){
+var q = cljs.core._nth.call(null,c__4322__auto__,i__20547);
+cljs.core.chunk_append.call(null,b__20548,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),dep.model.quartal.quartal__GT_string.call(null,q)], null),dep.model.quartal.quartal__GT_string.call(null,q)], null));
 
-var G__16832 = (i__16829 + (1));
-i__16829 = G__16832;
+var G__20550 = (i__20547 + (1));
+i__20547 = G__20550;
 continue;
 } else {
 return true;
@@ -136,13 +136,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16830),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__16827.call(null,cljs.core.chunk_rest.call(null,s__16828__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__20548),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__20545.call(null,cljs.core.chunk_rest.call(null,s__20546__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16830),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__20548),null);
 }
 } else {
-var q = cljs.core.first.call(null,s__16828__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),dep.model.quartal.quartal__GT_string.call(null,q)], null),dep.model.quartal.quartal__GT_string.call(null,q)], null),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__16827.call(null,cljs.core.rest.call(null,s__16828__$2)));
+var q = cljs.core.first.call(null,s__20546__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"key","key",-1516042587),dep.model.quartal.quartal__GT_string.call(null,q)], null),dep.model.quartal.quartal__GT_string.call(null,q)], null),dep$components$side_nav_bar$geschaeftjahr_quartal_form_$_iter__20545.call(null,cljs.core.rest.call(null,s__20546__$2)));
 }
 } else {
 return null;

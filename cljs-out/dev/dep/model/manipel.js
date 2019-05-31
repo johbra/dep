@@ -20,8 +20,8 @@ return cljs.core.contains_QMARK_.call(null,new cljs.core.Keyword(null,"jahrSemes
  *   zu unterrichten sind.
  */
 dep.model.manipel.zu_unterrichtende_manipels_quartal = (function dep$model$manipel$zu_unterrichtende_manipels_quartal(manipels,quartal){
-return cljs.core.filter.call(null,(function (p1__16630_SHARP_){
-return dep.model.manipel.wirdUnterrichtetIn_QMARK_.call(null,p1__16630_SHARP_,quartal);
+return cljs.core.filter.call(null,(function (p1__18475_SHARP_){
+return dep.model.manipel.wirdUnterrichtetIn_QMARK_.call(null,p1__18475_SHARP_,quartal);
 }),manipels);
 });
 /**
@@ -40,32 +40,32 @@ return (0);
  * Liefert das Manipel mit dem Namen string aus der Liste manipels.
  */
 dep.model.manipel.manipel_mit_namen = (function dep$model$manipel$manipel_mit_namen(manipels,string){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__16631_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__16631_SHARP_),string);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__18476_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__18476_SHARP_),string);
 }),manipels));
 });
 /**
  * Die Spaltenüberschriften der Manipeltabelle.
  */
-dep.model.manipel.manipel_spalten = cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848),new cljs.core.Keyword(null,"An-Gr","An-Gr",-573881518),new cljs.core.Keyword(null,"Beginn","Beginn",589107550)], null),cljs.core.vec.call(null,(function (){var iter__4324__auto__ = (function dep$model$manipel$iter__16632(s__16633){
+dep.model.manipel.manipel_spalten = cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848),new cljs.core.Keyword(null,"An-Gr","An-Gr",-573881518),new cljs.core.Keyword(null,"Beginn","Beginn",589107550)], null),cljs.core.vec.call(null,(function (){var iter__4324__auto__ = (function dep$model$manipel$iter__18477(s__18478){
 return (new cljs.core.LazySeq(null,(function (){
-var s__16633__$1 = s__16633;
+var s__18478__$1 = s__18478;
 while(true){
-var temp__5457__auto__ = cljs.core.seq.call(null,s__16633__$1);
+var temp__5457__auto__ = cljs.core.seq.call(null,s__18478__$1);
 if(temp__5457__auto__){
-var s__16633__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__16633__$2)){
-var c__4322__auto__ = cljs.core.chunk_first.call(null,s__16633__$2);
+var s__18478__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__18478__$2)){
+var c__4322__auto__ = cljs.core.chunk_first.call(null,s__18478__$2);
 var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
-var b__16635 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
-if((function (){var i__16634 = (0);
+var b__18480 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
+if((function (){var i__18479 = (0);
 while(true){
-if((i__16634 < size__4323__auto__)){
-var sem = cljs.core._nth.call(null,c__4322__auto__,i__16634);
-cljs.core.chunk_append.call(null,b__16635,cljs.core.keyword.call(null,["Sem-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sem)].join('')));
+if((i__18479 < size__4323__auto__)){
+var sem = cljs.core._nth.call(null,c__4322__auto__,i__18479);
+cljs.core.chunk_append.call(null,b__18480,cljs.core.keyword.call(null,["Sem-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sem)].join('')));
 
-var G__16636 = (i__16634 + (1));
-i__16634 = G__16636;
+var G__18481 = (i__18479 + (1));
+i__18479 = G__18481;
 continue;
 } else {
 return true;
@@ -73,13 +73,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16635),dep$model$manipel$iter__16632.call(null,cljs.core.chunk_rest.call(null,s__16633__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__18480),dep$model$manipel$iter__18477.call(null,cljs.core.chunk_rest.call(null,s__18478__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16635),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__18480),null);
 }
 } else {
-var sem = cljs.core.first.call(null,s__16633__$2);
-return cljs.core.cons.call(null,cljs.core.keyword.call(null,["Sem-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sem)].join('')),dep$model$manipel$iter__16632.call(null,cljs.core.rest.call(null,s__16633__$2)));
+var sem = cljs.core.first.call(null,s__18478__$2);
+return cljs.core.cons.call(null,cljs.core.keyword.call(null,["Sem-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sem)].join('')),dep$model$manipel$iter__18477.call(null,cljs.core.rest.call(null,s__18478__$2)));
 }
 } else {
 return null;
@@ -94,8 +94,8 @@ return iter__4324__auto__.call(null,cljs.core.range.call(null,(1),(8)));
  * Wandelt die manipels für die Darstellung als Tabelle um.
  */
 dep.model.manipel.manipels__GT_table = (function dep$model$manipel$manipels__GT_table(manipels){
-return cljs.core.mapv.call(null,(function (p1__16637_SHARP_){
-return cljs.core.merge.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848),new cljs.core.Keyword(null,"An-Gr","An-Gr",-573881518),new cljs.core.Keyword(null,"Beginn","Beginn",589107550)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__16637_SHARP_),new cljs.core.Keyword(null,"studienrichtung","studienrichtung",-290576756).cljs$core$IFn$_invoke$arity$1(p1__16637_SHARP_),new cljs.core.Keyword(null,"anzahlGruppen","anzahlGruppen",317177965).cljs$core$IFn$_invoke$arity$1(p1__16637_SHARP_),dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"studienbeginn","studienbeginn",1757161852).cljs$core$IFn$_invoke$arity$1(p1__16637_SHARP_))]),dep.model.quartal.sieben_semester__GT_quartstrng.call(null,new cljs.core.Keyword(null,"studienbeginn","studienbeginn",1757161852).cljs$core$IFn$_invoke$arity$1(p1__16637_SHARP_),new cljs.core.Keyword(null,"jahrSemesterZuordnung","jahrSemesterZuordnung",332963010).cljs$core$IFn$_invoke$arity$1(p1__16637_SHARP_)));
+return cljs.core.mapv.call(null,(function (p1__18482_SHARP_){
+return cljs.core.merge.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848),new cljs.core.Keyword(null,"An-Gr","An-Gr",-573881518),new cljs.core.Keyword(null,"Beginn","Beginn",589107550)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__18482_SHARP_),new cljs.core.Keyword(null,"studienrichtung","studienrichtung",-290576756).cljs$core$IFn$_invoke$arity$1(p1__18482_SHARP_),new cljs.core.Keyword(null,"anzahlGruppen","anzahlGruppen",317177965).cljs$core$IFn$_invoke$arity$1(p1__18482_SHARP_),dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"studienbeginn","studienbeginn",1757161852).cljs$core$IFn$_invoke$arity$1(p1__18482_SHARP_))]),dep.model.quartal.sieben_semester__GT_quartstrng.call(null,new cljs.core.Keyword(null,"studienbeginn","studienbeginn",1757161852).cljs$core$IFn$_invoke$arity$1(p1__18482_SHARP_),new cljs.core.Keyword(null,"jahrSemesterZuordnung","jahrSemesterZuordnung",332963010).cljs$core$IFn$_invoke$arity$1(p1__18482_SHARP_)));
 }),manipels);
 });
 dep.model.manipel.aender_manipel = (function dep$model$manipel$aender_manipel(manipel,aenderungen){

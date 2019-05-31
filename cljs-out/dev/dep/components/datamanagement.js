@@ -11,8 +11,8 @@ goog.require('dep.helpers.sortable_csstable');
 dep.components.datamanagement.data_management = (function dep$components$datamanagement$data_management(world,management_data){
 var table_state = reagent.core.atom.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"sort-val","sort-val",603863657),new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"ascending","ascending",-988350486),true,new cljs.core.Keyword(null,"clicked-row","clicked-row",-1709049351),null], null));
 var click_action = ((function (table_state){
-return (function (p1__17902_SHARP_){
-return cljs.core.swap_BANG_.call(null,table_state,cljs.core.assoc,new cljs.core.Keyword(null,"clicked-row","clicked-row",-1709049351),p1__17902_SHARP_);
+return (function (p1__20530_SHARP_){
+return cljs.core.swap_BANG_.call(null,table_state,cljs.core.assoc,new cljs.core.Keyword(null,"clicked-row","clicked-row",-1709049351),p1__20530_SHARP_);
 });})(table_state))
 ;
 return ((function (table_state,click_action){
