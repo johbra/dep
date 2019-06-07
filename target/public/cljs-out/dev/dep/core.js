@@ -26,12 +26,6 @@ if(cljs.core.truth_(temp__5457__auto__)){
 var el = temp__5457__auto__;
 dep.components.planung.initialisiere_planung.call(null,dep.state.WELT);
 
-cljs.core.swap_BANG_.call(null,dep.state.WELT,cljs.core.assoc,new cljs.core.Keyword(null,"aktualisiere-plan-fn","aktualisiere-plan-fn",1929445285),((function (el,temp__5457__auto__){
-return (function (){
-return dep.components.planung.aktualisiere_plan.call(null,dep.state.WELT);
-});})(el,temp__5457__auto__))
-);
-
 return reagent.core.render.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [dep.core.dozenteneinsatzplanung,dep.state.WELT], null),el);
 } else {
 return null;

@@ -6,5 +6,5 @@
 *** TODO Sicherheitsabfrage für "Plane Quartal"
 *** TODO Die Änderung der Semesterzuordnung für Manipel
 *** TODO Datensicherung
-** TODO Git-Projekt anlegen
-*** TODO Github Pages nutzen
+** DONE Git-Projekt anlegen
+*** DONE Github Pages nutzen

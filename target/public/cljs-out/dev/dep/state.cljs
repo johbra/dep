@@ -6,7 +6,8 @@
             [dep.model.quartal :refer [quartale-fuer-jahr ->Quartal]]
             [dep.model.dozent  :refer [erzeuge-dozenten ]]            
             [dep.helpers.manipelaussixx :refer [manipel-aus-datei]]
-            [dep.helpers.moduleaussixx :refer [module-aus-datei module-aus-sixx]] 
+            [dep.helpers.moduleaussixx :refer [module-aus-datei module-aus-sixx]]
+            [dep.helpers.drop-file-stream :refer [list-folder]]
             [cljs.core.async :as a :refer [<! chan timeout]]))
 
 (defn erzeuge-studienrichtungen [] 
@@ -27,7 +28,7 @@
                  :quartal (->Quartal 4 2015)
                  :jahre [2016 2017 2018 2019]
                  :lven {}
-                 :aktualisiere-plan-fn nil 
+                 :dateien []
                  }))
 
 ;; Einlesen von provisorischen Testdaten
@@ -42,7 +43,6 @@
 (go (let [result
           (<! (manipel-aus-datei "m.db" mpls))]
       (swap! WELT assoc :manipels @mpls)))
-
 
 
 

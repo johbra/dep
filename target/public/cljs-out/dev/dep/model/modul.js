@@ -51,13 +51,13 @@ return and__3938__auto__;
 dep.model.modul.sws__GT_alle_semester = (function dep$model$modul$sws__GT_alle_semester(sws){
 var sems = cljs.core.range.call(null,(1),(8));
 return cljs.core.zipmap.call(null,cljs.core.map.call(null,((function (sems){
-return (function (p1__18485_SHARP_){
-return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__18485_SHARP_)].join(''));
+return (function (p1__17949_SHARP_){
+return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__17949_SHARP_)].join(''));
 });})(sems))
 ,sems),cljs.core.map.call(null,((function (sems){
-return (function (p1__18486_SHARP_){
-if(cljs.core.truth_(sws.call(null,p1__18486_SHARP_))){
-return sws.call(null,p1__18486_SHARP_);
+return (function (p1__17950_SHARP_){
+if(cljs.core.truth_(sws.call(null,p1__17950_SHARP_))){
+return sws.call(null,p1__17950_SHARP_);
 } else {
 return (0);
 }
@@ -68,15 +68,15 @@ return (0);
  * Liefert das Modul mit der Nummer symbol aus der Liste module.
  */
 dep.model.modul.modul_mit_nummer = (function dep$model$modul$modul_mit_nummer(module,symbol){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__18487_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"nummer","nummer",1652450962).cljs$core$IFn$_invoke$arity$1(p1__18487_SHARP_),symbol);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__17951_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"nummer","nummer",1652450962).cljs$core$IFn$_invoke$arity$1(p1__17951_SHARP_),symbol);
 }),module));
 });
 /**
  * Die Spaltenüberschriften für die 7 Semester
  */
-dep.model.modul.sem_tabellen_koepfe = cljs.core.map.call(null,(function (p1__18488_SHARP_){
-return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__18488_SHARP_)].join(''));
+dep.model.modul.sem_tabellen_koepfe = cljs.core.map.call(null,(function (p1__17952_SHARP_){
+return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__17952_SHARP_)].join(''));
 }),cljs.core.range.call(null,(1),(8)));
 /**
  * liefert {:S1 1, :S2 2, :S3 3, :S4 4, :S5 5, :S6 6, :S7 7}
@@ -87,8 +87,8 @@ dep.model.modul.semester = cljs.core.zipmap.call(null,dep.model.modul.sem_tabell
  *   Semesterwochenstunden.
  */
 dep.model.modul.aender_sws = (function dep$model$modul$aender_sws(aenderungen){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__18489_SHARP_){
-return cljs.core.not_EQ_.call(null,cljs.core.val.call(null,p1__18489_SHARP_),(0));
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__17953_SHARP_){
+return cljs.core.not_EQ_.call(null,cljs.core.val.call(null,p1__17953_SHARP_),(0));
 }),clojure.set.rename_keys.call(null,cljs.core.select_keys.call(null,aenderungen,dep.model.modul.sem_tabellen_koepfe),dep.model.modul.semester)));
 });
 /**
@@ -103,8 +103,8 @@ return dep.model.modul.__GT_Modul.call(null,cljs.core.symbol.call(null,new cljs.
  * Wandelt die module für die Darstellung als Tabelle um.
  */
 dep.model.modul.module__GT_table = (function dep$model$modul$module__GT_table(module){
-return cljs.core.mapv.call(null,(function (p1__18490_SHARP_){
-return cljs.core.merge.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Nr","Nr",-700839286),new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)],[new cljs.core.Keyword(null,"nummer","nummer",1652450962).cljs$core$IFn$_invoke$arity$1(p1__18490_SHARP_),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__18490_SHARP_),new cljs.core.Keyword(null,"studienrichtung","studienrichtung",-290576756).cljs$core$IFn$_invoke$arity$1(p1__18490_SHARP_)]),dep.model.modul.sws__GT_alle_semester.call(null,new cljs.core.Keyword(null,"semesterWochenstunden","semesterWochenstunden",1725648707).cljs$core$IFn$_invoke$arity$1(p1__18490_SHARP_)),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ab-Stbgnn","ab-Stbgnn",604950411),new cljs.core.Keyword(null,"bis-Stbgnn","bis-Stbgnn",275678925)],[dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigAb","gueltigAb",-1592672781).cljs$core$IFn$_invoke$arity$1(p1__18490_SHARP_)),dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigBis","gueltigBis",-999485251).cljs$core$IFn$_invoke$arity$1(p1__18490_SHARP_))]));
+return cljs.core.mapv.call(null,(function (p1__17954_SHARP_){
+return cljs.core.merge.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Nr","Nr",-700839286),new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)],[new cljs.core.Keyword(null,"nummer","nummer",1652450962).cljs$core$IFn$_invoke$arity$1(p1__17954_SHARP_),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__17954_SHARP_),new cljs.core.Keyword(null,"studienrichtung","studienrichtung",-290576756).cljs$core$IFn$_invoke$arity$1(p1__17954_SHARP_)]),dep.model.modul.sws__GT_alle_semester.call(null,new cljs.core.Keyword(null,"semesterWochenstunden","semesterWochenstunden",1725648707).cljs$core$IFn$_invoke$arity$1(p1__17954_SHARP_)),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ab-Stbgnn","ab-Stbgnn",604950411),new cljs.core.Keyword(null,"bis-Stbgnn","bis-Stbgnn",275678925)],[dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigAb","gueltigAb",-1592672781).cljs$core$IFn$_invoke$arity$1(p1__17954_SHARP_)),dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigBis","gueltigBis",-999485251).cljs$core$IFn$_invoke$arity$1(p1__17954_SHARP_))]));
 }),module);
 });
 dep.model.modul.row = (function dep$model$modul$row(label,input){
@@ -114,8 +114,8 @@ return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMP
 /**
  * Komponente für das Bearbeitungsformular.
  */
-dep.model.modul.modul_form_template = new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.model.modul.row.call(null,"Nr",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Nr","Nr",-700839286)], null)], null)),dep.model.modul.row.call(null,"Name",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Name","Name",-131211369)], null)], null)),dep.model.modul.row.call(null,"Studienrichtung",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)], null)], null)),cljs.core.doall.call(null,cljs.core.map.call(null,(function (p1__18491_SHARP_){
-return dep.model.modul.row.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__18491_SHARP_)].join(''),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__18491_SHARP_)].join(''))], null)], null));
+dep.model.modul.modul_form_template = new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.model.modul.row.call(null,"Nr",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Nr","Nr",-700839286)], null)], null)),dep.model.modul.row.call(null,"Name",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Name","Name",-131211369)], null)], null)),dep.model.modul.row.call(null,"Studienrichtung",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)], null)], null)),cljs.core.doall.call(null,cljs.core.map.call(null,(function (p1__17955_SHARP_){
+return dep.model.modul.row.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__17955_SHARP_)].join(''),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__17955_SHARP_)].join(''))], null)], null));
 }),cljs.core.range.call(null,(1),(8)))),dep.model.modul.row.call(null,"ab Studienbeginn",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"ab-Stbgnn","ab-Stbgnn",604950411)], null)], null)),dep.model.modul.row.call(null,"bis Studienbeginn",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"bis-Stbgnn","bis-Stbgnn",275678925)], null)], null))], null);
 /**
  * Liefert die Infos für die Modultabelle und das Bearbeitungsformular.

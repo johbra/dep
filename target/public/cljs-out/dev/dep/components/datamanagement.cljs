@@ -40,5 +40,4 @@
                             ((:id-fn management-data) (:clicked-row  @table-state))
                             (:dataset-exists-fn management-data)
                             (:update-fn management-data))
-              ((:aktualisiere-plan-fn @world))
               (swap! table-state assoc :action nil)))]])))

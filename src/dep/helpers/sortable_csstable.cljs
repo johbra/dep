@@ -80,6 +80,13 @@
         lven (conj data (assoc dataset :id (gensym)))] 
     (swap! world assoc-in acc-vec lven )))
 
+(defn rename-file
+  "Funktion ... ."
+  [world form-dataset form-key filename change-filename]
+  (let [form-filename (form-key form-dataset)]
+    (change-filename filename form-filename world)))
+
+
 (defn process-form
   "Funktion zur Ausführung der in einem modalen Formular ausgewählten action."
   [action form-dataset world world-key form-key key id-clicked-dataset
@@ -94,7 +101,9 @@
           :duplicate (duplicate-dataset world world-key (:Id form-dataset)
                                         dataset-exists)
           :save-lv (save-lv world world-key form-dataset
-                            dataset-exists change-dataset)))))
+                            dataset-exists change-dataset)
+          :rename-file (rename-file world form-dataset form-key
+                                    id-clicked-dataset change-dataset)))))
 
 
 (defn update-sort-value

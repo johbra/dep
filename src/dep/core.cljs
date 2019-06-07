@@ -34,7 +34,6 @@
 (defn mount-app-element [] 
   (when-let [el (get-app-element)]
     (initialisiere-planung WELT)
-    (swap! WELT assoc :aktualisiere-plan-fn #(aktualisiere-plan WELT))
     (r/render [dozenteneinsatzplanung WELT] el)))
 
 ;; conditionally start your application based on the presence of an "app" element

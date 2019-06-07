@@ -6,7 +6,8 @@
    [dep.model.dozent :refer [dozenten-verwaltung]]
    [dep.model.modul :refer  [module-verwaltung]]
    [dep.model.quartal :refer [quartale-fuer-jahr quartal->string string->quartal]]
-   [dep.components.planung :refer [planung plane-quartal  ]]))
+   [dep.components.datensicherung :refer [datensicherung]]
+   [dep.components.planung :refer [planung plane-quartal]]))
 
 (def default-buttons ;; für die Datenmanagement-Komponenten
   [{:action nil :label "schließen"}
@@ -32,6 +33,8 @@
      {:on-click #(set-value! welt :selected :module)} "Module"]
     [:a.list-group-item.list-group-item-action.bg-light
      {:on-click #(set-value! welt :selected :manipel)} "Manipel"]
+    [:a.list-group-item.list-group-item-action.bg-light
+     {:on-click #(set-value! welt :selected :datensicherung)} "Datensicherung"]
     ]])
 
 (defn menu-actions
@@ -42,6 +45,7 @@
      {:manipel [data-management welt (manipel-verwaltung default-buttons)] 
       :module [data-management welt (module-verwaltung default-buttons)]
       :dozenten [data-management welt (dozenten-verwaltung default-buttons)]
+      :datensicherung [datensicherung welt]
       :hauptseite [planung welt]})
     [planung welt]))
 

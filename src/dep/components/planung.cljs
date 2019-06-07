@@ -53,13 +53,14 @@
 (defn lehrveranstaltungen
   "Komponente für die Anzeige und Bearbeitung der Lehrveranstaltungen eines Quartals."
   [welt]
-  (js/console.log "bar-component is rendering")
-  [:div.container
-   [data-management welt (lven-verwaltung [{:action nil :label "schließen"}
-                                           {:action :duplicate :label "duplizieren"}
-                                           {:action :save-lv :label "speichern"}
-                                           {:action :delete :label "entfernen"}]
-                                          )]])
+  (fn [welt]
+    (let [_ (aktualisiere-plan welt)] 
+      [:div.container
+       [data-management welt (lven-verwaltung [{:action nil :label "schließen"}
+                                               {:action :duplicate :label "duplizieren"}
+                                               {:action :save-lv :label "speichern"}
+                                               {:action :delete :label "entfernen"}]
+                                              )]])))
 
 (defn planung
   "Die zentrale Planungskomponente."

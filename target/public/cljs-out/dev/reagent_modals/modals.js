@@ -35,11 +35,11 @@ return cljs.core.map_QMARK_.call(null,args);
 ,new cljs.core.Keyword(null,"default","default",-1987822328),hierarchy__4418__auto__,method_table__4414__auto__,prefer_table__4415__auto__,method_cache__4416__auto__,cached_hierarchy__4417__auto__));
 })();
 }
-cljs.core._add_method.call(null,reagent_modals.modals.show_modal_BANG_,true,(function (p__13964){
-var map__13965 = p__13964;
-var map__13965__$1 = ((((!((map__13965 == null)))?(((((map__13965.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13965.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__13965):map__13965);
-var keyboard = cljs.core.get.call(null,map__13965__$1,new cljs.core.Keyword(null,"keyboard","keyboard",-617357087),true);
-var backdrop = cljs.core.get.call(null,map__13965__$1,new cljs.core.Keyword(null,"backdrop","backdrop",-1291357381),true);
+cljs.core._add_method.call(null,reagent_modals.modals.show_modal_BANG_,true,(function (p__13428){
+var map__13429 = p__13428;
+var map__13429__$1 = ((((!((map__13429 == null)))?(((((map__13429.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13429.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__13429):map__13429);
+var keyboard = cljs.core.get.call(null,map__13429__$1,new cljs.core.Keyword(null,"keyboard","keyboard",-617357087),true);
+var backdrop = cljs.core.get.call(null,map__13429__$1,new cljs.core.Keyword(null,"backdrop","backdrop",-1291357381),true);
 return reagent_modals.modals.with_opts.call(null,({"keyboard": keyboard, "backdrop": backdrop}));
 }));
 cljs.core._add_method.call(null,reagent_modals.modals.show_modal_BANG_,false,(function (keyboard){
@@ -60,13 +60,13 @@ reagent_modals.modals.modal_window = (function reagent_modals$modals$modal_windo
 var unmounting_QMARK_ = reagent.core.atom.call(null,null);
 return reagent.core.create_class.call(null,new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"component-did-mount","component-did-mount",-1126910518),((function (unmounting_QMARK_){
 return (function (e){
-var m_13969 = jQuery(reagent_modals.modals.get_modal.call(null));
-(m_13969["on"]).call(m_13969,"hidden.bs.modal",((function (m_13969,unmounting_QMARK_){
+var m_13433 = jQuery(reagent_modals.modals.get_modal.call(null));
+(m_13433["on"]).call(m_13433,"hidden.bs.modal",((function (m_13433,unmounting_QMARK_){
 return (function (){
-var temp__5457__auto___13970 = new cljs.core.Keyword(null,"hidden","hidden",-312506092).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,reagent_modals.modals.modal_content));
-if(cljs.core.truth_(temp__5457__auto___13970)){
-var f_13971 = temp__5457__auto___13970;
-f_13971.call(null);
+var temp__5457__auto___13434 = new cljs.core.Keyword(null,"hidden","hidden",-312506092).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,reagent_modals.modals.modal_content));
+if(cljs.core.truth_(temp__5457__auto___13434)){
+var f_13435 = temp__5457__auto___13434;
+f_13435.call(null);
 } else {
 }
 
@@ -75,10 +75,10 @@ return null;
 } else {
 return cljs.core.swap_BANG_.call(null,reagent_modals.modals.modal_content,cljs.core.assoc,new cljs.core.Keyword(null,"content","content",15833224),null);
 }
-});})(m_13969,unmounting_QMARK_))
+});})(m_13433,unmounting_QMARK_))
 );
 
-(m_13969["on"]).call(m_13969,"shown.bs.modal",((function (m_13969,unmounting_QMARK_){
+(m_13433["on"]).call(m_13433,"shown.bs.modal",((function (m_13433,unmounting_QMARK_){
 return (function (){
 var temp__5457__auto__ = new cljs.core.Keyword(null,"shown","shown",-1564457683).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,reagent_modals.modals.modal_content));
 if(cljs.core.truth_(temp__5457__auto__)){
@@ -87,10 +87,10 @@ return f.call(null);
 } else {
 return null;
 }
-});})(m_13969,unmounting_QMARK_))
+});})(m_13433,unmounting_QMARK_))
 );
 
-(m_13969["on"]).call(m_13969,"hide.bs.modal",((function (m_13969,unmounting_QMARK_){
+(m_13433["on"]).call(m_13433,"hide.bs.modal",((function (m_13433,unmounting_QMARK_){
 return (function (){
 var temp__5457__auto__ = new cljs.core.Keyword(null,"hide","hide",-596913169).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,reagent_modals.modals.modal_content));
 if(cljs.core.truth_(temp__5457__auto__)){
@@ -99,7 +99,7 @@ return f.call(null);
 } else {
 return null;
 }
-});})(m_13969,unmounting_QMARK_))
+});})(m_13433,unmounting_QMARK_))
 );
 
 var mc = cljs.core.deref.call(null,reagent_modals.modals.modal_content);
@@ -117,10 +117,10 @@ return reagent_modals.modals.close_modal_BANG_.call(null);
 });})(unmounting_QMARK_))
 ,new cljs.core.Keyword(null,"reagent-render","reagent-render",-985383853),((function (unmounting_QMARK_){
 return (function (){
-var map__13967 = cljs.core.deref.call(null,reagent_modals.modals.modal_content);
-var map__13967__$1 = ((((!((map__13967 == null)))?(((((map__13967.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13967.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__13967):map__13967);
-var content = cljs.core.get.call(null,map__13967__$1,new cljs.core.Keyword(null,"content","content",15833224));
-var size = cljs.core.get.call(null,map__13967__$1,new cljs.core.Keyword(null,"size","size",1098693007));
+var map__13431 = cljs.core.deref.call(null,reagent_modals.modals.modal_content);
+var map__13431__$1 = ((((!((map__13431 == null)))?(((((map__13431.cljs$lang$protocol_mask$partition0$ & (64))) || ((cljs.core.PROTOCOL_SENTINEL === map__13431.cljs$core$ISeq$))))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__13431):map__13431);
+var content = cljs.core.get.call(null,map__13431__$1,new cljs.core.Keyword(null,"content","content",15833224));
+var size = cljs.core.get.call(null,map__13431__$1,new cljs.core.Keyword(null,"size","size",1098693007));
 var size_class = new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"lg","lg",-80787836),"modal-lg",new cljs.core.Keyword(null,"sm","sm",-1402575065),"modal-sm"], null);
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.modal.fade","div.modal.fade",-327881909),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"id","id",-1388402092),reagent_modals.modals.modal_id,new cljs.core.Keyword(null,"tab-index","tab-index",895755393),(-1),new cljs.core.Keyword(null,"role","role",-736691072),"dialog"], null),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.modal-dialog","div.modal-dialog",-237012986),new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"class","class",-2030961996),cljs.core.get.call(null,size_class,size)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.modal-content","div.modal-content",-83470844),content], null)], null)], null);
 });})(unmounting_QMARK_))
@@ -141,8 +141,8 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
  *                false : no backdrop.
  */
 reagent_modals.modals.modal_BANG_ = (function reagent_modals$modals$modal_BANG_(var_args){
-var G__13973 = arguments.length;
-switch (G__13973) {
+var G__13437 = arguments.length;
+switch (G__13437) {
 case 1:
 return reagent_modals.modals.modal_BANG_.cljs$core$IFn$_invoke$arity$1((arguments[(0)]));
 
