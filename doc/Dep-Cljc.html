@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-30 Sun 17:48 -->
+<!-- 2019-06-30 Sun 20:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Portierung der Dozenteneinsatzplanung</title>
@@ -257,9 +257,9 @@ for the JavaScript code in this tag.
 <br />
 <span class="subtitle">Wozu brauchen wir OOP? Diskussion am 18.12.18</span>
 </h1>
-<div id="outline-container-org5bb3361" class="outline-2">
-<h2 id="org5bb3361">Warum?</h2>
-<div class="outline-text-2" id="text-org5bb3361">
+<div id="outline-container-org65ab4ca" class="outline-2">
+<h2 id="org65ab4ca">Warum?</h2>
+<div class="outline-text-2" id="text-org65ab4ca">
 <p>
 Im Rahmen der Diskussionsrunde <i>Wozu brauchen wir OOP?</i>, die auf dem
 Pamphlet mit dem Titel <a href="https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0">Brauchen wir objektorientierte Programmierung?</a>
@@ -267,7 +267,7 @@ basierte, wurde vereinbart, dass der Autor versucht, die Erfahrungen, die in
 dem genannten Pamphlet lediglich auf der Erstellung einer funktionalen
 Version für <i>NoNopoly</i> (einer stark vereinfachten Monopoly-Simulation)
 basierte, dadurch zu vertiefen, dass eine kleine &#x2013; aber
-nicht-triviale &#x2013; Anwendung von einer objektorientierten Version in
+nicht-triviale &#x2013; Anwendung von einer objektorientierten in
 eine funktionale Version portiert werden sollte.
 </p>
 
@@ -279,9 +279,9 @@ werden, auf die bei der NoNopoly-Portierung verzichtet wurde.
 </p>
 </div>
 </div>
-<div id="outline-container-org34700fa" class="outline-2">
-<h2 id="org34700fa">Ausgangspunkt</h2>
-<div class="outline-text-2" id="text-org34700fa">
+<div id="outline-container-orgd7b4d7c" class="outline-2">
+<h2 id="orgd7b4d7c">Ausgangspunkt</h2>
+<div class="outline-text-2" id="text-orgd7b4d7c">
 <p>
 Die Dozenteneinsatzplanung in der heute im Fachbereich benutzen Form
 ist um 2004 in einer ersten Fassung mit VisualWorks-Smalltalk
@@ -298,9 +298,9 @@ Der letzte größere Entwicklungsschritt war dann die Portierung nach
 Pharo-Smalltalk (open source).
 </p>
 </div>
-<div id="outline-container-org1351097" class="outline-4">
-<h4 id="org1351097">Eckdaten der Smalltalk-Version</h4>
-<div class="outline-text-4" id="text-org1351097">
+<div id="outline-container-org3ca8706" class="outline-4">
+<h4 id="org3ca8706">Eckdaten der Smalltalk-Version</h4>
+<div class="outline-text-4" id="text-org3ca8706">
 <ul class="org-ul">
 <li>8 Model-Klassen mit ca. 220 Methoden; ca. 1500 LoC</li>
 <li>keine Hierarchie unter den Model-Klassen</li>
@@ -309,18 +309,18 @@ Pharo-Smalltalk (open source).
 </div>
 </div>
 </div>
-<div id="outline-container-org09eead0" class="outline-2">
-<h2 id="org09eead0">Ziel</h2>
-<div class="outline-text-2" id="text-org09eead0">
+<div id="outline-container-org87dcfd5" class="outline-2">
+<h2 id="org87dcfd5">Ziel</h2>
+<div class="outline-text-2" id="text-org87dcfd5">
 <p>
 Wesentliche Komponenten der Dozenteneinsatzplanung sollten von
 Smalltalk (Pharo) nach Clojure/ClojureScript (s.&nbsp;u.) portiert werden.
 </p>
 </div>
 </div>
-<div id="outline-container-org3ad01df" class="outline-2">
-<h2 id="org3ad01df">Zur Wahl der Zielsprache</h2>
-<div class="outline-text-2" id="text-org3ad01df">
+<div id="outline-container-org4deaad1" class="outline-2">
+<h2 id="org4deaad1">Zur Wahl der Zielsprache</h2>
+<div class="outline-text-2" id="text-org4deaad1">
 <p>
 Die Begründung, als funktionale Sprache Clojure(script) zu verwenden,
 ist hauptsächlich in den Vorkenntnisse des Autors zu sehen. Ein
@@ -328,9 +328,9 @@ irgendwie geartetes Auswahlverfahren hat nicht stattgefunden, wenn man
 von einigen Versuchen mit der Sprache <i><a href="https://elm-lang.org">Elm</a></i> absieht.
 </p>
 </div>
-<div id="outline-container-org7dd5845" class="outline-3">
-<h3 id="org7dd5845">Exkurs: Stichworte zu den Versuchen mit <a href="https://elm-lang.org">Elm</a></h3>
-<div class="outline-text-3" id="text-org7dd5845">
+<div id="outline-container-org6d6e5ad" class="outline-3">
+<h3 id="org6d6e5ad">Exkurs: Stichworte zu den Versuchen mit <a href="https://elm-lang.org">Elm</a></h3>
+<div class="outline-text-3" id="text-org6d6e5ad">
 <ul class="org-ul">
 <li>Eigenschaften:
 <ul class="org-ul">
@@ -345,7 +345,7 @@ etwas ausprobieren“ ist nicht möglich.</li>
 <li>Diskussion über die Architektur größerer Elm-Anwendungen im vollen Gange</li>
 <li>Elm noch nicht sehr stabil</li>
 <li><p>
-Ein Minibeispiel für eine Dozenten-Pflege existiert: <a href="file:///Users/jb/Dropbox/elm/dep/src/Dozent-V0.elm">Quelltext</a>
+Ein Minibeispiel für eine Dozenten-Pflege existiert: <a href="./Dozent-V0.elm">Quelltext</a>
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">    <span style="color: #006FE0;">cd</span> /Users/jb/Dropbox/elm/dep 
@@ -357,18 +357,18 @@ Ein Minibeispiel für eine Dozenten-Pflege existiert: <a href="file:///Users/jb/
 </ul>
 </div>
 </div>
-<div id="outline-container-orgdb4a055" class="outline-3">
-<h3 id="orgdb4a055">Eckdaten der Clojure/ClojureScript-Version</h3>
-<div class="outline-text-3" id="text-orgdb4a055">
+<div id="outline-container-orgf51aefd" class="outline-3">
+<h3 id="orgf51aefd">Eckdaten der Clojure/ClojureScript-Version</h3>
+<div class="outline-text-3" id="text-orgf51aefd">
 </div>
-<div id="outline-container-org59cf284" class="outline-4">
-<h4 id="org59cf284">Vorbemerkung zu Clojure vs. ClojureScript</h4>
-<div class="outline-text-4" id="text-org59cf284">
+<div id="outline-container-orgeb664d5" class="outline-4">
+<h4 id="orgeb664d5">Vorbemerkung zu Clojure vs. ClojureScript</h4>
+<div class="outline-text-4" id="text-orgeb664d5">
 <p>
 <a href="https://clojure.org">Clojure</a> ist ein Lisp-Dialekt, der auf der JVM läuft. <a href="https://clojurescript.org">ClojureScript</a>
 hingegen ist ein Compiler für Clojure, der nach JavaScript übersetzt.
 Die erste Idee für die Portierung der Dozenteneinsatzplanung bestand
-in der Entwicklung einer Client-Server-Anwendung. Dabei die sollten die
+in der Entwicklung einer Client-Server-Anwendung. Dabei sollten die
 Model-Klassen nach Clojure portiert und dann nach einer
 geeigneten Variante für die Realisierung der Weboberfläche Ausschau
 gehalten werden.
@@ -386,28 +386,9 @@ werden. (Die Dateiendungen müssen von .clj in .cljc geändert werden.)
 </div>
 </div>
 
-<div id="outline-container-org751818c" class="outline-4">
-<h4 id="org751818c">Zahlen</h4>
-<div class="outline-text-4" id="text-org751818c">
-<p>
-Bei den in der Folge genannten Definitionen handelt es überwiegend um
-Funktionen ergänzt um ein paar Variablendefinitionen.
-</p>
-<ul class="org-ul">
-<li>Model: 5 cljc-Dateien mit 71 Definitionen; ca. 550 LoC</li>
-<li>Weboberfläche (cljs-Dateien):
-<ul class="org-ul">
-<li>core.cljs - 4 Definitionen; 45 LoC</li>
-<li>state.cljs - 4 Definitionen; 40 LoC</li>
-<li>5 Reagent-Komponenten mit 21 Definitionen; ca. 360 LoC</li>
-<li>12 Hilfsfunktionen 18 ; ca. 230 LoC</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgaf1d68b" class="outline-4">
-<h4 id="orgaf1d68b">Web-Technologie</h4>
-<div class="outline-text-4" id="text-orgaf1d68b">
+<div id="outline-container-org5e2cf03" class="outline-4">
+<h4 id="org5e2cf03">Web-Technologie</h4>
+<div class="outline-text-4" id="text-org5e2cf03">
 <p>
 Für die Entwicklung der Single-Page-Application lag es nun nahe, diese
 nach dem Konzept des <i><a href="https://en.wikipedia.org/wiki/Functional_reactive_programming">Functional Reactive Programming</a></i> zu bauen. Für
@@ -429,11 +410,30 @@ React-Komponenten im Browser.
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgedfc898" class="outline-3">
-<h3 id="orgedfc898">Vergleich der Eckdaten</h3>
-<div class="outline-text-3" id="text-orgedfc898">
+<div id="outline-container-org2cc2e1a" class="outline-4">
+<h4 id="org2cc2e1a">Zahlen</h4>
+<div class="outline-text-4" id="text-org2cc2e1a">
+<p>
+Bei den in der Folge genannten Definitionen handelt es überwiegend um
+Funktionen ergänzt um ein paar Variablendefinitionen.
+</p>
+<ul class="org-ul">
+<li>Model: 5 cljc-Dateien mit 71 Definitionen; ca. 550 LoC</li>
+<li>Weboberfläche (cljs-Dateien):
+<ul class="org-ul">
+<li>core.cljs - 4 Definitionen; 45 LoC</li>
+<li>state.cljs - 4 Definitionen; 40 LoC</li>
+<li>5 Reagent-Komponenten mit 21 Definitionen; ca. 360 LoC</li>
+<li>12 Hilfsfunktionen 18 ; ca. 230 LoC</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org58e0a1a" class="outline-3">
+<h3 id="org58e0a1a">Vergleich der Eckdaten</h3>
+<div class="outline-text-3" id="text-org58e0a1a">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -505,7 +505,7 @@ werden), so z.&nbsp;B.
 <li>eine Auswahlbox für Dozenten in Lehrveranstaltungen,</li>
 <li>das Anlegen eines neuen Geschäftsjahres,</li>
 <li>ein paar Sicherheitsabfragen z.&nbsp;B. beim Löschen von Moduln
-oder Manipeln oder der Neuplanung eines Quartal sowie</li>
+oder Manipeln oder der Neuplanung eines Quartals sowie</li>
 <li>der Änderung der Semesterzuordnung für Manipel</li>
 </ul></li>
 <li>ein Redesign der Smalltalk-Variante hier und dort Einsparungen
@@ -519,9 +519,9 @@ die LoC größer bleiben.
 </div>
 </div>
 
-<div id="outline-container-org678779f" class="outline-2">
-<h2 id="org678779f">Erfahrungen mit Clojure/ClojureScript</h2>
-<div class="outline-text-2" id="text-org678779f">
+<div id="outline-container-org41bdfec" class="outline-2">
+<h2 id="org41bdfec">Erfahrungen mit Clojure/ClojureScript</h2>
+<div class="outline-text-2" id="text-org41bdfec">
 <p>
 Wie bereits in <a href="https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0">Brauchen wir objektorientierte Programmierung?</a>
 ausgeführt, lautet die Standard-Antwort von Clojure-Entwicklern
@@ -552,7 +552,7 @@ einige Vorteile:
 erstellen, um sie z.&nbsp;B. als Argument an eine Funktion zu
 übergeben. Man erzeugt quasi „Ad-hoc“-Objekte. Dass nicht zuvor eine
 Klasse erstellt werden muss, ist überaus nützlich.</li>
-<li>Gerade bei der objektorienten Programmierung von Oberflächen hat man
+<li>Gerade bei der objektorientierten Programmierung von Oberflächen hat man
 es überwiegend mit Singletons zu tun. Keine Programmiersprache
 sollte einen Programmierer dazu zwingen, erst eine Klassen anlegen
 zu müssen, nur um davon anschließend ein einziges Exemplar zu erzeugen.</li>
@@ -577,21 +577,21 @@ gegebene Problem löst.</li>
 höherer Ordnung (map, filter, reduce) überaus hilfreich.</li>
 </ul>
 <p>
-Aber auch selbst definierte Funktionen führen zu kompakten
-Lösungen. Dies ist in einer einzigen Funktion, die alle modalen Fenster für die
+Aber auch selbst definierte Funktionen höherer Ordnung führen zu kompakten
+Lösungen. Dies ist in einer Funktion, die alle modalen Fenster für die
 unterschiedlichen Pflege-Dialoge (für Dozenten, Manipel, Module und
 Lehrveranstaltungen) erstellt, „auf die Spitze getrieben worden“, was
 dazu führte, dass die Funktion zwar kompakt aber auch sehr komplex
 ist.
 </p>
 </div>
-<div id="outline-container-org01359e9" class="outline-3">
-<h3 id="org01359e9">Objektgeflechte</h3>
-<div class="outline-text-3" id="text-org01359e9">
+<div id="outline-container-org880c393" class="outline-3">
+<h3 id="org880c393">Objektgeflechte</h3>
+<div class="outline-text-3" id="text-org880c393">
 <p>
 Bei der Entwicklung der Smalltalk-Variante schien es dem Autor
-naheliegend immer wieder mit Objektgeflechten zu arbeiten. So hat ein
-Lehrveranstaltungs-Objekt je einen Verweis auf ein Dozenten- ein
+naheliegend, immer wieder mit Objektgeflechten zu arbeiten. So hat ein
+Lehrveranstaltungs-Objekt je einen Verweis auf ein Dozenten-, ein
 Modul- und ein Manipel-Objekt. Durch Verfolgen der Verweise kann
 zwischen den Objekte programmtechnisch bequem navigiert werden.
 </p>
@@ -625,9 +625,9 @@ weiteres Argument dafür, auf Objekte zu verzichten?
 </div>
 </div>
 
-<div id="outline-container-org84209eb" class="outline-3">
-<h3 id="org84209eb">Web-Oberfläche</h3>
-<div class="outline-text-3" id="text-org84209eb">
+<div id="outline-container-org00e8646" class="outline-3">
+<h3 id="org00e8646">Web-Oberfläche</h3>
+<div class="outline-text-3" id="text-org00e8646">
 <p>
 Bei der Erstellung der Web-Oberfläche unter Verwendung der Bibliothek
 Reagent kann natürlich nicht im engeren Sinne von einer Portierung der
@@ -635,7 +635,7 @@ Smalltalk-Seaside-Oberfläche gesprochen werden. Dafür sind die
 verwendeten Technologien zu unterschiedlich. Die
 Smalltalk-Variante ist als Client-Server-Anwendung realisiert, bei der
 auf die Verwendung von JavaScript-Elementen fast vollständig
-verzichtet worden ist, während die ClojureScript-Version vollständig
+verzichtet wurde, während die ClojureScript-Version vollständig
 im Browser läuft. Selbst wenn die funktionale Version auch als
 Client-Server-Anwendung implementiert worden wäre, wären Bibliotheken
 zum Einsatz gekommen, die keinerlei Verwandtschaft mit dem
@@ -656,9 +656,9 @@ und Attribute als Hashmaps aufgeschrieben.
 </div>
 </div>
 
-<div id="outline-container-org5b17108" class="outline-2">
-<h2 id="org5b17108">Vorläufiges Fazit (sehr vorläufig)</h2>
-<div class="outline-text-2" id="text-org5b17108">
+<div id="outline-container-org1472b21" class="outline-2">
+<h2 id="org1472b21">Vorläufiges Fazit (sehr vorläufig)</h2>
+<div class="outline-text-2" id="text-org1472b21">
 <p>
 Der Autor hat sich im Verlauf der Arbeiten an der Portierung gefragt,
 welches der die Objektorientierung kennzeichnenden Prinzipien
@@ -685,9 +685,9 @@ einer Simulation, bei der man vielleicht reale Objekte im Rechner
 rekonstruieren möchte &#x2013; andere Erkenntnisse gewonnen werden könnten.
 </p>
 </div>
-<div id="outline-container-org75c19d7" class="outline-3">
-<h3 id="org75c19d7">Kapselung</h3>
-<div class="outline-text-3" id="text-org75c19d7">
+<div id="outline-container-org9a3bd45" class="outline-3">
+<h3 id="org9a3bd45">Kapselung</h3>
+<div class="outline-text-3" id="text-org9a3bd45">
 <p>
 Kapselung von Strukturdetails von Hashmaps ist in der funktionalen
 Programmierung generell und auch in Clojure/ClojureScript kein
@@ -698,9 +698,9 @@ kein Gebrauch gemacht.
 </div>
 </div>
 
-<div id="outline-container-orgfacd365" class="outline-3">
-<h3 id="orgfacd365">Klassen, Vererbung</h3>
-<div class="outline-text-3" id="text-orgfacd365">
+<div id="outline-container-orgf777bb4" class="outline-3">
+<h3 id="orgf777bb4">Klassen, Vererbung</h3>
+<div class="outline-text-3" id="text-orgf777bb4">
 <p>
 Wie oben bereits erläutert, sind Klassen als Baupläne für Objekte
 vollkommen entbehrlich. Zu der Frage, ob Klassen als Elemente von
@@ -741,9 +741,9 @@ von OOP:
 </div>
 </div>
 
-<div id="outline-container-org9befea0" class="outline-3">
-<h3 id="org9befea0">Polymorphie</h3>
-<div class="outline-text-3" id="text-org9befea0">
+<div id="outline-container-orgbd11264" class="outline-3">
+<h3 id="orgbd11264">Polymorphie</h3>
+<div class="outline-text-3" id="text-orgbd11264">
 <p>
 Die gängigen objektorientierten Sprachen kennen dynamische Bindung nur
 in der primitiven Form der Unterklassen-Polymorphie. Da in den
@@ -765,9 +765,9 @@ die der Bindungsmechanismus nach Belieben ausgestaltet werden kann.
 </div>
 </div>
 
-<div id="outline-container-org7e20287" class="outline-3">
-<h3 id="org7e20287">Entwicklungswerkzeuge</h3>
-<div class="outline-text-3" id="text-org7e20287">
+<div id="outline-container-orgd1a0648" class="outline-3">
+<h3 id="orgd1a0648">Entwicklungswerkzeuge</h3>
+<div class="outline-text-3" id="text-orgd1a0648">
 <p>
 Hier gibt es eigentlich nichts Bedeutendes zu berichten. Aber wenn
 auch die Arbeit mit der REPL einen dynamischen und produktiven
@@ -782,7 +782,7 @@ VisualWorks oder Pharo bereitgestellt wird, unerreicht ist.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Johannes Brauer</p>
-<p class="date">Created: 2019-06-30 Sun 17:48</p>
+<p class="date">Created: 2019-06-30 Sun 20:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

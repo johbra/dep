@@ -10,7 +10,7 @@ basierte, wurde vereinbart, dass der Autor versucht, die Erfahrungen, die in
 dem genannten Pamphlet lediglich auf der Erstellung einer funktionalen
 Version für /NoNopoly/ (einer stark vereinfachten Monopoly-Simulation)
 basierte, dadurch zu vertiefen, dass eine kleine -- aber
-nicht-triviale -- Anwendung von einer objektorientierten Version in
+nicht-triviale -- Anwendung von einer objektorientierten in
 eine funktionale Version portiert werden sollte.
 
 Als Untersuchungsgegenstand wurde die seit mehr als einem Jahrzehnt an
@@ -53,7 +53,7 @@ von einigen Versuchen mit der Sprache /[[https://elm-lang.org][Elm]]/ absieht.
   + Elm kennt keine Komponenten (im Sinne von [[https://reactjs.org][React]], s.\nbsp{}u.)
   + Diskussion über die Architektur größerer Elm-Anwendungen im vollen Gange
   + Elm noch nicht sehr stabil
-  + Ein Minibeispiel für eine Dozenten-Pflege existiert: [[file:~/Dropbox/elm/dep/src/Dozent-V0.elm][Quelltext]]
+  + Ein Minibeispiel für eine Dozenten-Pflege existiert: [[./Dozent-V0.elm][Quelltext]]
     #+BEGIN_SRC sh
     cd /Users/jb/Dropbox/elm/dep 
     elm reactor
@@ -64,7 +64,7 @@ von einigen Versuchen mit der Sprache /[[https://elm-lang.org][Elm]]/ absieht.
 [[https://clojure.org][Clojure]] ist ein Lisp-Dialekt, der auf der JVM läuft. [[https://clojurescript.org][ClojureScript]]
 hingegen ist ein Compiler für Clojure, der nach JavaScript übersetzt.
 Die erste Idee für die Portierung der Dozenteneinsatzplanung bestand
-in der Entwicklung einer Client-Server-Anwendung. Dabei die sollten die
+in der Entwicklung einer Client-Server-Anwendung. Dabei sollten die
 Model-Klassen nach Clojure portiert und dann nach einer
 geeigneten Variante für die Realisierung der Weboberfläche Ausschau
 gehalten werden.
@@ -77,15 +77,6 @@ vollständig im Web-Browser ab. Die schon entstandenen Clojure-Dateien
 für den Model-Part konnten dabei im Wesentlichen unverändert übernommen
 werden. (Die Dateiendungen müssen von .clj in .cljc geändert werden.)
 
-*** Zahlen
-Bei den in der Folge genannten Definitionen handelt es überwiegend um
-Funktionen ergänzt um ein paar Variablendefinitionen.
-+ Model: 5 cljc-Dateien mit 71 Definitionen; ca. 550 LoC
-+ Weboberfläche (cljs-Dateien):
-  + core.cljs - 4 Definitionen; 45 LoC
-  + state.cljs - 4 Definitionen; 40 LoC
-  + 5 Reagent-Komponenten mit 21 Definitionen; ca. 360 LoC
-  + 12 Hilfsfunktionen 18 ; ca. 230 LoC
 *** Web-Technologie
 Für die Entwicklung der Single-Page-Application lag es nun nahe, diese
 nach dem Konzept des /[[https://en.wikipedia.org/wiki/Functional_reactive_programming][Functional Reactive Programming]]/ zu bauen. Für
@@ -103,6 +94,15 @@ speichern. Sollte sich durch Benutzer-Interkation dieser Zustand
 ändern, sorgt Reagent automatisch für das Rerendering der zugehörigen
 React-Komponenten im Browser. 
 
+*** Zahlen
+Bei den in der Folge genannten Definitionen handelt es überwiegend um
+Funktionen ergänzt um ein paar Variablendefinitionen.
++ Model: 5 cljc-Dateien mit 71 Definitionen; ca. 550 LoC
++ Weboberfläche (cljs-Dateien):
+  + core.cljs - 4 Definitionen; 45 LoC
+  + state.cljs - 4 Definitionen; 40 LoC
+  + 5 Reagent-Komponenten mit 21 Definitionen; ca. 360 LoC
+  + 12 Hilfsfunktionen 18 ; ca. 230 LoC
 ** Vergleich der Eckdaten
 
 |            | Smalltalk     |      |     ClojureScript |      |
@@ -122,7 +122,7 @@ Selbst wenn man berücksichtigt, dass
   + eine Auswahlbox für Dozenten in Lehrveranstaltungen,
   + das Anlegen eines neuen Geschäftsjahres,
   + ein paar Sicherheitsabfragen z.\nbsp{}B. beim Löschen von Moduln
-    oder Manipeln oder der Neuplanung eines Quartal sowie
+    oder Manipeln oder der Neuplanung eines Quartals sowie
   + der Änderung der Semesterzuordnung für Manipel
 + ein Redesign der Smalltalk-Variante hier und dort Einsparungen
   erbringen könnte,
@@ -155,7 +155,7 @@ einige Vorteile:
   erstellen, um sie z.\nbsp{}B. als Argument an eine Funktion zu
   übergeben. Man erzeugt quasi „Ad-hoc“-Objekte. Dass nicht zuvor eine
   Klasse erstellt werden muss, ist überaus nützlich.
-+ Gerade bei der objektorienten Programmierung von Oberflächen hat man
++ Gerade bei der objektorientierten Programmierung von Oberflächen hat man
   es überwiegend mit Singletons zu tun. Keine Programmiersprache
   sollte einen Programmierer dazu zwingen, erst eine Klassen anlegen
   zu müssen, nur um davon anschließend ein einziges Exemplar zu erzeugen.
@@ -174,16 +174,16 @@ structures.“ hat sich bei der Portierung der Dozenteneinsatzplanung bestätigt
   gegebene Problem löst.
 + Dabei ist die intensive Verwendung der klassischen Funktionen
   höherer Ordnung (map, filter, reduce) überaus hilfreich.
-Aber auch selbst definierte Funktionen führen zu kompakten
-Lösungen. Dies ist in einer einzigen Funktion, die alle modalen Fenster für die
+Aber auch selbst definierte Funktionen höherer Ordnung führen zu kompakten
+Lösungen. Dies ist in einer Funktion, die alle modalen Fenster für die
 unterschiedlichen Pflege-Dialoge (für Dozenten, Manipel, Module und
 Lehrveranstaltungen) erstellt, „auf die Spitze getrieben worden“, was
 dazu führte, dass die Funktion zwar kompakt aber auch sehr komplex
 ist.
 ** Objektgeflechte
 Bei der Entwicklung der Smalltalk-Variante schien es dem Autor
-naheliegend immer wieder mit Objektgeflechten zu arbeiten. So hat ein
-Lehrveranstaltungs-Objekt je einen Verweis auf ein Dozenten- ein
+naheliegend, immer wieder mit Objektgeflechten zu arbeiten. So hat ein
+Lehrveranstaltungs-Objekt je einen Verweis auf ein Dozenten-, ein
 Modul- und ein Manipel-Objekt. Durch Verfolgen der Verweise kann
 zwischen den Objekte programmtechnisch bequem navigiert werden.
 
@@ -215,7 +215,7 @@ Smalltalk-Seaside-Oberfläche gesprochen werden. Dafür sind die
 verwendeten Technologien zu unterschiedlich. Die
 Smalltalk-Variante ist als Client-Server-Anwendung realisiert, bei der
 auf die Verwendung von JavaScript-Elementen fast vollständig
-verzichtet worden ist, während die ClojureScript-Version vollständig
+verzichtet wurde, während die ClojureScript-Version vollständig
 im Browser läuft. Selbst wenn die funktionale Version auch als
 Client-Server-Anwendung implementiert worden wäre, wären Bibliotheken
 zum Einsatz gekommen, die keinerlei Verwandtschaft mit dem
