@@ -2,9 +2,10 @@
 ** TODO Aufschreiben der gesammelten Erfahrungen
 ** Fehlende Funktionalitäten
 *** TODO Auswahlbox für Dozenten in Lehrveranstaltungen
+*** TODO Anlegen eines neuen Geschäftsjahres
 *** TODO Sicherheitsabfragen zum Beispiel beim Löschen von Moduln oder Manipel
 *** TODO Sicherheitsabfrage für "Plane Quartal"
 *** TODO Die Änderung der Semesterzuordnung für Manipel
-*** TODO Datensicherung
+*** DONE Datensicherung
 ** DONE Git-Projekt anlegen
 *** DONE Github Pages nutzen

@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
+<head>
+<!-- 2019-06-30 Sun 17:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portierung der Dozenteneinsatzplanung</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Johannes Brauer" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Portierung der Dozenteneinsatzplanung
+<br />
+<span class="subtitle">Wozu brauchen wir OOP? Diskussion am 18.12.18</span>
+</h1>
+<div id="outline-container-org11834c0" class="outline-2">
+<h2 id="org11834c0">Warum?</h2>
+<div class="outline-text-2" id="text-org11834c0">
+<p>
+Im Rahmen der Diskussionsrunde <i>Wozu brauchen wir OOP?</i>, die auf dem
+Pamphlet mit dem Titel <a href="https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0">Brauchen wir objektorientierte Programmierung?</a>
+basierte, wurde vereinbart, dass der Autor versucht, die Erfahrungen, die in
+dem genannten Pamphlet lediglich auf der Erstellung einer funktionalen
+Version für <i>NoNopoly</i> (einer stark vereinfachten Monopoly-Simulation)
+basierte, dadurch zu vertiefen, dass eine kleine &#x2013; aber
+nicht-triviale &#x2013; Anwendung von einer objektorientierten Version in
+eine funktionale Version portiert werden sollte.
+</p>
+
+<p>
+Als Untersuchungsgegenstand wurde die seit mehr als einem Jahrzehnt an
+der NAK benutzte Dozenteneinsatzplanung gewählt. Dabei sollte
+insbesondere auch die Erstellung einer Web-Oberfläche einbezogen
+werden, auf die bei der NoNopoly-Portierung verzichtet wurde.
+</p>
+</div>
+</div>
+<div id="outline-container-org861c288" class="outline-2">
+<h2 id="org861c288">Ausgangspunkt</h2>
+<div class="outline-text-2" id="text-org861c288">
+<p>
+Die Dozenteneinsatzplanung in der heute im Fachbereich benutzen Form
+ist um 2004 in einer ersten Fassung mit VisualWorks-Smalltalk
+entstanden. Sie ist nach dem Model-View-Controller-Prinzip entwickelt
+worden und war zu Beginn mit einer nativen VisualWorks-Oberfläche
+ausgestattet. Diese wurde später durch eine Weboberfläche unter
+Verwendung des Frameworks Seaside (Smalltalk) ersetzt. Aufgrund
+der konsequenten Nutzung von MVC konnte dieser Vorgang ohne Änderung
+an den Model-Klassen vollzogen werden.
+</p>
+
+<p>
+Der letzte größere Entwicklungsschritt war dann die Portierung nach
+Pharo-Smalltalk (open source).
+</p>
+</div>
+<div id="outline-container-orgea12777" class="outline-4">
+<h4 id="orgea12777">Eckdaten der Smalltalk-Version</h4>
+<div class="outline-text-4" id="text-orgea12777">
+<ul class="org-ul">
+<li>8 Model-Klassen mit ca. 220 Methoden; ca. 1500 LoC</li>
+<li>keine Hierarchie unter den Model-Klassen</li>
+<li>19 Seaside-Klassen (Komponenten) mit 199 Methoden; ca. 2600 LoC</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbdab5d0" class="outline-2">
+<h2 id="orgbdab5d0">Ziel</h2>
+<div class="outline-text-2" id="text-orgbdab5d0">
+<p>
+Wesentliche Komponenten der Dozenteneinsatzplanung sollten von
+Smalltalk (Pharo) nach Clojure/ClojureScript (s.&nbsp;u.) portiert werden.
+</p>
+</div>
+</div>
+<div id="outline-container-orge574d70" class="outline-2">
+<h2 id="orge574d70">Zur Wahl der Zielsprache</h2>
+<div class="outline-text-2" id="text-orge574d70">
+<p>
+Die Begründung, als funktionale Sprache Clojure(script) zu verwenden,
+ist hauptsächlich in den Vorkenntnisse des Autors zu sehen. Ein
+irgendwie geartetes Auswahlverfahren hat nicht stattgefunden, wenn man
+von einigen Versuchen mit der Sprache <i><a href="https://elm-lang.org">Elm</a></i> absieht.
+</p>
+</div>
+<div id="outline-container-org1f489f0" class="outline-3">
+<h3 id="org1f489f0">Exkurs: Stichworte zu den Versuchen mit <a href="https://elm-lang.org">Elm</a></h3>
+<div class="outline-text-3" id="text-org1f489f0">
+<ul class="org-ul">
+<li>Eigenschaften:
+<ul class="org-ul">
+<li>dient der Entwicklung von Webanwendungen</li>
+<li>strenge, statische Typisierung</li>
+<li>übersetzt nach Javascript</li>
+<li>„Fazit”: Wenn man den Type-Checker zufrieden gestellt hat,
+funktioniert die Anwendung,</li>
+<li>„Nachteil”: „Quick-and-dirty“-Programmierung im Sinne von „mal eben
+etwas ausprobieren“ ist nicht möglich.</li>
+<li>Elm kennt keine Komponenten (im Sinne von <a href="https://reactjs.org">React</a>, s.&nbsp;u.)</li>
+<li>Diskussion über die Architektur größerer Elm-Anwendungen im vollen Gange</li>
+<li>Elm noch nicht sehr stabil</li>
+<li><p>
+Ein Minibeispiel für eine Dozenten-Pflege existiert: <a href="file:///Users/jb/Dropbox/elm/dep/src/Dozent-V0.elm">Quelltext</a>
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">    <span style="color: #006FE0;">cd</span> /Users/jb/Dropbox/elm/dep 
+    elm reactor
+    ... Go to <a href="http://localhost:8000">&lt;http://localhost:8000&gt;</a> to see your project dashboard.
+</pre>
+</div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org1a1b855" class="outline-3">
+<h3 id="org1a1b855">Eckdaten der Clojure/ClojureScript-Version</h3>
+<div class="outline-text-3" id="text-org1a1b855">
+</div>
+<div id="outline-container-org0325ac9" class="outline-4">
+<h4 id="org0325ac9">Vorbemerkung zu Clojure vs. ClojureScript</h4>
+<div class="outline-text-4" id="text-org0325ac9">
+<p>
+<a href="https://clojure.org">Clojure</a> ist ein Lisp-Dialekt, der auf der JVM läuft. <a href="https://clojurescript.org">ClojureScript</a>
+hingegen ist ein Compiler für Clojure, der nach JavaScript übersetzt.
+Die erste Idee für die Portierung der Dozenteneinsatzplanung bestand
+in der Entwicklung einer Client-Server-Anwendung. Dabei die sollten die
+Model-Klassen nach Clojure portiert und dann nach einer
+geeigneten Variante für die Realisierung der Weboberfläche Ausschau
+gehalten werden.
+</p>
+
+<p>
+Der erste Teil hat stattgefunden. Im Zuge der Überlegungen zur
+Weboberfläche hat sich der Autor dann entschieden, statt einer
+Client-Server-Anwendung eine Single-Page-Application zu bauen und
+dafür dann ClojureScript zu verwenden. Die Anwendung läuft also
+vollständig im Web-Browser ab. Die schon entstandenen Clojure-Dateien
+für den Model-Part konnten dabei im Wesentlichen unverändert übernommen
+werden. (Die Dateiendungen müssen von .clj in .cljc geändert werden.)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8524a6c" class="outline-4">
+<h4 id="org8524a6c">Zahlen</h4>
+<div class="outline-text-4" id="text-org8524a6c">
+<p>
+Bei den in der Folge genannten Definitionen handelt es überwiegend um
+Funktionen ergänzt um ein paar Variablendefinitionen.
+</p>
+<ul class="org-ul">
+<li>Model: 5 cljc-Dateien mit 71 Definitionen; ca. 550 LoC</li>
+<li>Weboberfläche (cljs-Dateien):
+<ul class="org-ul">
+<li>core.cljs - 4 Definitionen; 45 LoC</li>
+<li>state.cljs - 4 Definitionen; 40 LoC</li>
+<li>5 Reagent-Komponenten mit 21 Definitionen; ca. 360 LoC</li>
+<li>12 Hilfsfunktionen 18 ; ca. 230 LoC</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbb2786b" class="outline-4">
+<h4 id="orgbb2786b">Web-Technologie</h4>
+<div class="outline-text-4" id="text-orgbb2786b">
+<p>
+Für die Entwicklung der Single-Page-Application lag es nun nahe, diese
+nach dem Konzept des <i><a href="https://en.wikipedia.org/wiki/Functional_reactive_programming">Functional Reactive Programming</a></i> zu bauen. Für
+JavaScript gibt es dafür verschiedene Bibliotheken (z.&nbsp;B. <a href="https://reactjs.org">React</a>,
+<a href="https://angular.io">Angular</a>, oder <a href="https://vuejs.org">Vue.js</a>). Das entscheidende Auswahlkriterium für den
+Autor, der zuvor noch nie eine SPA entwickelt und von JavaScript keine
+Ahnung hat, war, eine ClojureScript-Bibliothek zu finden, mit deren Hilfe
+FRP möglich ist, ohne in JavaScript programmieren zu müssen. So ist
+die Entscheidung für <a href="https://github.com/reagent-project/reagent">Reagent</a> (A minimalistic ClojureScript interface
+to React.js) zustande gekommen.
+</p>
+
+<p>
+Vereinfacht gesprochen besteht das Grundprinzip von Reagent darin, in
+einer (oder mehreren) ClojureScript-Variablen den Weltzustand zu
+speichern. Sollte sich durch Benutzer-Interkation dieser Zustand
+ändern, sorgt Reagent automatisch für das Rerendering der zugehörigen
+React-Komponenten im Browser. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org37a99d6" class="outline-3">
+<h3 id="org37a99d6">Vergleich der Eckdaten</h3>
+<div class="outline-text-3" id="text-org37a99d6">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-right">Smalltalk</th>
+<th scope="col" class="org-right">&#xa0;</th>
+<th scope="col" class="org-right">ClojureScript</th>
+<th scope="col" class="org-right">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">Anz. Methoden</td>
+<td class="org-right">LoC</td>
+<td class="org-right">Anz. Definitionen</td>
+<td class="org-right">LoC</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Model</td>
+<td class="org-right">220</td>
+<td class="org-right">1500</td>
+<td class="org-right">71</td>
+<td class="org-right">550</td>
+</tr>
+
+<tr>
+<td class="org-left">Oberfläche</td>
+<td class="org-right">199</td>
+<td class="org-right">2600</td>
+<td class="org-right">47</td>
+<td class="org-right">675</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Summe LoC</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">4100</td>
+<td class="org-right">&#xa0;</td>
+<td class="org-right">1225</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Selbst wenn man berücksichtigt, dass
+</p>
+<ul class="org-ul">
+<li>der ClojureScript-Variante noch ein paar Kleinigkeiten fehlen (Der
+aktuelle Prototyp kann unter <a href="https://johbra.github.io/dep/">https://johbra.github.io/dep/</a> besichtigt
+werden), so z.&nbsp;B. 
+<ul class="org-ul">
+<li>eine Auswahlbox für Dozenten in Lehrveranstaltungen,</li>
+<li>das Anlegen eines neuen Geschäftsjahres,</li>
+<li>ein paar Sicherheitsabfragen z.&nbsp;B. beim Löschen von Moduln
+oder Manipeln oder der Neuplanung eines Quartal sowie</li>
+<li>der Änderung der Semesterzuordnung für Manipel</li>
+</ul></li>
+<li>ein Redesign der Smalltalk-Variante hier und dort Einsparungen
+erbringen könnte,</li>
+</ul>
+<p>
+dürfte die Smalltalk-Variante sicherlich um den Faktor 2 bezogen auf
+die LoC größer bleiben.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org650c779" class="outline-2">
+<h2 id="org650c779">Erfahrungen mit Clojure/ClojureScript</h2>
+<div class="outline-text-2" id="text-org650c779">
+<p>
+Wie bereits in <a href="https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0">Brauchen wir objektorientierte Programmierung?</a>
+ausgeführt, lautet die Standard-Antwort von Clojure-Entwicklern
+bezüglich der Frage „Was machen wir mit den Objekten/Klassen?“: Man
+nehme Hashmaps. Insbesondere im Abschnitt <i>NoNopoly mit Hashmaps</i> ist
+dargelegt worden, dass eine strikt funktionale Implementierung nicht
+nur möglich, sondern in einer funktionalen Sprache wohl auch die
+angemessene Vorgehensweise ist. Die Verwendung einer DSL, die die
+Benutzung von Klassen und Objekten im Sinne der gängigen
+objektorientierten Sichtweise ermöglicht, hat keinen wirklichen Nutzen
+erkennen lassen. Auch die Verwendung von <a href="https://clojure.org/reference/datatypes">Clojure-Datentypen</a> und
+<a href="https://clojure.org/reference/protocols">Protokollen</a> scheint nur dann sinnvoll zu sein, wenn für die zu
+erstellende Anwendung die Java-Interoperabilität von besonderer
+Bedeutung ist.
+</p>
+
+<p>
+Der Beschränkung auf die grundständigen Clojure-Datenstrukturen (Neben
+den Hashmaps ist noch von Vektoren Gebrauch gemacht) worden, hat auch bei
+der Implementierung der Dozenteneinsatzplanung keinerlei
+Schwierigkeiten bereitet. Im Gegenteil bietet die Vorgehensweise
+einige Vorteile:
+</p>
+
+<ul class="org-ul">
+<li>Man spart das Anlegen von Klassen sowie von Getters und Setters.</li>
+<li>Man kann jederzeit aus Einzelheiten eine Struktur (Hashmap)
+erstellen, um sie z.&nbsp;B. als Argument an eine Funktion zu
+übergeben. Man erzeugt quasi „Ad-hoc“-Objekte. Dass nicht zuvor eine
+Klasse erstellt werden muss, ist überaus nützlich.</li>
+<li>Gerade bei der objektorienten Programmierung von Oberflächen hat man
+es überwiegend mit Singletons zu tun. Keine Programmiersprache
+sollte einen Programmierer dazu zwingen, erst eine Klassen anlegen
+zu müssen, nur um davon anschließend ein einziges Exemplar zu erzeugen.</li>
+</ul>
+
+<p>
+Eines der zentralen Anliegen der Objektorientierung besteht in der
+Vereinigung von Struktur und Verhalten. Nach den nunmehrigen
+Erfahrungen des Autors wird dadurch Wiederverwendung stark
+eingeschränkt. Es ist selten sinnvoll, dass eine Funktion/Methode nur
+im Kontext eines Objekts (bzw. einer Klasse) verwendet werden
+darf. Dies führt eher zu einer „Explosion“ der Anzahl der
+Methoden. Das Zitat von Alan Perlis: „It is better to have 100
+functions operate on one data structure than 10 functions on 10 data
+structures.“ hat sich bei der Portierung der Dozenteneinsatzplanung bestätigt:
+</p>
+<ul class="org-ul">
+<li>Es wurden kaum eigene Funktionen entwickelt.</li>
+<li>Es gibt fast immer eine Standard- oder Bibliotheksfunktion, die das
+gegebene Problem löst.</li>
+<li>Dabei ist die intensive Verwendung der klassischen Funktionen
+höherer Ordnung (map, filter, reduce) überaus hilfreich.</li>
+</ul>
+<p>
+Aber auch selbst definierte Funktionen führen zu kompakten
+Lösungen. Dies ist in einer einzigen Funktion, die alle modalen Fenster für die
+unterschiedlichen Pflege-Dialoge (für Dozenten, Manipel, Module und
+Lehrveranstaltungen) erstellt, „auf die Spitze getrieben worden“, was
+dazu führte, dass die Funktion zwar kompakt aber auch sehr komplex
+ist.
+</p>
+</div>
+<div id="outline-container-org4cc2d08" class="outline-3">
+<h3 id="org4cc2d08">Objektgeflechte</h3>
+<div class="outline-text-3" id="text-org4cc2d08">
+<p>
+Bei der Entwicklung der Smalltalk-Variante schien es dem Autor
+naheliegend immer wieder mit Objektgeflechten zu arbeiten. So hat ein
+Lehrveranstaltungs-Objekt je einen Verweis auf ein Dozenten- ein
+Modul- und ein Manipel-Objekt. Durch Verfolgen der Verweise kann
+zwischen den Objekte programmtechnisch bequem navigiert werden.
+</p>
+
+<p>
+Allerdings hat dies zur Folge, dass dem Anwender nicht so ohne
+weiteres gestattet werden kann, z.&nbsp;B. ein nach aktuellen
+Studienplänen nicht mehr gültiges Modul zu löschen, solange des noch
+Lehrveranstaltungs-Objekte gibt, die auf das Modul verweisen. Der
+Benutzer bekommt daher den Hinweis, dass das Modul nicht gelöscht werden
+kann, solange es noch Lehrveranstaltungen gibt, die den Modul-Verweis
+besitzen. Andernfalls drohte ein Crash der Anwendung.
+</p>
+
+<p>
+In der funktionalen Variante gibt es keinerlei Objektverweise. In der
+Lehrveranstaltungs-Hashmap steht der Name des Dozenten, die
+Modulnummer und die Manipelkennung. Sollte das Modul mit der Nummer
+gelöscht werden, ist die „Lebensfähigkeit“ der
+Lehrveranstaltungs-Hashmap und der Anwendung insgesamt nicht
+bedroht. Gleichwohl könnte es im Sinne der Benutzungsfreundlichkeit
+sinnvoll sein, einen entsprechenden Warnhinweis zu geben, was zur
+Zeit &#x2013; wie oben erwähnt &#x2013; bisher nicht implementiert ist.
+</p>
+
+<p>
+Selbstverständlich könnte man in der objektorientierten Variante auch
+auf direkte Objektverweise verzichten. Aber wäre das nicht ein
+weiteres Argument dafür, auf Objekte zu verzichten?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1e1ae48" class="outline-3">
+<h3 id="org1e1ae48">Web-Oberfläche</h3>
+<div class="outline-text-3" id="text-org1e1ae48">
+<p>
+Bei der Erstellung der Web-Oberfläche unter Verwendung der Bibliothek
+Reagent kann natürlich nicht im engeren Sinne von einer Portierung der
+Smalltalk-Seaside-Oberfläche gesprochen werden. Dafür sind die
+verwendeten Technologien zu unterschiedlich. Die
+Smalltalk-Variante ist als Client-Server-Anwendung realisiert, bei der
+auf die Verwendung von JavaScript-Elementen fast vollständig
+verzichtet worden ist, während die ClojureScript-Version vollständig
+im Browser läuft. Selbst wenn die funktionale Version auch als
+Client-Server-Anwendung implementiert worden wäre, wären Bibliotheken
+zum Einsatz gekommen, die keinerlei Verwandtschaft mit dem
+Seaside-Framework aufweisen. 
+</p>
+
+<p>
+Eine Gemeinsamkeit gibt es dennoch. Typisch für Seaside ist, dass der
+Programmierer keinen HTML-Code schreibt, sondern stattdessen die von
+Seaside bereitgestellten Nachrichten benutzt, aus denen dann HTML-Code
+generiert wird. Eine ähnliche Vorgehensweise ist auch in
+Clojure/ClojureScript üblich. In Reagent aber auch in anderen
+Web-Bibliotheken wird die Bibliothek <a href="https://github.com/weavejester/hiccup">Hiccup</a> verwendet, die erlaubt,
+HTML in Clojure-Syntax aufzuschreiben. HTML-Tags werden als Vektoren
+und Attribute als Hashmaps aufgeschrieben.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb4850f0" class="outline-2">
+<h2 id="orgb4850f0">Vorläufiges Fazit (sehr vorläufig)</h2>
+<div class="outline-text-2" id="text-orgb4850f0">
+<p>
+Der Autor hat sich im Verlauf der Arbeiten an der Portierung gefragt,
+welches der die Objektorientierung kennzeichnenden Prinzipien
+(Klassenprinzip, Kapselung, Polymorhie und Vererbung) er vielleicht in
+der funktionalen Welt vermisst hat.
+</p>
+<blockquote>
+<p>
+Nebenbei bemerkt hat die Objektorientierung der Welt der
+Programmiersprachen lediglich die Vererbung als Neuerung
+hinzugefügt. Alles andere gab es auch schon vorher. Vererbung gilt
+gleichzeitig als hoch problematisch. Dies hat viel damit zu tun, dass
+in der Objektorientierung nie geklärt wurde, welchem Zweck
+Klassenhierarchien eigentlich dienen sollen.
+</p>
+</blockquote>
+<p>
+Um es vorweg zu nehmen, vermisst wurde nichts. Die Aussage bezieht
+sich aber nur auf das hier betrachtete Beispiel der
+Dozenteneinsatzplanung. Dabei handelt es sich ja um eine
+administrative Anwendung mit einer überschaubaren Anwendungslogik. Es
+ist durchaus denkbar, dass in einem anderen Kontext &#x2013; z.&nbsp;B. in
+einer Simulation, bei der man vielleicht reale Objekte im Rechner
+rekonstruieren möchte &#x2013; andere Erkenntnisse gewonnen werden könnten.
+</p>
+</div>
+<div id="outline-container-org41ddd66" class="outline-3">
+<h3 id="org41ddd66">Kapselung</h3>
+<div class="outline-text-3" id="text-org41ddd66">
+<p>
+Kapselung von Strukturdetails von Hashmaps ist in der funktionalen
+Programmierung generell und auch in Clojure/ClojureScript kein
+Thema. Begrenzungen der Sichtbarkeit von Definitionen sind an
+Modulgrenzen möglich. Davon wurde in der Dozenteneinsatzplanung aber
+kein Gebrauch gemacht.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga17f927" class="outline-3">
+<h3 id="orga17f927">Klassen, Vererbung</h3>
+<div class="outline-text-3" id="text-orga17f927">
+<p>
+Wie oben bereits erläutert, sind Klassen als Baupläne für Objekte
+vollkommen entbehrlich. Zu der Frage, ob Klassen als Elemente von
+Hierarchien nützlich sind, liefert die Portierung keine Anhaltspunkte,
+da unter den Model-Klassen von Hierarchien kein Gebrauch gemacht
+wurde.
+</p>
+
+<p>
+Ob das Klassenprinzip überhaupt ein wesentlicher Bestandteil der
+Objektorientierung ist, kann durchaus infrage gestellt
+werden. Schließlich gibt es auch klassenlose objektorientierte
+Programmiersprachen. 
+</p>
+
+<p>
+Klassenhierarchien, Vererbung und Unterklassen-Polymorphie gehören
+jedenfalls nicht dazu, wenn man die Definition des Terminus
+„objektorientiert“ betrachtet, die Alan Kay, dem Erfinder des Begriffs,
+gegeben hat:
+</p>
+<blockquote>
+<p>
+„OOP to me means only messaging, local retention and protection and
+hiding of state-process, and extreme late-binding of all things.“ 
+~Alan Kay
+</p>
+</blockquote>
+<p>
+Mit anderen Worten, gemäß Alan Kay sind die wesentlichen Bestandteile
+von OOP:
+</p>
+<ul class="org-ul">
+<li>Message passing</li>
+<li>Encapsulation</li>
+<li>Dynamic binding</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org47659da" class="outline-3">
+<h3 id="org47659da">Polymorphie</h3>
+<div class="outline-text-3" id="text-org47659da">
+<p>
+Die gängigen objektorientierten Sprachen kennen dynamische Bindung nur
+in der primitiven Form der Unterklassen-Polymorphie. Da in den
+Model-Klassen der Smalltalk-Variante keine Klassenhierarchien
+existieren, spielt darauf aufbauende Polymorphie keine Rolle. Insofern
+trat diesbezüglich der Portierung auch kein Problem auf.
+</p>
+
+<p>
+Es soll an dieser Stelle nicht unerwähnt bleiben, dass
+Clojure/ClojureScript mit dem Konzept der <a href="https://clojure.org/reference/multimethods">Multimethods</a> über ein
+mächtiges Werkzeug für späte Bindung verfügt. Während in Smalltalk
+oder Java bei einem Ausdruck der Form <code>a.f(b)</code> die Auswahl der Methode
+<code>f</code> (absurderweise) ausschließlich von der Klassenzugehörigkeit von
+<code>a</code> abhängt (die von <code>b</code> bleibt unberücksichtigt), würde in Clojure
+eine Multimethod <code>f</code> mit einer Dispatcher-Funktion ausgestattet, über
+die der Bindungsmechanismus nach Belieben ausgestaltet werden kann.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1a92dce" class="outline-3">
+<h3 id="org1a92dce">Entwicklungswerkzeuge</h3>
+<div class="outline-text-3" id="text-org1a92dce">
+<p>
+Hier gibt es eigentlich nichts Bedeutendes zu berichten. Aber wenn
+auch die Arbeit mit der REPL einen dynamischen und produktiven
+Entwicklungsprozess erlaubt, so ist dem
+Autor zum wiederholten Male deutlich geworden, dass die
+Leistungsfähigkeit einer Smalltalk-Entwicklungsumgebung, wie sie von
+VisualWorks oder Pharo bereitgestellt wird, unerreicht ist.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: Johannes Brauer</p>
+<p class="email">Email: <a href="mailto:brauer@nordakademie.de">brauer@nordakademie.de</a></p>
+<p class="date">Created: 2019-06-30 Sun 17:07</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
