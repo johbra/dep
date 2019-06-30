@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-06-30 Sun 17:41 -->
+<!-- 2019-06-30 Sun 17:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Portierung der Dozenteneinsatzplanung</title>
@@ -193,6 +193,17 @@
   .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="styles/bigblow/css/hideshow.css"/>
+<script type="text/javascript" src="styles/bigblow/js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/bigblow.js"></script>
+<script type="text/javascript" src="styles/bigblow/js/hideshow.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -246,9 +257,9 @@ for the JavaScript code in this tag.
 <br />
 <span class="subtitle">Wozu brauchen wir OOP? Diskussion am 18.12.18</span>
 </h1>
-<div id="outline-container-org5d8168c" class="outline-2">
-<h2 id="org5d8168c">Warum?</h2>
-<div class="outline-text-2" id="text-org5d8168c">
+<div id="outline-container-org5bb3361" class="outline-2">
+<h2 id="org5bb3361">Warum?</h2>
+<div class="outline-text-2" id="text-org5bb3361">
 <p>
 Im Rahmen der Diskussionsrunde <i>Wozu brauchen wir OOP?</i>, die auf dem
 Pamphlet mit dem Titel <a href="https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0">Brauchen wir objektorientierte Programmierung?</a>
@@ -268,9 +279,9 @@ werden, auf die bei der NoNopoly-Portierung verzichtet wurde.
 </p>
 </div>
 </div>
-<div id="outline-container-orgac8fd89" class="outline-2">
-<h2 id="orgac8fd89">Ausgangspunkt</h2>
-<div class="outline-text-2" id="text-orgac8fd89">
+<div id="outline-container-org34700fa" class="outline-2">
+<h2 id="org34700fa">Ausgangspunkt</h2>
+<div class="outline-text-2" id="text-org34700fa">
 <p>
 Die Dozenteneinsatzplanung in der heute im Fachbereich benutzen Form
 ist um 2004 in einer ersten Fassung mit VisualWorks-Smalltalk
@@ -287,9 +298,9 @@ Der letzte größere Entwicklungsschritt war dann die Portierung nach
 Pharo-Smalltalk (open source).
 </p>
 </div>
-<div id="outline-container-org1d836ee" class="outline-4">
-<h4 id="org1d836ee">Eckdaten der Smalltalk-Version</h4>
-<div class="outline-text-4" id="text-org1d836ee">
+<div id="outline-container-org1351097" class="outline-4">
+<h4 id="org1351097">Eckdaten der Smalltalk-Version</h4>
+<div class="outline-text-4" id="text-org1351097">
 <ul class="org-ul">
 <li>8 Model-Klassen mit ca. 220 Methoden; ca. 1500 LoC</li>
 <li>keine Hierarchie unter den Model-Klassen</li>
@@ -298,18 +309,18 @@ Pharo-Smalltalk (open source).
 </div>
 </div>
 </div>
-<div id="outline-container-orgcd684fe" class="outline-2">
-<h2 id="orgcd684fe">Ziel</h2>
-<div class="outline-text-2" id="text-orgcd684fe">
+<div id="outline-container-org09eead0" class="outline-2">
+<h2 id="org09eead0">Ziel</h2>
+<div class="outline-text-2" id="text-org09eead0">
 <p>
 Wesentliche Komponenten der Dozenteneinsatzplanung sollten von
 Smalltalk (Pharo) nach Clojure/ClojureScript (s.&nbsp;u.) portiert werden.
 </p>
 </div>
 </div>
-<div id="outline-container-orgafa93c4" class="outline-2">
-<h2 id="orgafa93c4">Zur Wahl der Zielsprache</h2>
-<div class="outline-text-2" id="text-orgafa93c4">
+<div id="outline-container-org3ad01df" class="outline-2">
+<h2 id="org3ad01df">Zur Wahl der Zielsprache</h2>
+<div class="outline-text-2" id="text-org3ad01df">
 <p>
 Die Begründung, als funktionale Sprache Clojure(script) zu verwenden,
 ist hauptsächlich in den Vorkenntnisse des Autors zu sehen. Ein
@@ -317,9 +328,9 @@ irgendwie geartetes Auswahlverfahren hat nicht stattgefunden, wenn man
 von einigen Versuchen mit der Sprache <i><a href="https://elm-lang.org">Elm</a></i> absieht.
 </p>
 </div>
-<div id="outline-container-orga06a7bb" class="outline-3">
-<h3 id="orga06a7bb">Exkurs: Stichworte zu den Versuchen mit <a href="https://elm-lang.org">Elm</a></h3>
-<div class="outline-text-3" id="text-orga06a7bb">
+<div id="outline-container-org7dd5845" class="outline-3">
+<h3 id="org7dd5845">Exkurs: Stichworte zu den Versuchen mit <a href="https://elm-lang.org">Elm</a></h3>
+<div class="outline-text-3" id="text-org7dd5845">
 <ul class="org-ul">
 <li>Eigenschaften:
 <ul class="org-ul">
@@ -346,13 +357,13 @@ Ein Minibeispiel für eine Dozenten-Pflege existiert: <a href="file:///Users/jb/
 </ul>
 </div>
 </div>
-<div id="outline-container-org6759373" class="outline-3">
-<h3 id="org6759373">Eckdaten der Clojure/ClojureScript-Version</h3>
-<div class="outline-text-3" id="text-org6759373">
+<div id="outline-container-orgdb4a055" class="outline-3">
+<h3 id="orgdb4a055">Eckdaten der Clojure/ClojureScript-Version</h3>
+<div class="outline-text-3" id="text-orgdb4a055">
 </div>
-<div id="outline-container-orgd01f55b" class="outline-4">
-<h4 id="orgd01f55b">Vorbemerkung zu Clojure vs. ClojureScript</h4>
-<div class="outline-text-4" id="text-orgd01f55b">
+<div id="outline-container-org59cf284" class="outline-4">
+<h4 id="org59cf284">Vorbemerkung zu Clojure vs. ClojureScript</h4>
+<div class="outline-text-4" id="text-org59cf284">
 <p>
 <a href="https://clojure.org">Clojure</a> ist ein Lisp-Dialekt, der auf der JVM läuft. <a href="https://clojurescript.org">ClojureScript</a>
 hingegen ist ein Compiler für Clojure, der nach JavaScript übersetzt.
@@ -375,9 +386,9 @@ werden. (Die Dateiendungen müssen von .clj in .cljc geändert werden.)
 </div>
 </div>
 
-<div id="outline-container-org9f3e834" class="outline-4">
-<h4 id="org9f3e834">Zahlen</h4>
-<div class="outline-text-4" id="text-org9f3e834">
+<div id="outline-container-org751818c" class="outline-4">
+<h4 id="org751818c">Zahlen</h4>
+<div class="outline-text-4" id="text-org751818c">
 <p>
 Bei den in der Folge genannten Definitionen handelt es überwiegend um
 Funktionen ergänzt um ein paar Variablendefinitionen.
@@ -394,9 +405,9 @@ Funktionen ergänzt um ein paar Variablendefinitionen.
 </ul>
 </div>
 </div>
-<div id="outline-container-org2fe97b7" class="outline-4">
-<h4 id="org2fe97b7">Web-Technologie</h4>
-<div class="outline-text-4" id="text-org2fe97b7">
+<div id="outline-container-orgaf1d68b" class="outline-4">
+<h4 id="orgaf1d68b">Web-Technologie</h4>
+<div class="outline-text-4" id="text-orgaf1d68b">
 <p>
 Für die Entwicklung der Single-Page-Application lag es nun nahe, diese
 nach dem Konzept des <i><a href="https://en.wikipedia.org/wiki/Functional_reactive_programming">Functional Reactive Programming</a></i> zu bauen. Für
@@ -420,9 +431,9 @@ React-Komponenten im Browser.
 </div>
 </div>
 
-<div id="outline-container-orgb7ad268" class="outline-3">
-<h3 id="orgb7ad268">Vergleich der Eckdaten</h3>
-<div class="outline-text-3" id="text-orgb7ad268">
+<div id="outline-container-orgedfc898" class="outline-3">
+<h3 id="orgedfc898">Vergleich der Eckdaten</h3>
+<div class="outline-text-3" id="text-orgedfc898">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -508,9 +519,9 @@ die LoC größer bleiben.
 </div>
 </div>
 
-<div id="outline-container-org332ba3f" class="outline-2">
-<h2 id="org332ba3f">Erfahrungen mit Clojure/ClojureScript</h2>
-<div class="outline-text-2" id="text-org332ba3f">
+<div id="outline-container-org678779f" class="outline-2">
+<h2 id="org678779f">Erfahrungen mit Clojure/ClojureScript</h2>
+<div class="outline-text-2" id="text-org678779f">
 <p>
 Wie bereits in <a href="https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0">Brauchen wir objektorientierte Programmierung?</a>
 ausgeführt, lautet die Standard-Antwort von Clojure-Entwicklern
@@ -574,9 +585,9 @@ dazu führte, dass die Funktion zwar kompakt aber auch sehr komplex
 ist.
 </p>
 </div>
-<div id="outline-container-orgb9cc1a0" class="outline-3">
-<h3 id="orgb9cc1a0">Objektgeflechte</h3>
-<div class="outline-text-3" id="text-orgb9cc1a0">
+<div id="outline-container-org01359e9" class="outline-3">
+<h3 id="org01359e9">Objektgeflechte</h3>
+<div class="outline-text-3" id="text-org01359e9">
 <p>
 Bei der Entwicklung der Smalltalk-Variante schien es dem Autor
 naheliegend immer wieder mit Objektgeflechten zu arbeiten. So hat ein
@@ -614,9 +625,9 @@ weiteres Argument dafür, auf Objekte zu verzichten?
 </div>
 </div>
 
-<div id="outline-container-org5642ef6" class="outline-3">
-<h3 id="org5642ef6">Web-Oberfläche</h3>
-<div class="outline-text-3" id="text-org5642ef6">
+<div id="outline-container-org84209eb" class="outline-3">
+<h3 id="org84209eb">Web-Oberfläche</h3>
+<div class="outline-text-3" id="text-org84209eb">
 <p>
 Bei der Erstellung der Web-Oberfläche unter Verwendung der Bibliothek
 Reagent kann natürlich nicht im engeren Sinne von einer Portierung der
@@ -645,9 +656,9 @@ und Attribute als Hashmaps aufgeschrieben.
 </div>
 </div>
 
-<div id="outline-container-org9e51a26" class="outline-2">
-<h2 id="org9e51a26">Vorläufiges Fazit (sehr vorläufig)</h2>
-<div class="outline-text-2" id="text-org9e51a26">
+<div id="outline-container-org5b17108" class="outline-2">
+<h2 id="org5b17108">Vorläufiges Fazit (sehr vorläufig)</h2>
+<div class="outline-text-2" id="text-org5b17108">
 <p>
 Der Autor hat sich im Verlauf der Arbeiten an der Portierung gefragt,
 welches der die Objektorientierung kennzeichnenden Prinzipien
@@ -674,9 +685,9 @@ einer Simulation, bei der man vielleicht reale Objekte im Rechner
 rekonstruieren möchte &#x2013; andere Erkenntnisse gewonnen werden könnten.
 </p>
 </div>
-<div id="outline-container-org638ade5" class="outline-3">
-<h3 id="org638ade5">Kapselung</h3>
-<div class="outline-text-3" id="text-org638ade5">
+<div id="outline-container-org75c19d7" class="outline-3">
+<h3 id="org75c19d7">Kapselung</h3>
+<div class="outline-text-3" id="text-org75c19d7">
 <p>
 Kapselung von Strukturdetails von Hashmaps ist in der funktionalen
 Programmierung generell und auch in Clojure/ClojureScript kein
@@ -687,9 +698,9 @@ kein Gebrauch gemacht.
 </div>
 </div>
 
-<div id="outline-container-org311b39a" class="outline-3">
-<h3 id="org311b39a">Klassen, Vererbung</h3>
-<div class="outline-text-3" id="text-org311b39a">
+<div id="outline-container-orgfacd365" class="outline-3">
+<h3 id="orgfacd365">Klassen, Vererbung</h3>
+<div class="outline-text-3" id="text-orgfacd365">
 <p>
 Wie oben bereits erläutert, sind Klassen als Baupläne für Objekte
 vollkommen entbehrlich. Zu der Frage, ob Klassen als Elemente von
@@ -730,9 +741,9 @@ von OOP:
 </div>
 </div>
 
-<div id="outline-container-org533f568" class="outline-3">
-<h3 id="org533f568">Polymorphie</h3>
-<div class="outline-text-3" id="text-org533f568">
+<div id="outline-container-org9befea0" class="outline-3">
+<h3 id="org9befea0">Polymorphie</h3>
+<div class="outline-text-3" id="text-org9befea0">
 <p>
 Die gängigen objektorientierten Sprachen kennen dynamische Bindung nur
 in der primitiven Form der Unterklassen-Polymorphie. Da in den
@@ -754,9 +765,9 @@ die der Bindungsmechanismus nach Belieben ausgestaltet werden kann.
 </div>
 </div>
 
-<div id="outline-container-org555f0b3" class="outline-3">
-<h3 id="org555f0b3">Entwicklungswerkzeuge</h3>
-<div class="outline-text-3" id="text-org555f0b3">
+<div id="outline-container-org7e20287" class="outline-3">
+<h3 id="org7e20287">Entwicklungswerkzeuge</h3>
+<div class="outline-text-3" id="text-org7e20287">
 <p>
 Hier gibt es eigentlich nichts Bedeutendes zu berichten. Aber wenn
 auch die Arbeit mit der REPL einen dynamischen und produktiven
@@ -771,7 +782,7 @@ VisualWorks oder Pharo bereitgestellt wird, unerreicht ist.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Johannes Brauer</p>
-<p class="date">Created: 2019-06-30 Sun 17:41</p>
+<p class="date">Created: 2019-06-30 Sun 17:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
