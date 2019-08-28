@@ -1,0 +1,5 @@
+* DEP
++ [[http://192.168.5.250:8080/Dozenteneinsatzplanung][aktuell benutzte Version]]
++ [[https://johbra.github.io/dep/][Forschungsversion]] (ClojureScript)
++ Pharo-Entwicklung
+16:30 bis 17:15 am 8.7.2019
