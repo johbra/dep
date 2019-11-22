@@ -38,7 +38,7 @@
    :update-fn nil})
 
 (defn dozentenauslastung
-  [welt]
+  [welt] 
   [:div.container 
    [data-management welt (dozenten-anzeige welt)]])
 

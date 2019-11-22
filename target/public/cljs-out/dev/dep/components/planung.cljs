@@ -10,7 +10,7 @@
 (defn plane-quartal
   "Erzeugt die initialen Lehrveranstaltungen für das aktuelle Quartal.
   Vorherige Planungen dieses Quartals werden überschrieben."
-  [welt] 
+  [welt]
   (let [lvn {(:quartal @welt)
              (lehrveranstaltungen-fuer-quartal
               (:quartal @welt)
@@ -51,23 +51,27 @@
     )) 
 
 (defn lehrveranstaltungen
-  "Komponente für die Anzeige und Bearbeitung der Lehrveranstaltungen eines Quartals."
+  "Komponente für die Anzeige und Bearbeitung der Lehrveranstaltungen eines
+  Quartals."
   [welt]
   (fn [welt]
     (let [_ (aktualisiere-plan welt)] 
       [:div.container
-       [data-management welt (lven-verwaltung [{:action nil :label "schließen"}
-                                               {:action :duplicate :label "duplizieren"}
-                                               {:action :save-lv :label "speichern"}
-                                               {:action :delete :label "entfernen"}]
-                                              )]])))
+       [data-management welt
+        (lven-verwaltung [{:action nil :label "schließen"}
+                          {:action :duplicate :label "duplizieren"}
+                          {:action :save-per-id :label "speichern"}
+                          {:action :delete :label "entfernen"}]
+                         (map :name (:dozenten @welt))
+                         )]])))
 
 (defn planung
   "Die zentrale Planungskomponente."
-  [welt]  
+  [welt]
   [:div.row 
    [:div.col-md-8 
     [lehrveranstaltungen welt]]
    [:div.col-md-4 
-    [dozentenauslastung welt]]])
+    [dozentenauslastung welt]]
+   ])
 

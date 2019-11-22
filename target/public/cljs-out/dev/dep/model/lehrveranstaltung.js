@@ -29,8 +29,8 @@ return (((dep.model.lehrveranstaltung.semesterWochenstunden.call(null,lv) * (10)
 dep.model.lehrveranstaltung.lvstunden_dozent = (function dep$model$lehrveranstaltung$lvstunden_dozent(lven,doz_nam){
 return cljs.core.reduce.call(null,cljs.core._PLUS_,(0),cljs.core.map.call(null,(function (lv){
 return dep.model.lehrveranstaltung.lvStunden.call(null,lv);
-}),cljs.core.filter.call(null,(function (p1__19963_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__19963_SHARP_),doz_nam);
+}),cljs.core.filter.call(null,(function (p1__19622_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__19622_SHARP_),doz_nam);
 }),lven)));
 });
 /**
@@ -40,14 +40,14 @@ return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"dozent","dozent",157
 dep.model.lehrveranstaltung.manipel_modullisten_map_fuer_quartal = (function dep$model$lehrveranstaltung$manipel_modullisten_map_fuer_quartal(manipels,module,quartal){
 var modulliste = cljs.core.second;
 return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,((function (modulliste){
-return (function (p1__19964_SHARP_){
-return !(cljs.core.empty_QMARK_.call(null,modulliste.call(null,p1__19964_SHARP_)));
+return (function (p1__19623_SHARP_){
+return !(cljs.core.empty_QMARK_.call(null,modulliste.call(null,p1__19623_SHARP_)));
 });})(modulliste))
 ,cljs.core.map.call(null,((function (modulliste){
 return (function (mpl){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [mpl,cljs.core.filter.call(null,((function (modulliste){
-return (function (p1__19965_SHARP_){
-return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(null,p1__19965_SHARP_,mpl,quartal);
+return (function (p1__19624_SHARP_){
+return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(null,p1__19624_SHARP_,mpl,quartal);
 });})(modulliste))
 ,module)], null);
 });})(modulliste))
@@ -59,8 +59,8 @@ return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(nul
  */
 dep.model.lehrveranstaltung.lven_vector = (function dep$model$lehrveranstaltung$lven_vector(lv_map,quartal){
 return cljs.core.into.call(null,cljs.core.PersistentVector.EMPTY,cljs.core.mapcat.call(null,(function (ml){
-return cljs.core.map.call(null,(function (p1__19966_SHARP_){
-return dep.model.lehrveranstaltung.__GT_Lehrveranstaltung.call(null,p1__19966_SHARP_,quartal,"NN",(1),cljs.core.key.call(null,ml));
+return cljs.core.map.call(null,(function (p1__19625_SHARP_){
+return dep.model.lehrveranstaltung.__GT_Lehrveranstaltung.call(null,p1__19625_SHARP_,quartal,"NN",(1),cljs.core.key.call(null,ml));
 }),cljs.core.val.call(null,ml));
 }),lv_map));
 });
@@ -76,16 +76,16 @@ return dep.model.lehrveranstaltung.lven_vector.call(null,dep.model.lehrveranstal
  *   Lehrveranstaltungen in lvn
  */
 dep.model.lehrveranstaltung.dozentenstunden = (function dep$model$lehrveranstaltung$dozentenstunden(lvn,dozenten,quartal){
-return cljs.core.mapv.call(null,(function (p1__19967_SHARP_){
-return dep.model.dozent.schreiben_stunden_auf_quartal.call(null,p1__19967_SHARP_,dep.model.lehrveranstaltung.lvstunden_dozent.call(null,cljs.core.get.call(null,lvn,quartal),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__19967_SHARP_)),quartal);
+return cljs.core.mapv.call(null,(function (p1__19626_SHARP_){
+return dep.model.dozent.schreiben_stunden_auf_quartal.call(null,p1__19626_SHARP_,dep.model.lehrveranstaltung.lvstunden_dozent.call(null,cljs.core.get.call(null,lvn,quartal),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__19626_SHARP_)),quartal);
 }),dozenten);
 });
 /**
  * Liefert die Lehrveranstaltung mit der gegebenen id.
  */
 dep.model.lehrveranstaltung.lv_mit_id = (function dep$model$lehrveranstaltung$lv_mit_id(lven,id){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__19968_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__19968_SHARP_),id);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__19627_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__19627_SHARP_),id);
 }),lven));
 });
 /**
@@ -98,10 +98,52 @@ dep.model.lehrveranstaltung.row = (function dep$model$lehrveranstaltung$row(labe
 
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.row","div.row",133678515),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.col-md-3","div.col-md-3",1386112129),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"label","label",1718410804),label], null)], null),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.col-md-5","div.col-md-5",1167007965),input], null)], null);
 });
-/**
- * Komponente für das Bearbeitungsformular.
- */
-dep.model.lehrveranstaltung.lv_form_template = new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.model.lehrveranstaltung.row.call(null,"Modul",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Modul","Modul",-499019270)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Manipel",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Mnpl","Mnpl",953604339)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Semester",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Smstr","Smstr",1193714432)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"SWS",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"SWS","SWS",1550316894)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Wiederholungsfaktor",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"numeric","numeric",-1495594714),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"WdhFkt","WdhFkt",-471348027)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Gruppen",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"numeric","numeric",-1495594714),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Grpn","Grpn",-1254012610)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Dozent",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975)], null)], null))], null);
+dep.model.lehrveranstaltung.lv_form_template = (function dep$model$lehrveranstaltung$lv_form_template(dozenten){
+
+return new cljs.core.PersistentVector(null, 8, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.model.lehrveranstaltung.row.call(null,"Modul",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Modul","Modul",-499019270)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Manipel",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Mnpl","Mnpl",953604339)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Semester",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Smstr","Smstr",1193714432)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"SWS",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 3, [new cljs.core.Keyword(null,"read-only","read-only",-191706886),"readOnly",new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"SWS","SWS",1550316894)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Wiederholungsfaktor",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"numeric","numeric",-1495594714),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"WdhFkt","WdhFkt",-471348027)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Gruppen",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"numeric","numeric",-1495594714),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Grpn","Grpn",-1254012610)], null)], null)),dep.model.lehrveranstaltung.row.call(null,"Dozent",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975)], null),(function (){var iter__4324__auto__ = (function dep$model$lehrveranstaltung$lv_form_template_$_iter__19628(s__19629){
+return (new cljs.core.LazySeq(null,(function (){
+var s__19629__$1 = s__19629;
+while(true){
+var temp__5457__auto__ = cljs.core.seq.call(null,s__19629__$1);
+if(temp__5457__auto__){
+var s__19629__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__19629__$2)){
+var c__4322__auto__ = cljs.core.chunk_first.call(null,s__19629__$2);
+var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
+var b__19631 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
+if((function (){var i__19630 = (0);
+while(true){
+if((i__19630 < size__4323__auto__)){
+var d = cljs.core._nth.call(null,c__4322__auto__,i__19630);
+cljs.core.chunk_append.call(null,b__19631,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),d], null));
+
+var G__19632 = (i__19630 + (1));
+i__19630 = G__19632;
+continue;
+} else {
+return true;
+}
+break;
+}
+})()){
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__19631),dep$model$lehrveranstaltung$lv_form_template_$_iter__19628.call(null,cljs.core.chunk_rest.call(null,s__19629__$2)));
+} else {
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__19631),null);
+}
+} else {
+var d = cljs.core.first.call(null,s__19629__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),d], null),dep$model$lehrveranstaltung$lv_form_template_$_iter__19628.call(null,cljs.core.rest.call(null,s__19629__$2)));
+}
+} else {
+return null;
+}
+break;
+}
+}),null,null));
+});
+return iter__4324__auto__.call(null,dozenten);
+})()], null))], null);
+});
 /**
  * Die Spaltenüberschriften der Lv-Tabelle.
  */
@@ -116,15 +158,15 @@ return dep.model.manipel.semesterInQuartal.call(null,new cljs.core.Keyword(null,
  * Wandelt die Lehrveranstaltungen (lvn) für die Darstellung als Tabelle um. 
  */
 dep.model.lehrveranstaltung.lvn__GT_table = (function dep$model$lehrveranstaltung$lvn__GT_table(lvn){
-return cljs.core.mapv.call(null,(function (p1__19969_SHARP_){
-return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Modul","Modul",-499019270),new cljs.core.Keyword(null,"Mnpl","Mnpl",953604339),new cljs.core.Keyword(null,"Smstr","Smstr",1193714432),new cljs.core.Keyword(null,"SWS","SWS",1550316894),new cljs.core.Keyword(null,"WdhFkt","WdhFkt",-471348027),new cljs.core.Keyword(null,"Grpn","Grpn",-1254012610),new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975),new cljs.core.Keyword(null,"Id","Id",-2148601)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"modul","modul",-1113395939).cljs$core$IFn$_invoke$arity$1(p1__19969_SHARP_)),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"manipel","manipel",1067015228).cljs$core$IFn$_invoke$arity$1(p1__19969_SHARP_)),dep.model.lehrveranstaltung.semester.call(null,p1__19969_SHARP_),dep.model.lehrveranstaltung.semesterWochenstunden.call(null,p1__19969_SHARP_),new cljs.core.Keyword(null,"wiederholungsFaktor","wiederholungsFaktor",1064907940).cljs$core$IFn$_invoke$arity$1(p1__19969_SHARP_),new cljs.core.Keyword(null,"anzahlGruppen","anzahlGruppen",317177965).cljs$core$IFn$_invoke$arity$1(p1__19969_SHARP_),new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__19969_SHARP_),new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__19969_SHARP_)]);
+return cljs.core.mapv.call(null,(function (p1__19633_SHARP_){
+return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Modul","Modul",-499019270),new cljs.core.Keyword(null,"Mnpl","Mnpl",953604339),new cljs.core.Keyword(null,"Smstr","Smstr",1193714432),new cljs.core.Keyword(null,"SWS","SWS",1550316894),new cljs.core.Keyword(null,"WdhFkt","WdhFkt",-471348027),new cljs.core.Keyword(null,"Grpn","Grpn",-1254012610),new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975),new cljs.core.Keyword(null,"Id","Id",-2148601)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"modul","modul",-1113395939).cljs$core$IFn$_invoke$arity$1(p1__19633_SHARP_)),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(new cljs.core.Keyword(null,"manipel","manipel",1067015228).cljs$core$IFn$_invoke$arity$1(p1__19633_SHARP_)),dep.model.lehrveranstaltung.semester.call(null,p1__19633_SHARP_),dep.model.lehrveranstaltung.semesterWochenstunden.call(null,p1__19633_SHARP_),new cljs.core.Keyword(null,"wiederholungsFaktor","wiederholungsFaktor",1064907940).cljs$core$IFn$_invoke$arity$1(p1__19633_SHARP_),new cljs.core.Keyword(null,"anzahlGruppen","anzahlGruppen",317177965).cljs$core$IFn$_invoke$arity$1(p1__19633_SHARP_),new cljs.core.Keyword(null,"dozent","dozent",1571095254).cljs$core$IFn$_invoke$arity$1(p1__19633_SHARP_),new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__19633_SHARP_)]);
 }),lvn);
 });
 /**
  * Liefert die Infos für die Lv-Tabelle und das Bearbeitungsformular.
  */
-dep.model.lehrveranstaltung.lven_verwaltung = (function dep$model$lehrveranstaltung$lven_verwaltung(buttons){
-return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"dataset-exists-fn","dataset-exists-fn",-1256962206),new cljs.core.Keyword(null,"table-row-fn","table-row-fn",-1788519931),new cljs.core.Keyword(null,"data-id","data-id",1023855591),new cljs.core.Keyword(null,"width","width",-384071477),new cljs.core.Keyword(null,"id-fn","id-fn",316222798),new cljs.core.Keyword(null,"title","title",636505583),new cljs.core.Keyword(null,"update-fn","update-fn",711087313),new cljs.core.Keyword(null,"table-column-titles","table-column-titles",964633397),new cljs.core.Keyword(null,"table-key-column","table-key-column",-176523081),new cljs.core.Keyword(null,"edit-component","edit-component",1500156666),new cljs.core.Keyword(null,"title-buttons","title-buttons",-1716755622),new cljs.core.Keyword(null,"data","data",-232669377)],[dep.model.lehrveranstaltung.lv_mit_id,dep.model.lehrveranstaltung.lvn__GT_table,new cljs.core.Keyword(null,"id","id",-1388402092),"100%",cljs.core.identity,"Lehrveranstaltungen",dep.model.lehrveranstaltung.aender_lv,dep.model.lehrveranstaltung.lv_spalten,new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975),dep.model.lehrveranstaltung.lv_form_template,new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"modal-title","modal-title",-709050582),"Lehrveranstaltung",new cljs.core.Keyword(null,"buttons","buttons",-1953831197),buttons], null),(function (s){
+dep.model.lehrveranstaltung.lven_verwaltung = (function dep$model$lehrveranstaltung$lven_verwaltung(buttons,dozenten){
+return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"dataset-exists-fn","dataset-exists-fn",-1256962206),new cljs.core.Keyword(null,"table-row-fn","table-row-fn",-1788519931),new cljs.core.Keyword(null,"data-id","data-id",1023855591),new cljs.core.Keyword(null,"width","width",-384071477),new cljs.core.Keyword(null,"id-fn","id-fn",316222798),new cljs.core.Keyword(null,"title","title",636505583),new cljs.core.Keyword(null,"update-fn","update-fn",711087313),new cljs.core.Keyword(null,"table-column-titles","table-column-titles",964633397),new cljs.core.Keyword(null,"table-key-column","table-key-column",-176523081),new cljs.core.Keyword(null,"edit-component","edit-component",1500156666),new cljs.core.Keyword(null,"title-buttons","title-buttons",-1716755622),new cljs.core.Keyword(null,"data","data",-232669377)],[dep.model.lehrveranstaltung.lv_mit_id,dep.model.lehrveranstaltung.lvn__GT_table,new cljs.core.Keyword(null,"id","id",-1388402092),"100%",cljs.core.identity,"Lehrveranstaltungen",dep.model.lehrveranstaltung.aender_lv,dep.model.lehrveranstaltung.lv_spalten,new cljs.core.Keyword(null,"Dozent","Dozent",-1144807975),dep.model.lehrveranstaltung.lv_form_template.call(null,dozenten),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"modal-title","modal-title",-709050582),"Lehrveranstaltung",new cljs.core.Keyword(null,"buttons","buttons",-1953831197),buttons], null),(function (s){
 return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"lven","lven",294854909),new cljs.core.Keyword(null,"geschaeftsjahr","geschaeftsjahr",1407893286).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,s)),new cljs.core.Keyword(null,"quartal","quartal",-467113586).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,s))], null);
 })]);
 });

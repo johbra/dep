@@ -1,8 +1,8 @@
 goog.addDependency("base.js", ['goog'], []);
 goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.Uri', 'goog.object', 'goog.math.Integer', 'goog.string.StringBuffer', 'goog.array', 'goog.math.Long']);
-goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
-goog.addDependency("../figwheel/main/css_reload.js", ['figwheel.main.css_reload'], ['goog.debug.Console', 'goog.Uri', 'cljs.core', 'goog.object', 'goog.log', 'goog.Promise', 'clojure.string']);
+goog.addDependency("../figwheel/main.js", ['figwheel.main'], ['cljs.core']);
 goog.addDependency("../devtools/version.js", ['devtools.version'], ['cljs.core']);
+goog.addDependency("../clojure/string.js", ['clojure.string'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer']);
 goog.addDependency("../cljs/pprint.js", ['cljs.pprint'], ['goog.string', 'cljs.core', 'goog.string.StringBuffer', 'clojure.string']);
 goog.addDependency("../devtools/context.js", ['devtools.context'], ['cljs.core']);
 goog.addDependency("../clojure/set.js", ['clojure.set'], ['cljs.core']);
@@ -11,7 +11,6 @@ goog.addDependency("../devtools/defaults.js", ['devtools.defaults'], ['cljs.core
 goog.addDependency("../devtools/prefs.js", ['devtools.prefs'], ['cljs.core', 'devtools.defaults']);
 goog.addDependency("../devtools/util.js", ['devtools.util'], ['cljs.core', 'devtools.version', 'goog.userAgent', 'cljs.pprint', 'devtools.context', 'clojure.data', 'devtools.prefs']);
 goog.addDependency("../process/env.js", ['process.env'], ['cljs.core']);
-goog.addDependency("../figwheel/main.js", ['figwheel.main'], ['cljs.core']);
 goog.addDependency("../figwheel/tools/heads_up.js", ['figwheel.tools.heads_up'], ['goog.dom', 'goog.string', 'cljs.core', 'goog.dom.dataset', 'goog.object', 'cljs.pprint', 'goog.Promise', 'clojure.string']);
 goog.addDependency("../figwheel/core.js", ['figwheel.core'], ['goog.string', 'goog.debug.Console', 'cljs.core', 'goog.object', 'goog.events.EventTarget', 'figwheel.tools.heads_up', 'goog.log', 'clojure.set', 'goog.Promise', 'goog.string.format', 'goog.async.Deferred', 'goog.events.Event', 'clojure.string']);
 goog.addDependency("../figwheel/repl.js", ['figwheel.repl'], ['goog.userAgent.product', 'goog.net.XhrIo', 'goog.json', 'goog.string', 'goog.debug.Console', 'goog.storage.mechanism.HTML5SessionStorage', 'goog.Uri.QueryData', 'goog.net.jsloader', 'goog.Uri', 'cljs.core', 'goog.object', 'goog.log', 'goog.html.legacyconversions', 'goog.Promise', 'goog.storage.mechanism.mechanismfactory', 'goog.net.WebSocket', 'clojure.string', 'goog.array']);
@@ -35,6 +34,7 @@ goog.addDependency("../devtools/hints.js", ['devtools.hints'], ['cljs.stacktrace
 goog.addDependency("../devtools/core.js", ['devtools.core'], ['devtools.toolbox', 'devtools.util', 'cljs.core', 'devtools.async', 'devtools.formatters', 'devtools.hints', 'devtools.context', 'devtools.defaults', 'devtools.prefs']);
 goog.addDependency("../figwheel/repl/preload.js", ['figwheel.repl.preload'], ['cljs.core', 'figwheel.repl']);
 goog.addDependency("../devtools/preload.js", ['devtools.preload'], ['cljs.core', 'devtools.core', 'devtools.prefs']);
+goog.addDependency("../figwheel/main/css_reload.js", ['figwheel.main.css_reload'], ['goog.debug.Console', 'goog.Uri', 'cljs.core', 'goog.object', 'goog.log', 'goog.Promise', 'clojure.string']);
 goog.addDependency("../cljs/test.js", ['cljs.test'], ['cljs.core', 'cljs.pprint', 'clojure.string']);
 goog.addDependency("../figwheel/main/async_result.js", ['figwheel.main.async_result'], ['cljs.core', 'figwheel.repl']);
 goog.addDependency("../figwheel/main/testing.js", ['figwheel.main.testing'], ['goog.dom', 'cljs.core', 'cljs.test', 'clojure.string', 'figwheel.main.async_result']);
@@ -79,6 +79,7 @@ goog.addDependency("../com/cognitect/transit/handlers.js", ['com.cognitect.trans
 goog.addDependency("../com/cognitect/transit/impl/writer.js", ['com.cognitect.transit.impl.writer'], ['com.cognitect.transit.util', 'com.cognitect.transit.caching', 'com.cognitect.transit.handlers', 'com.cognitect.transit.types', 'com.cognitect.transit.delimiters', 'goog.math.Long']);
 goog.addDependency("../com/cognitect/transit.js", ['com.cognitect.transit'], ['com.cognitect.transit.util', 'com.cognitect.transit.impl.reader', 'com.cognitect.transit.impl.writer', 'com.cognitect.transit.types', 'com.cognitect.transit.eq', 'com.cognitect.transit.impl.decoder', 'com.cognitect.transit.caching']);
 goog.addDependency("../cognitect/transit.js", ['cognitect.transit'], ['com.cognitect.transit.eq', 'cljs.core', 'com.cognitect.transit.types', 'com.cognitect.transit', 'goog.math.Long']);
+goog.addDependency("../dep/model/studienrichtung.js", ['dep.model.studienrichtung'], ['cljs.core']);
 goog.addDependency("../reagent_modals/modals.js", ['reagent_modals.modals'], ['goog.dom', 'reagent.core', 'cljs.core', 'goog.events.EventType', 'goog.events']);
 goog.addDependency("../reagent_forms/datepicker.js", ['reagent_forms.datepicker'], ['reagent.core', 'cljs.core', 'clojure.string']);
 goog.addDependency("../reagent_forms/core.js", ['reagent_forms.core'], ['goog.string', 'reagent.core', 'cljs.core', 'reagent_forms.datepicker', 'goog.string.format', 'clojure.string', 'clojure.walk']);
@@ -100,9 +101,9 @@ goog.addDependency("../cljs_http/client.js", ['cljs_http.client'], ['cljs_http.c
 goog.addDependency("../dep/helpers/drop_file_stream.js", ['dep.helpers.drop_file_stream'], ['reagent.core', 'cljs.core', 'cljs_http.client', 'cljs.core.async']);
 goog.addDependency("../dep/helpers/moduleaussixx.js", ['dep.helpers.moduleaussixx'], ['clojure.zip', 'tubax.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.quartal', 'dep.model.modul', 'cljs.reader']);
 goog.addDependency("../dep/helpers/manipelaussixx.js", ['dep.helpers.manipelaussixx'], ['clojure.zip', 'tubax.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.manipel', 'dep.model.quartal', 'cljs.reader']);
-goog.addDependency("../dep/state.js", ['dep.state'], ['dep.helpers.moduleaussixx', 'reagent.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.manipel', 'dep.model.quartal', 'dep.model.modul', 'dep.model.dozent', 'dep.helpers.manipelaussixx']);
+goog.addDependency("../dep/state.js", ['dep.state'], ['dep.helpers.moduleaussixx', 'reagent.core', 'cljs.core', 'dep.model.studienrichtung', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.manipel', 'dep.model.quartal', 'dep.model.modul', 'dep.model.dozent', 'dep.helpers.manipelaussixx']);
 goog.addDependency("../dep/components/planung.js", ['dep.components.planung'], ['reagent.core', 'cljs.core', 'dep.model.lehrveranstaltung', 'dep.components.dozentenauslastung', 'dep.model.dozent', 'dep.components.datamanagement']);
 goog.addDependency("../dep/components/datensicherung.js", ['dep.components.datensicherung'], ['reagent.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'dep.components.datamanagement']);
-goog.addDependency("../dep/components/side_nav_bar.js", ['dep.components.side_nav_bar'], ['reagent.core', 'cljs.core', 'dep.components.planung', 'dep.model.manipel', 'dep.model.quartal', 'dep.model.modul', 'dep.components.datensicherung', 'dep.model.dozent', 'dep.components.datamanagement']);
+goog.addDependency("../dep/components/side_nav_bar.js", ['dep.components.side_nav_bar'], ['reagent.core', 'cljs.core', 'dep.model.studienrichtung', 'dep.components.planung', 'dep.model.manipel', 'dep.model.quartal', 'dep.model.modul', 'dep.components.datensicherung', 'dep.model.dozent', 'dep.components.datamanagement']);
 goog.addDependency("../dep/core.js", ['dep.core'], ['goog.dom', 'reagent.core', 'cljs.core', 'dep.state', 'dep.components.planung', 'dep.components.side_nav_bar']);
 goog.addDependency("../figwheel/main/generated/dev_auto_test_runner.js", ['figwheel.main.generated.dev_auto_test_runner'], ['cljs.core', 'figwheel.main.testing']);

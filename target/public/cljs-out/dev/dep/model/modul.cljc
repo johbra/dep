@@ -8,7 +8,8 @@
 (defn ->Modul
   "Erzeugt ein Modul-'Objekt' (hash-map)"  
   [nummer name semesterWochenstunden studienrichtung gueltigAb gueltigBis]
-  {:nummer nummer :name name :semesterWochenstunden semesterWochenstunden
+  {:id (gensym) :nummer nummer :name name
+   :semesterWochenstunden semesterWochenstunden
    :studienrichtung studienrichtung :gueltigAb gueltigAb :gueltigBis gueltigBis})
 
 ;; Planung
@@ -42,7 +43,7 @@
 (defn modul-mit-nummer
   "Liefert das Modul mit der Nummer symbol aus der Liste module."
   [module symbol]
-  (first (filter #(= (:nummer %) symbol) module)))
+  (first (filter #(= (:id %) symbol) module)))
 
 ;; View
 (def sem-tabellen-koepfe
@@ -84,7 +85,8 @@
                           :Studienrichtung (:studienrichtung %))
                 (sws->alle-semester (:semesterWochenstunden %))
                 (hash-map :ab-Stbgnn (quartal->string (:gueltigAb %))
-                          :bis-Stbgnn (quartal->string (:gueltigBis %))))
+                          :bis-Stbgnn (quartal->string (:gueltigBis %))
+                          :Id (:id %)))
         module))
 
 (defn row [label input]
@@ -93,12 +95,13 @@
    [:div.col-md-3 [:label label]]
    [:div.col-md-9 input]])
 
-(def modul-form-template
+(defn modul-form-template [studienrichtungen]
   "Komponente für das Bearbeitungsformular."
   [:div
    (row "Nr" [:input {:field :text :id :Nr}])
    (row "Name" [:input {:field :text :id :Name}])
-   (row "Studienrichtung" [:input {:field :text :id :Studienrichtung}])
+   (row "Studienrichtung" [:select {:field :text :id :Studienrichtung}
+                           (for [s studienrichtungen] [:option s])])
    (doall (map #(row (str "S" %) [:input {:field :text :id (keyword (str "S" %))}])
                (range 1 8)))
    (row "ab Studienbeginn" [:input {:field :text :id :ab-Stbgnn}])
@@ -107,17 +110,17 @@
 
 (defn module-verwaltung
   "Liefert die Infos für die Modultabelle und das Bearbeitungsformular."
-  [buttons]
+  [buttons studienrichtungen]
   {:data (fn [s] [:module])
    :title "Module"
    :table-column-titles modul-spalten
    :table-row-fn module->table
    :table-key-column :Nr
-   :edit-component modul-form-template
+   :edit-component (modul-form-template studienrichtungen)
    :title-buttons {:modal-title "Modul" :buttons buttons}
    :width "100%"
-   :data-id :nummer
-   :id-fn symbol
+   :data-id :id
+   :id-fn identity
    :dataset-exists-fn modul-mit-nummer
    :update-fn aender-modul})
 

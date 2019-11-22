@@ -4,6 +4,7 @@
    [dep.components.datamanagement :refer [data-management]]
    [dep.model.manipel :refer [manipel-verwaltung]]
    [dep.model.dozent :refer [dozenten-verwaltung]]
+   [dep.model.studienrichtung :refer [studienrichtungen-verwaltung]]
    [dep.model.modul :refer  [module-verwaltung]]
    [dep.model.quartal :refer [quartale-fuer-jahr quartal->string string->quartal]]
    [dep.components.datensicherung :refer [datensicherung]]
@@ -34,6 +35,8 @@
     [:a.list-group-item.list-group-item-action.bg-light
      {:on-click #(set-value! welt :selected :manipel)} "Manipel"]
     [:a.list-group-item.list-group-item-action.bg-light
+     {:on-click #(set-value! welt :selected :studienrichtungen)} "Studienrichtungen"]
+    [:a.list-group-item.list-group-item-action.bg-light
      {:on-click #(set-value! welt :selected :datensicherung)} "Datensicherung"]
     ]])
 
@@ -43,8 +46,15 @@
   (if (:selected @welt)
     ((:selected @welt)  
      {:manipel [data-management welt (manipel-verwaltung default-buttons)] 
-      :module [data-management welt (module-verwaltung default-buttons)]
+      :module [data-management welt (module-verwaltung
+                                     [{:action nil :label "schließen"}
+                                      {:action :duplicate :label "duplizieren"}
+                                      {:action :save-per-id :label "speichern"}
+                                      {:action :delete :label "entfernen"}]
+                                     (map :name (:studienrichtungen @welt)))]
       :dozenten [data-management welt (dozenten-verwaltung default-buttons)]
+      :studienrichtungen [data-management welt
+                          (studienrichtungen-verwaltung default-buttons)]
       :datensicherung [datensicherung welt]
       :hauptseite [planung welt]})
     [planung welt]))

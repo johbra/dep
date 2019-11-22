@@ -103,17 +103,17 @@
    [:div.col-md-3 [:label label]]
    [:div.col-md-5 input]])
 
-(def lv-form-template
-  "Komponente für das Bearbeitungsformular."
+(defn lv-form-template [dozenten]
+  "Komponente für das Bearbeitungsformular." 
   [:div
-   (row "Modul"               [:input {:read-only "readOnly" :field :text :id :Modul}])
-   (row "Manipel"             [:input {:read-only "readOnly" :field :text :id :Mnpl}])
-   (row "Semester"            [:input {:read-only "readOnly" :field :text :id :Smstr}])
+   (row "Modul"             [:input {:read-only "readOnly" :field :text :id :Modul}])
+   (row "Manipel"           [:input {:read-only "readOnly" :field :text :id :Mnpl}])
+   (row "Semester"          [:input {:read-only "readOnly" :field :text :id :Smstr}])
    (row "SWS"                 [:input {:read-only "readOnly" :field :text :id :SWS}])
    (row "Wiederholungsfaktor" [:input {:field :numeric :id :WdhFkt}])
    (row "Gruppen"             [:input {:field :numeric :id :Grpn}])
-   (row "Dozent"              [:input {:field :text :id :Dozent}])
-   ])
+   (row "Dozent"              [:select {:field :text :id :Dozent}
+                               (for [d dozenten] [:option  d])])])
 
 (def lv-spalten
   "Die Spaltenüberschriften der Lv-Tabelle."
@@ -139,13 +139,13 @@
 
 (defn lven-verwaltung
   "Liefert die Infos für die Lv-Tabelle und das Bearbeitungsformular."
-  [buttons]
+  [buttons dozenten]
   {:data  (fn [s] [:lven (:geschaeftsjahr @s) (:quartal @s)])
    :title "Lehrveranstaltungen"
    :table-column-titles lv-spalten
    :table-row-fn lvn->table
    :table-key-column :Dozent
-   :edit-component lv-form-template
+   :edit-component (lv-form-template dozenten)
    :title-buttons {:modal-title "Lehrveranstaltung" :buttons buttons}
    :width "100%"
    :data-id :id

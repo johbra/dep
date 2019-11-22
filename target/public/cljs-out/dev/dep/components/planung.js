@@ -37,8 +37,8 @@ return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword
 dep.components.planung.initialisiere_planung = (function dep$components$planung$initialisiere_planung(welt){
 dep.components.planung.initialisiere_auslastung_fuer_geschaeftsjahre.call(null,welt);
 
-return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword(null,"lven","lven",294854909),cljs.core.apply.call(null,cljs.core.merge,cljs.core.map.call(null,(function (p1__20810_SHARP_){
-return cljs.core.PersistentHashMap.fromArrays([p1__20810_SHARP_],[cljs.core.PersistentArrayMap.EMPTY]);
+return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword(null,"lven","lven",294854909),cljs.core.apply.call(null,cljs.core.merge,cljs.core.map.call(null,(function (p1__15749_SHARP_){
+return cljs.core.PersistentHashMap.fromArrays([p1__15749_SHARP_],[cljs.core.PersistentArrayMap.EMPTY]);
 }),new cljs.core.Keyword(null,"jahre","jahre",2053865477).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,welt)))));
 });
 /**
@@ -49,12 +49,13 @@ var dzntn = dep.model.lehrveranstaltung.dozentenstunden.call(null,new cljs.core.
 return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword(null,"dozenten","dozenten",688305194),dzntn);
 });
 /**
- * Komponente für die Anzeige und Bearbeitung der Lehrveranstaltungen eines Quartals.
+ * Komponente für die Anzeige und Bearbeitung der Lehrveranstaltungen eines
+ *   Quartals.
  */
 dep.components.planung.lehrveranstaltungen = (function dep$components$planung$lehrveranstaltungen(welt){
 return (function (welt__$1){
 var _ = dep.components.planung.aktualisiere_plan.call(null,welt__$1);
-return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.container","div.container",72419955),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [dep.components.datamanagement.data_management,welt__$1,dep.model.lehrveranstaltung.lven_verwaltung.call(null,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),null,new cljs.core.Keyword(null,"label","label",1718410804),"schlie\u00DFen"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),new cljs.core.Keyword(null,"duplicate","duplicate",-1107405184),new cljs.core.Keyword(null,"label","label",1718410804),"duplizieren"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),new cljs.core.Keyword(null,"save-lv","save-lv",-1653535631),new cljs.core.Keyword(null,"label","label",1718410804),"speichern"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),new cljs.core.Keyword(null,"delete","delete",-1768633620),new cljs.core.Keyword(null,"label","label",1718410804),"entfernen"], null)], null))], null)], null);
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div.container","div.container",72419955),new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [dep.components.datamanagement.data_management,welt__$1,dep.model.lehrveranstaltung.lven_verwaltung.call(null,new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),null,new cljs.core.Keyword(null,"label","label",1718410804),"schlie\u00DFen"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),new cljs.core.Keyword(null,"duplicate","duplicate",-1107405184),new cljs.core.Keyword(null,"label","label",1718410804),"duplizieren"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),new cljs.core.Keyword(null,"save-per-id","save-per-id",-1461095979),new cljs.core.Keyword(null,"label","label",1718410804),"speichern"], null),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"action","action",-811238024),new cljs.core.Keyword(null,"delete","delete",-1768633620),new cljs.core.Keyword(null,"label","label",1718410804),"entfernen"], null)], null),cljs.core.map.call(null,new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"dozenten","dozenten",688305194).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,welt__$1))))], null)], null);
 });
 });
 /**

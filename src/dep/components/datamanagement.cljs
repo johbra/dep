@@ -8,7 +8,7 @@
 (defn data-management
   "Erzeugt eine Datenanzeige und -verwaltungskomponente für einen Teil der Welt.
   Zu den management-data gehören Dozenten, Module, Manipel und Lehrveranstaltungen."
-  [world management-data]
+  [world management-data] 
   (let [;; interner Zustand der Komponente
         table-state (r/atom {:sort-val :Name,
                              :ascending true
@@ -21,7 +21,7 @@
         [reagent-modals/modal-window] ; Komponente für modale Dialoge
         [table-ui ; Komponente für die CSS-Tabelle
          (:table-column-titles management-data) 
-         ((:table-row-fn management-data)                  ;; Umwandlung der Welt-Daten
+         ((:table-row-fn management-data)                ;; Umwandlung der Welt-Daten
           (get-in @world ((:data management-data) world))) ;; in Tabellenform
          (:table-key-column management-data)               ;; Schlüsselspalte
          table-state

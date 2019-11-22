@@ -1,7 +1,8 @@
 * Was bleibt zu tun?
 ** TODO Aufschreiben der gesammelten Erfahrungen
 ** Fehlende Funktionalitäten
-*** TODO Auswahlbox für Dozenten in Lehrveranstaltungen
+*** DONE Auswahlbox für Dozenten in Lehrveranstaltungen
+*** DONE Verwaltung von Studienrichtungen
 *** TODO Anlegen eines neuen Geschäftsjahres
 *** TODO Sicherheitsabfragen zum Beispiel beim Löschen von Moduln oder Manipel
 *** TODO Sicherheitsabfrage für "Plane Quartal"

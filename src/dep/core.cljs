@@ -9,7 +9,7 @@
    [reagent.core :as r]   
    [dep.state :refer [WELT]]
    [dep.components.side-nav-bar :as bar]
-   [dep.components.planung :refer [planung  initialisiere-planung aktualisiere-plan]]))
+   [dep.components.planung :refer [planung initialisiere-planung aktualisiere-plan]]))
 
 (defn dozenteneinsatzplanung
   "Hauptkomponente der Dozenteneinsatzplanung."

@@ -58,9 +58,10 @@
              (conj data
                    (change-dataset (dataset-exists data value) form-dataset))))))
 
-(defn save-lv
-  "Funktion zur Speicherung der Änderung einer Lehrveranstaltung im Welt-Attribut
-  world-key."
+(defn save-per-id
+  "Funktion zur Speicherung der Änderung eines Datensatzes im Welt-Attribut
+  world-key. Identifizierung des Datensatzes erfolgt über die im Formular-
+  Datensatz gespeichere :Id."
   [world world-key form-dataset dataset-exists change-dataset]
   (let [acc-vec (world-key world)
         data (get-in @world acc-vec)
@@ -73,7 +74,7 @@
 
 (defn duplicate-dataset
   "Dupliziert den durch id identifizierten Datensatz im Welt-Attribut world-key."
-  [world world-key id dataset-exists]
+  [world world-key id dataset-exists] 
   (let [acc-vec (world-key world)
         data (get-in @world acc-vec)
         dataset (dataset-exists data id)
@@ -90,7 +91,7 @@
 (defn process-form
   "Funktion zur Ausführung der in einem modalen Formular ausgewählten action."
   [action form-dataset world world-key form-key key id-clicked-dataset
-   dataset-exists change-dataset]   
+   dataset-exists change-dataset] 
   (let [id-form-dataset  (if (:Id form-dataset) (:Id form-dataset)
                              (form-key form-dataset))]
     (do (case action
@@ -100,8 +101,8 @@
           :delete (remove-dataset world world-key key id-form-dataset)
           :duplicate (duplicate-dataset world world-key (:Id form-dataset)
                                         dataset-exists)
-          :save-lv (save-lv world world-key form-dataset
-                            dataset-exists change-dataset)
+          :save-per-id (save-per-id world world-key form-dataset
+                                    dataset-exists change-dataset)
           :rename-file (rename-file world form-dataset form-key
                                     id-clicked-dataset change-dataset)))))
 
