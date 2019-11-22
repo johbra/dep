@@ -38,7 +38,7 @@
   (do (initialisiere-auslastung-fuer-geschaeftsjahre welt)
       (swap! welt
              assoc :lven
-             (apply merge (map #(hash-map %  {}) (:jahre @welt))))))
+             (apply merge (map #(hash-map %  {}) (:jahre @welt))))))to
 
 (defn aktualisiere-plan
   "Nach Änderungen an der Lv-Planung wird die Dozentenauslastung neu berechnet."
