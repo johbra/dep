@@ -1,5 +1,5 @@
 * Was bleibt zu tun?
-** TODO Aufschreiben der gesammelten Erfahrungen
+** DONE Aufschreiben der gesammelten Erfahrungen
 ** Fehlende Funktionalitäten
 *** DONE Auswahlbox für Dozenten in Lehrveranstaltungen
 *** DONE Verwaltung von Studienrichtungen
@@ -8,5 +8,6 @@
 *** TODO Sicherheitsabfrage für "Plane Quartal"
 *** TODO Die Änderung der Semesterzuordnung für Manipel
 *** DONE Datensicherung
+**** DONE Dateianzeige reparieren
 ** DONE Git-Projekt anlegen
 *** DONE Github Pages nutzen

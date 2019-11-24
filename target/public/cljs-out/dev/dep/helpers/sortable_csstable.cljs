@@ -106,6 +106,14 @@
           :rename-file (rename-file world form-dataset form-key
                                     id-clicked-dataset change-dataset)))))
 
+(defn process-simple-form
+  "Funktion zur Ausführung der in einem modalen Formular ausgewählten action."
+  [action form-dataset data form-key id-clicked-dataset change-dataset] 
+  ;; (let [id-form-dataset  (if (:Id form-dataset) (:Id form-dataset)
+  ;;                            (form-key form-dataset))]
+  (do (case action
+        :rename-file (rename-file data form-dataset form-key
+                                  id-clicked-dataset change-dataset))))
 
 (defn update-sort-value
   "Aktualisiert die Sortierrichtung einer Tabelle."

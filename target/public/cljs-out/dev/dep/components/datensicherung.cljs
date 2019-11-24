@@ -1,10 +1,14 @@
 (ns dep.components.datensicherung
   (:require-macros [cljs.core.async.macros :refer [go]])
   (:require [reagent.core :as r] 
-            [dep.components.datamanagement :refer [data-management]]
+            [dep.components.datamanagement :refer [datei-management]]
             [dep.helpers.drop-file-stream
              :refer [write-text list-folder delete-file-named read-edn-file
                      rename-file]]))
+
+(def forcer
+  "Dummy-Atom zur Erwingung des Rerendering"
+  (r/atom 0))
 
 (defn datei-mit-namen
   "Liefert die Datei mit dem Namen string aus der Liste von dateien."
@@ -13,10 +17,10 @@
 
 (defn loesche-datei
   "Enfernt die Datei d aus der welt und vom Datenträger."
-  [d welt] 
+  [d] 
   (go (<! (delete-file-named (:name d)))
-      (swap! welt assoc :dateien
-             (vec (remove #(= (:name d) (:name %)) (:dateien @welt))))))
+      (swap! forcer inc)) ;erzwinge Rerendering
+  )
 
 (defn lade-welt-aus-datei
   "Restauriert den Welt-Zustand aus der edn-Datei d."
@@ -27,11 +31,12 @@
   "Gibt der Datei mit dem Namen alter-name den Namen neuer-name.
   Umbenennung ist nur möglich, falls nicht bereits eine Datei mit dem Namen neuer-name
   existiert."
-  [alter-name neuer-name welt] 
-  (if (datei-mit-namen (:dateien @welt) neuer-name)
+  [alter-name neuer-name dateien] 
+  (if (datei-mit-namen @dateien neuer-name)
     (js/alert (str "Datei mit Namen " neuer-name " existiert bereits!"))
     (go (<! (rename-file alter-name neuer-name))
-        (swap! welt assoc :dateien (<! (list-folder))))))
+        (swap! forcer inc) ;; Erzwinge Rerendering
+        )))
 
 ;; View
 (defn dateien->table
@@ -40,7 +45,7 @@
   (mapv #(hash-map :Name (:name %)
                    :Zeitstempel (:client_modified %)
                    :Aktion1 [:a
-                             {:on-click (fn [](loesche-datei % welt))} "entfernen"]
+                             {:on-click (fn [](loesche-datei %))} "entfernen"]
                    :Aktion2 [:a
                              {:on-click (fn [](lade-welt-aus-datei % welt))} "laden"])
         dateien))
@@ -64,18 +69,14 @@
 
 (defn datei-verwaltung
   "Liefert die Infos für die Dateitabelle und das Bearbeitungsformular."
-  [buttons welt]
-  {:data (fn [s] [:dateien])
-   :title "Dateien"
+  [buttons dateien welt]
+  { :title "Dateien"
    :table-column-titles datei-spalten
    :table-row-fn (partial dateien->table welt)
    :table-key-column :Name
    :edit-component datei-form-template
    :title-buttons {:modal-title "Datei" :buttons buttons}
-   :width nil
-   :data-id :name
    :id-fn identity
-   :dataset-exists-fn nil
    :update-fn umbenenne-datei})
 
 (defn datensicherung
@@ -84,8 +85,10 @@
   (fn [welt]
     (let [buttons [{:action nil :label "schließen"}
                    {:action :rename-file :label "Name ändern"}]
-          s (r/atom "pldaten.edn") 
-          _ (go (swap! welt assoc :dateien (<! (list-folder))))]
+          s (r/atom "pldaten.edn")
+          dateien (r/atom [])
+          _ (go (reset! dateien (<! (list-folder))))]
+      @forcer ; um das Rerendering zu ermöglichen
       [:div.row 
        [:div.col-md-6
         [:h4 "Planungsdaten in Datei speichern"]
@@ -96,10 +99,10 @@
            :on-change #(reset! s (-> % .-target .-value))}]
          [:button.btn-default.col-md-3
           {:on-click #(go (<! (write-text (prn-str @welt) @s))
-                          (swap! welt assoc :dateien (<! (list-folder))))}
+                          (reset! dateien (<! (list-folder))))}
           "sichern"]]]
        [:div.col-md-6
-        [data-management welt (datei-verwaltung buttons welt)]]])))
+        [datei-management dateien (datei-verwaltung buttons dateien welt)]]])))
 
 
 

@@ -20,7 +20,6 @@
                  :quartal (->Quartal 4 2015)
                  :jahre [2016 2017 2018 2019]
                  :lven {}
-                 :dateien []
                  }))
 
 ;; Einlesen von provisorischen Testdaten
