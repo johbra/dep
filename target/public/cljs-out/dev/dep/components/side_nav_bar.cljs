@@ -8,7 +8,7 @@
    [dep.model.modul :refer  [module-verwaltung]]
    [dep.model.quartal :refer [quartale-fuer-jahr quartal->string string->quartal]]
    [dep.components.datensicherung :refer [datensicherung]]
-   [dep.components.planung :refer [planung plane-quartal]]))
+   [dep.components.planung :refer [planung plane-quartal neuesGeschaeftjahr]]))
 
 (def default-buttons ;; für die Datenmanagement-Komponenten
   [{:action nil :label "schließen"}
@@ -45,7 +45,9 @@
   [welt]
   (if (:selected @welt)
     ((:selected @welt)  
-     {:manipel [data-management welt (manipel-verwaltung default-buttons)] 
+     {:manipel [data-management welt (manipel-verwaltung
+                                      default-buttons
+                                      (map :name (:studienrichtungen @welt)))] 
       :module [data-management welt (module-verwaltung
                                      [{:action nil :label "schließen"}
                                       {:action :duplicate :label "duplizieren"}
@@ -65,7 +67,8 @@
 ;; github.com/reagent-project/reagent-cookbook/tree/master/recipes/simple-sidebar
 
 (defn menu-toggle-render [] 
-  [:button#menu-toggle {:class "btn.btn-default"} "Toggle Menu"])
+  [:button#menu-toggle.col-lg-1 {:class "btn.btn-default"} "Toggle Menu"]
+  )
 
 (defn menu-toggle-did-mount [this]
   (.click (js/$ (r/dom-node this))
@@ -80,30 +83,28 @@
                    :component-did-mount menu-toggle-did-mount}))
 
 
-(defn inputs
-  "Erzeugt zwei HTML-Eingabeformen."
-  [label1 input1 label2 input2]
-  [:div.form-inline
-   [:div.form-group
-    [:label label1]
-    input1]
-   [:div.form-group
-    [:label label2]
-    input2]])
+(defn input
+  "Erzeugt  HTML-Eingabeform."
+  [label input] 
+  [:div.form-group {:class "col-lg-3"}
+   [:label  label]
+   input])
 
 (defn geschaeftjahr-quartal-form 
   "Die Auswahlboxen für Geschäftsjahr und Quartal und die Planungsschaltfläche."
   [welt]
-  [:div.form-inline
-   (inputs
-    "Geschäftsjahr: "
+  [:div.row.col-lg-11
+                                        ;[:div.form-inline
+   (input
+    "Geschäftsjahr:"
     [:select {:on-change
               #(do
                  (set-value! welt :geschaeftsjahr (js/parseInt(-> % .-target .-value)))
                  (set-value! welt :quartal
                              (first (quartale-fuer-jahr (:geschaeftsjahr @welt)))))}
      (for [j (:jahre @welt)] 
-       [:option {:key j} j])]
+       [:option {:key j} j])])
+   (input 
     "Quartal: "
     [:select
      {:on-change #(set-value! welt :quartal
@@ -111,6 +112,10 @@
      (for [q (quartale-fuer-jahr (:geschaeftsjahr @welt))] 
        [:option {:key (quartal->string q)} (quartal->string q)])]
     )
-   [:button.btn-primary {:on-click #(plane-quartal welt)}
+   [:button.btn-primary.col-lg-2 {:on-click #(plane-quartal welt)}
     "Plane Quartal"]
+   [:div.col-lg-1 "  "]
+   [:button.btn-primary.col-lg-2 {:on-click #(neuesGeschaeftjahr welt)}
+    "neues G-Jahr anlegen"]
+   [:div.col-lg-1 "  "]
    ])

@@ -41,7 +41,9 @@ goog.addDependency("../figwheel/main/testing.js", ['figwheel.main.testing'], ['g
 goog.addDependency("../dep/core_test.js", ['dep.core_test'], ['cljs.core', 'cljs.test']);
 goog.addDependency("../dep/test_runner.js", ['dep.test_runner'], ['cljs.core', 'figwheel.main.testing', 'dep.core_test']);
 goog.addDependency("../dep/model/quartal.js", ['dep.model.quartal'], ['cljs.core']);
-goog.addDependency("../dep/model/manipel.js", ['dep.model.manipel'], ['cljs.core', 'dep.model.quartal']);
+goog.addDependency("../potpuri/core.js", ['potpuri.core'], ['cljs.core']);
+goog.addDependency("../dep/model/studienrichtung.js", ['dep.model.studienrichtung'], ['cljs.core', 'dep.model.quartal', 'potpuri.core']);
+goog.addDependency("../dep/model/manipel.js", ['dep.model.manipel'], ['cljs.core', 'dep.model.studienrichtung', 'dep.model.quartal']);
 goog.addDependency("../clojure/zip.js", ['clojure.zip'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/protocols.js", ['cljs.core.async.impl.protocols'], ['cljs.core']);
 goog.addDependency("../cljs/core/async/impl/ioc_helpers.js", ['cljs.core.async.impl.ioc_helpers'], ['cljs.core', 'cljs.core.async.impl.protocols']);
@@ -79,7 +81,6 @@ goog.addDependency("../com/cognitect/transit/handlers.js", ['com.cognitect.trans
 goog.addDependency("../com/cognitect/transit/impl/writer.js", ['com.cognitect.transit.impl.writer'], ['com.cognitect.transit.util', 'com.cognitect.transit.caching', 'com.cognitect.transit.handlers', 'com.cognitect.transit.types', 'com.cognitect.transit.delimiters', 'goog.math.Long']);
 goog.addDependency("../com/cognitect/transit.js", ['com.cognitect.transit'], ['com.cognitect.transit.util', 'com.cognitect.transit.impl.reader', 'com.cognitect.transit.impl.writer', 'com.cognitect.transit.types', 'com.cognitect.transit.eq', 'com.cognitect.transit.impl.decoder', 'com.cognitect.transit.caching']);
 goog.addDependency("../cognitect/transit.js", ['cognitect.transit'], ['com.cognitect.transit.eq', 'cljs.core', 'com.cognitect.transit.types', 'com.cognitect.transit', 'goog.math.Long']);
-goog.addDependency("../dep/model/studienrichtung.js", ['dep.model.studienrichtung'], ['cljs.core']);
 goog.addDependency("../reagent_modals/modals.js", ['reagent_modals.modals'], ['goog.dom', 'reagent.core', 'cljs.core', 'goog.events.EventType', 'goog.events']);
 goog.addDependency("../reagent_forms/datepicker.js", ['reagent_forms.datepicker'], ['reagent.core', 'cljs.core', 'clojure.string']);
 goog.addDependency("../reagent_forms/core.js", ['reagent_forms.core'], ['goog.string', 'reagent.core', 'cljs.core', 'reagent_forms.datepicker', 'goog.string.format', 'clojure.string', 'clojure.walk']);
@@ -101,7 +102,7 @@ goog.addDependency("../cljs_http/client.js", ['cljs_http.client'], ['cljs_http.c
 goog.addDependency("../dep/helpers/drop_file_stream.js", ['dep.helpers.drop_file_stream'], ['reagent.core', 'cljs.core', 'cljs_http.client', 'cljs.core.async']);
 goog.addDependency("../dep/helpers/moduleaussixx.js", ['dep.helpers.moduleaussixx'], ['clojure.zip', 'tubax.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.quartal', 'dep.model.modul', 'cljs.reader']);
 goog.addDependency("../dep/helpers/manipelaussixx.js", ['dep.helpers.manipelaussixx'], ['clojure.zip', 'tubax.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.manipel', 'dep.model.quartal', 'cljs.reader']);
-goog.addDependency("../dep/state.js", ['dep.state'], ['dep.helpers.moduleaussixx', 'reagent.core', 'cljs.core', 'dep.model.studienrichtung', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.manipel', 'dep.model.quartal', 'dep.model.modul', 'dep.model.dozent', 'dep.helpers.manipelaussixx']);
+goog.addDependency("../dep/state.js", ['dep.state'], ['dep.helpers.moduleaussixx', 'reagent.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'cljs.core.async', 'dep.model.manipel', 'dep.model.quartal', 'dep.model.modul', 'dep.model.dozent', 'dep.helpers.manipelaussixx']);
 goog.addDependency("../dep/components/planung.js", ['dep.components.planung'], ['reagent.core', 'cljs.core', 'dep.model.lehrveranstaltung', 'dep.components.dozentenauslastung', 'dep.model.dozent', 'dep.components.datamanagement']);
 goog.addDependency("../dep/components/datensicherung.js", ['dep.components.datensicherung'], ['reagent.core', 'cljs.core', 'dep.helpers.drop_file_stream', 'dep.components.datamanagement']);
 goog.addDependency("../dep/components/side_nav_bar.js", ['dep.components.side_nav_bar'], ['reagent.core', 'cljs.core', 'dep.model.studienrichtung', 'dep.components.planung', 'dep.model.manipel', 'dep.model.quartal', 'dep.model.modul', 'dep.components.datensicherung', 'dep.model.dozent', 'dep.components.datamanagement']);

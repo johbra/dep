@@ -7,6 +7,13 @@
             [dep.model.dozent :refer [initialisiereAuslastungenIn]]
             [dep.components.datamanagement :refer [data-management]]))
 
+(defn neuesGeschaeftjahr
+  "legt neues Geschäftsjahr an"
+  [welt]
+  (let [neuesJahr (inc (apply max (:jahre @welt)))
+        jahre (conj (:jahre @welt) neuesJahr)]
+    (swap! welt assoc :jahre jahre)))
+
 (defn plane-quartal
   "Erzeugt die initialen Lehrveranstaltungen für das aktuelle Quartal.
   Vorherige Planungen dieses Quartals werden überschrieben."

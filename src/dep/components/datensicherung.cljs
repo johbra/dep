@@ -25,10 +25,11 @@
 (defn lade-welt-aus-datei
   "Restauriert den Welt-Zustand aus der edn-Datei d."
   [d welt]
-  (go (reset! welt (<! (read-edn-file (:name d))))))
+  (go (reset! welt (<! (read-edn-file (:name d))))
+      (swap! welt assoc :selected :hauptseite)))
 
 (defn umbenenne-datei 
-  "Gibt der Datei mit dem Namen alter-name den Namen neuer-name.
+  "Gibt der Datei mit dem Namen alter-name den Namen neuer-name. 
   Umbenennung ist nur möglich, falls nicht bereits eine Datei mit dem Namen neuer-name
   existiert."
   [alter-name neuer-name dateien] 
@@ -88,7 +89,7 @@
           s (r/atom "pldaten.edn")
           dateien (r/atom [])
           _ (go (reset! dateien (<! (list-folder))))]
-      @forcer ; um das Rerendering zu ermöglichen
+      ;@forcer ; um das Rerendering zu ermöglichen
       [:div.row 
        [:div.col-md-6
         [:h4 "Planungsdaten in Datei speichern"]

@@ -51,13 +51,13 @@ return and__3938__auto__;
 dep.model.modul.sws__GT_alle_semester = (function dep$model$modul$sws__GT_alle_semester(sws){
 var sems = cljs.core.range.call(null,(1),(8));
 return cljs.core.zipmap.call(null,cljs.core.map.call(null,((function (sems){
-return (function (p1__19569_SHARP_){
-return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__19569_SHARP_)].join(''));
+return (function (p1__16495_SHARP_){
+return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__16495_SHARP_)].join(''));
 });})(sems))
 ,sems),cljs.core.map.call(null,((function (sems){
-return (function (p1__19570_SHARP_){
-if(cljs.core.truth_(sws.call(null,p1__19570_SHARP_))){
-return sws.call(null,p1__19570_SHARP_);
+return (function (p1__16496_SHARP_){
+if(cljs.core.truth_(sws.call(null,p1__16496_SHARP_))){
+return sws.call(null,p1__16496_SHARP_);
 } else {
 return (0);
 }
@@ -68,15 +68,15 @@ return (0);
  * Liefert das Modul mit der Nummer symbol aus der Liste module.
  */
 dep.model.modul.modul_mit_nummer = (function dep$model$modul$modul_mit_nummer(module,symbol){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__19571_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__19571_SHARP_),symbol);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__16497_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__16497_SHARP_),symbol);
 }),module));
 });
 /**
  * Die Spaltenüberschriften für die 7 Semester
  */
-dep.model.modul.sem_tabellen_koepfe = cljs.core.map.call(null,(function (p1__19572_SHARP_){
-return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__19572_SHARP_)].join(''));
+dep.model.modul.sem_tabellen_koepfe = cljs.core.map.call(null,(function (p1__16498_SHARP_){
+return cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__16498_SHARP_)].join(''));
 }),cljs.core.range.call(null,(1),(8)));
 /**
  * liefert {:S1 1, :S2 2, :S3 3, :S4 4, :S5 5, :S6 6, :S7 7}
@@ -87,8 +87,8 @@ dep.model.modul.semester = cljs.core.zipmap.call(null,dep.model.modul.sem_tabell
  *   Semesterwochenstunden.
  */
 dep.model.modul.aender_sws = (function dep$model$modul$aender_sws(aenderungen){
-return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__19573_SHARP_){
-return cljs.core.not_EQ_.call(null,cljs.core.val.call(null,p1__19573_SHARP_),(0));
+return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__16499_SHARP_){
+return cljs.core.not_EQ_.call(null,cljs.core.val.call(null,p1__16499_SHARP_),(0));
 }),clojure.set.rename_keys.call(null,cljs.core.select_keys.call(null,aenderungen,dep.model.modul.sem_tabellen_koepfe),dep.model.modul.semester)));
 });
 /**
@@ -103,8 +103,8 @@ return dep.model.modul.__GT_Modul.call(null,cljs.core.symbol.call(null,new cljs.
  * Wandelt die module für die Darstellung als Tabelle um.
  */
 dep.model.modul.module__GT_table = (function dep$model$modul$module__GT_table(module){
-return cljs.core.mapv.call(null,(function (p1__19574_SHARP_){
-return cljs.core.merge.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Nr","Nr",-700839286),new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)],[new cljs.core.Keyword(null,"nummer","nummer",1652450962).cljs$core$IFn$_invoke$arity$1(p1__19574_SHARP_),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__19574_SHARP_),new cljs.core.Keyword(null,"studienrichtung","studienrichtung",-290576756).cljs$core$IFn$_invoke$arity$1(p1__19574_SHARP_)]),dep.model.modul.sws__GT_alle_semester.call(null,new cljs.core.Keyword(null,"semesterWochenstunden","semesterWochenstunden",1725648707).cljs$core$IFn$_invoke$arity$1(p1__19574_SHARP_)),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ab-Stbgnn","ab-Stbgnn",604950411),new cljs.core.Keyword(null,"bis-Stbgnn","bis-Stbgnn",275678925),new cljs.core.Keyword(null,"Id","Id",-2148601)],[dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigAb","gueltigAb",-1592672781).cljs$core$IFn$_invoke$arity$1(p1__19574_SHARP_)),dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigBis","gueltigBis",-999485251).cljs$core$IFn$_invoke$arity$1(p1__19574_SHARP_)),new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__19574_SHARP_)]));
+return cljs.core.mapv.call(null,(function (p1__16500_SHARP_){
+return cljs.core.merge.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Nr","Nr",-700839286),new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)],[new cljs.core.Keyword(null,"nummer","nummer",1652450962).cljs$core$IFn$_invoke$arity$1(p1__16500_SHARP_),new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__16500_SHARP_),new cljs.core.Keyword(null,"studienrichtung","studienrichtung",-290576756).cljs$core$IFn$_invoke$arity$1(p1__16500_SHARP_)]),dep.model.modul.sws__GT_alle_semester.call(null,new cljs.core.Keyword(null,"semesterWochenstunden","semesterWochenstunden",1725648707).cljs$core$IFn$_invoke$arity$1(p1__16500_SHARP_)),cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"ab-Stbgnn","ab-Stbgnn",604950411),new cljs.core.Keyword(null,"bis-Stbgnn","bis-Stbgnn",275678925),new cljs.core.Keyword(null,"Id","Id",-2148601)],[dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigAb","gueltigAb",-1592672781).cljs$core$IFn$_invoke$arity$1(p1__16500_SHARP_)),dep.model.quartal.quartal__GT_string.call(null,new cljs.core.Keyword(null,"gueltigBis","gueltigBis",-999485251).cljs$core$IFn$_invoke$arity$1(p1__16500_SHARP_)),new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__16500_SHARP_)]));
 }),module);
 });
 dep.model.modul.row = (function dep$model$modul$row(label,input){
@@ -113,25 +113,25 @@ return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMP
 });
 dep.model.modul.modul_form_template = (function dep$model$modul$modul_form_template(studienrichtungen){
 
-return new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.model.modul.row.call(null,"Nr",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Nr","Nr",-700839286)], null)], null)),dep.model.modul.row.call(null,"Name",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Name","Name",-131211369)], null)], null)),dep.model.modul.row.call(null,"Studienrichtung",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)], null),(function (){var iter__4324__auto__ = (function dep$model$modul$modul_form_template_$_iter__19576(s__19577){
+return new cljs.core.PersistentVector(null, 7, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.model.modul.row.call(null,"Nr",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Nr","Nr",-700839286)], null)], null)),dep.model.modul.row.call(null,"Name",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Name","Name",-131211369)], null)], null)),dep.model.modul.row.call(null,"Studienrichtung",new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"select","select",1147833503),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"Studienrichtung","Studienrichtung",2009895848)], null),(function (){var iter__4324__auto__ = (function dep$model$modul$modul_form_template_$_iter__16502(s__16503){
 return (new cljs.core.LazySeq(null,(function (){
-var s__19577__$1 = s__19577;
+var s__16503__$1 = s__16503;
 while(true){
-var temp__5457__auto__ = cljs.core.seq.call(null,s__19577__$1);
+var temp__5457__auto__ = cljs.core.seq.call(null,s__16503__$1);
 if(temp__5457__auto__){
-var s__19577__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__19577__$2)){
-var c__4322__auto__ = cljs.core.chunk_first.call(null,s__19577__$2);
+var s__16503__$2 = temp__5457__auto__;
+if(cljs.core.chunked_seq_QMARK_.call(null,s__16503__$2)){
+var c__4322__auto__ = cljs.core.chunk_first.call(null,s__16503__$2);
 var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
-var b__19579 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
-if((function (){var i__19578 = (0);
+var b__16505 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
+if((function (){var i__16504 = (0);
 while(true){
-if((i__19578 < size__4323__auto__)){
-var s = cljs.core._nth.call(null,c__4322__auto__,i__19578);
-cljs.core.chunk_append.call(null,b__19579,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),s], null));
+if((i__16504 < size__4323__auto__)){
+var s = cljs.core._nth.call(null,c__4322__auto__,i__16504);
+cljs.core.chunk_append.call(null,b__16505,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),s], null));
 
-var G__19580 = (i__19578 + (1));
-i__19578 = G__19580;
+var G__16506 = (i__16504 + (1));
+i__16504 = G__16506;
 continue;
 } else {
 return true;
@@ -139,13 +139,13 @@ return true;
 break;
 }
 })()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__19579),dep$model$modul$modul_form_template_$_iter__19576.call(null,cljs.core.chunk_rest.call(null,s__19577__$2)));
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16505),dep$model$modul$modul_form_template_$_iter__16502.call(null,cljs.core.chunk_rest.call(null,s__16503__$2)));
 } else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__19579),null);
+return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__16505),null);
 }
 } else {
-var s = cljs.core.first.call(null,s__19577__$2);
-return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),s], null),dep$model$modul$modul_form_template_$_iter__19576.call(null,cljs.core.rest.call(null,s__19577__$2)));
+var s = cljs.core.first.call(null,s__16503__$2);
+return cljs.core.cons.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"option","option",65132272),s], null),dep$model$modul$modul_form_template_$_iter__16502.call(null,cljs.core.rest.call(null,s__16503__$2)));
 }
 } else {
 return null;
@@ -155,8 +155,8 @@ break;
 }),null,null));
 });
 return iter__4324__auto__.call(null,studienrichtungen);
-})()], null)),cljs.core.doall.call(null,cljs.core.map.call(null,(function (p1__19575_SHARP_){
-return dep.model.modul.row.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__19575_SHARP_)].join(''),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__19575_SHARP_)].join(''))], null)], null));
+})()], null)),cljs.core.doall.call(null,cljs.core.map.call(null,(function (p1__16501_SHARP_){
+return dep.model.modul.row.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__16501_SHARP_)].join(''),new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),cljs.core.keyword.call(null,["S",cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__16501_SHARP_)].join(''))], null)], null));
 }),cljs.core.range.call(null,(1),(8)))),dep.model.modul.row.call(null,"ab Studienbeginn",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"ab-Stbgnn","ab-Stbgnn",604950411)], null)], null)),dep.model.modul.row.call(null,"bis Studienbeginn",new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"input","input",556931961),new cljs.core.PersistentArrayMap(null, 2, [new cljs.core.Keyword(null,"field","field",-1302436500),new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"id","id",-1388402092),new cljs.core.Keyword(null,"bis-Stbgnn","bis-Stbgnn",275678925)], null)], null))], null);
 });
 /**

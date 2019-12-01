@@ -45,8 +45,8 @@
 
 (defn string->quartal
   [strng]
-  (->Quartal (parse-int (subs strng 5))
-             (parse-int (subs strng 0 4))))
+  (let [[jahr quartal] (mapv parse-int (clojure.string/split strng #"-"))]
+    (->Quartal quartal jahr)))
 
 (defn semester->quartal
   "Ermittelt aus dem Studienbeginn (stb) und der Jahr-Semesterzuordnung (jsz) eines

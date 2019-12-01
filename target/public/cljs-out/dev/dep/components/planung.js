@@ -7,6 +7,14 @@ goog.require('dep.model.lehrveranstaltung');
 goog.require('dep.model.dozent');
 goog.require('dep.components.datamanagement');
 /**
+ * legt neues Geschäftsjahr an
+ */
+dep.components.planung.neuesGeschaeftjahr = (function dep$components$planung$neuesGeschaeftjahr(welt){
+var neuesJahr = (cljs.core.apply.call(null,cljs.core.max,new cljs.core.Keyword(null,"jahre","jahre",2053865477).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,welt))) + (1));
+var jahre = cljs.core.conj.call(null,new cljs.core.Keyword(null,"jahre","jahre",2053865477).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,welt)),neuesJahr);
+return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword(null,"jahre","jahre",2053865477),jahre);
+});
+/**
  * Erzeugt die initialen Lehrveranstaltungen für das aktuelle Quartal.
  *   Vorherige Planungen dieses Quartals werden überschrieben.
  */
@@ -37,8 +45,8 @@ return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword
 dep.components.planung.initialisiere_planung = (function dep$components$planung$initialisiere_planung(welt){
 dep.components.planung.initialisiere_auslastung_fuer_geschaeftsjahre.call(null,welt);
 
-return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword(null,"lven","lven",294854909),cljs.core.apply.call(null,cljs.core.merge,cljs.core.map.call(null,(function (p1__19760_SHARP_){
-return cljs.core.PersistentHashMap.fromArrays([p1__19760_SHARP_],[cljs.core.PersistentArrayMap.EMPTY]);
+return cljs.core.swap_BANG_.call(null,welt,cljs.core.assoc,new cljs.core.Keyword(null,"lven","lven",294854909),cljs.core.apply.call(null,cljs.core.merge,cljs.core.map.call(null,(function (p1__16535_SHARP_){
+return cljs.core.PersistentHashMap.fromArrays([p1__16535_SHARP_],[cljs.core.PersistentArrayMap.EMPTY]);
 }),new cljs.core.Keyword(null,"jahre","jahre",2053865477).cljs$core$IFn$_invoke$arity$1(cljs.core.deref.call(null,welt)))));
 });
 /**

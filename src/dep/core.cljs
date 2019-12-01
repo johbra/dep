@@ -18,8 +18,8 @@
    [bar/sidebar welt] ;; Sidebar-Menükomponente
    [:div {:id "page-content-wrapper"}
     [:nav  {:class "navbar navbar-expand-lg navbar-light bg-light border-bottom"}
-     [:div.row [bar/menu-toggle]
-      [bar/geschaeftjahr-quartal-form welt]]] ;;Top-Navigantionsleiste
+     [bar/menu-toggle ]
+     [bar/geschaeftjahr-quartal-form welt]] ;;Top-Navigantionsleiste
     [:div (bar/menu-actions welt) ;; Sidebar-Menüauswahl
      ]]])
 

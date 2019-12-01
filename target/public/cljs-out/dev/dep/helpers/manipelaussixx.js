@@ -18,12 +18,12 @@ var studienbeginn = dep.model.quartal.__GT_Quartal.call(null,cljs.reader.read_st
 var anzahlGruppen = cljs.reader.read_string.call(null,cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.get.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(mpl),(3)))));
 var sems = new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.get.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(mpl),(4)));
 var jahrSemesterZuordnung = cljs.core.zipmap.call(null,cljs.core.map.call(null,((function (studienrichtung,name,studienbeginn,anzahlGruppen,sems,manipel){
-return (function (p1__22553_SHARP_){
-return dep.model.quartal.__GT_Quartal.call(null,cljs.reader.read_string.call(null,cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(p1__22553_SHARP_))))))),cljs.reader.read_string.call(null,cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.second.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(p1__22553_SHARP_))))))));
+return (function (p1__16514_SHARP_){
+return dep.model.quartal.__GT_Quartal.call(null,cljs.reader.read_string.call(null,cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(p1__16514_SHARP_))))))),cljs.reader.read_string.call(null,cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.second.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(p1__16514_SHARP_))))))));
 });})(studienrichtung,name,studienbeginn,anzahlGruppen,sems,manipel))
 ,sems),cljs.core.map.call(null,((function (studienrichtung,name,studienbeginn,anzahlGruppen,sems,manipel){
-return (function (p1__22554_SHARP_){
-return cljs.reader.read_string.call(null,cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.second.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(p1__22554_SHARP_)))));
+return (function (p1__16515_SHARP_){
+return cljs.reader.read_string.call(null,cljs.core.first.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(cljs.core.second.call(null,new cljs.core.Keyword(null,"content","content",15833224).cljs$core$IFn$_invoke$arity$1(p1__16515_SHARP_)))));
 });})(studienrichtung,name,studienbeginn,anzahlGruppen,sems,manipel))
 ,sems));
 return dep.model.manipel.__GT_Manipel.call(null,studienrichtung,name,studienbeginn,anzahlGruppen,jahrSemesterZuordnung);
@@ -31,8 +31,8 @@ return dep.model.manipel.__GT_Manipel.call(null,studienrichtung,name,studienbegi
 ,manipel);
 });
 dep.helpers.manipelaussixx.manipel_aus_datei = (function dep$helpers$manipelaussixx$manipel_aus_datei(datei,state){
-return dep.helpers.drop_file_stream.lies_datei.call(null,datei,state,(function (p1__22555_SHARP_){
-return dep.helpers.manipelaussixx.manipel_aus_sixx.call(null,tubax.core.xml__GT_clj.call(null,p1__22555_SHARP_));
+return dep.helpers.drop_file_stream.lies_datei.call(null,datei,state,(function (p1__16516_SHARP_){
+return dep.helpers.manipelaussixx.manipel_aus_sixx.call(null,tubax.core.xml__GT_clj.call(null,p1__16516_SHARP_));
 }));
 });
 

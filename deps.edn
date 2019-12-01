@@ -5,6 +5,7 @@
         reagent-forms {:mvn/version "0.5.43"}
         cljs-http {:mvn/version "0.1.46"}
         funcool/tubax {:mvn/version "0.2.0"}
+        metosin/potpuri {:mvn/version "0.5.2"}
         com.bhauman/figwheel-main {:mvn/version "0.2.0"}}
  :paths ["src" "resources" "test" "target"]
  :externs ["externs.js"]

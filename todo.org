@@ -3,11 +3,13 @@
 ** Fehlende Funktionalitäten
 *** DONE Auswahlbox für Dozenten in Lehrveranstaltungen
 *** DONE Verwaltung von Studienrichtungen
-*** TODO Anlegen eines neuen Geschäftsjahres
+*** DONE Anlegen eines neuen Geschäftsjahres
 *** TODO Sicherheitsabfragen zum Beispiel beim Löschen von Moduln oder Manipel
 *** TODO Sicherheitsabfrage für "Plane Quartal"
-*** TODO Die Änderung der Semesterzuordnung für Manipel
+*** DONE Die Änderung der Semesterzuordnung für Manipel
+**** geschieht über Studienrichtungen
 *** DONE Datensicherung
 **** DONE Dateianzeige reparieren
 ** DONE Git-Projekt anlegen
 *** DONE Github Pages nutzen
+** Hosting auf Dropbox untersuchen

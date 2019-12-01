@@ -6,7 +6,6 @@ goog.require('dep.model.manipel');
 goog.require('dep.model.modul');
 goog.require('dep.model.quartal');
 goog.require('dep.model.dozent');
-goog.require('dep.model.studienrichtung');
 goog.require('dep.helpers.manipelaussixx');
 goog.require('dep.helpers.moduleaussixx');
 goog.require('dep.helpers.drop_file_stream');

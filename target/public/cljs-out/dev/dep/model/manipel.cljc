@@ -1,17 +1,17 @@
 (ns dep.model.manipel
   (:require 
    [dep.model.quartal :refer [quartal->string sieben-semester->quartstrng minus
-                              ->Quartal string->quartal]]))
+                              ->Quartal string->quartal]]
+   [dep.model.studienrichtung :refer [studienrichtung-mit-namen]]))
 
 
 ;; Konstruktor
 (defn ->Manipel
-  "Erzeugt ein Manipel-'Objekt' (hash-map)"  
+  "Erzeugt ein Manipel-'Objekt' (hash-map)"
   [studienrichtung name studienbeginn
    anzahlGruppen jahrSemesterZuordnung]
   {:studienrichtung studienrichtung :name name :studienbeginn studienbeginn
    :anzahlGruppen anzahlGruppen :jahrSemesterZuordnung jahrSemesterZuordnung})
-
 
 ;; Planung
 (defn wirdUnterrichtetIn?
@@ -59,14 +59,16 @@
                                              (:jahrSemesterZuordnung %)))
         manipels))
 
-(defn aender-manipel [manipel aenderungen]
+(defn aender-manipel [studienrichtungen-namen manipel aenderungen]
   "Erzeugt ein neues Manipel aus den in aenderungen gegebenen Daten.
   ACHTUNG: Die Änderung der Semesterzuordnung fehlt noch."
   (->Manipel (:Studienrichtung aenderungen)
              (symbol (:Name aenderungen))
              (string->quartal (:Beginn aenderungen))
              (:An-Gr aenderungen)
-             (:jahrSemesterZuordnung manipel)))
+             (:quartal-Semester-Zuordnung
+              (studienrichtung-mit-namen
+               studienrichtungen-namen (:Studienrichtung aenderungen)))))
 
 (defn row [label input]
   "Komponente für eine Zeile im Bearbeitungsformular."
@@ -87,12 +89,11 @@
    (row "Semester 4" [:input {:read-only "readOnly" :field :text :id :Sem-4}])
    (row "Semester 5" [:input {:read-only "readOnly" :field :text :id :Sem-5}])
    (row "Semester 6" [:input {:read-only "readOnly" :field :text :id :Sem-6}])
-   (row "Semester 7" [:input {:read-only "readOnly" :field :text :id :Sem-7}])
-   ])
+   (row "Semester 7" [:input {:read-only "readOnly" :field :text :id :Sem-7}])])
 
 (defn manipel-verwaltung
   "Liefert die Infos für die Manipeltabelle und das Bearbeitungsformular."
-  [buttons]
+  [buttons studienrichtungen-namen]
   {:data (fn [s] [:manipels])
    :title "Manipel"
    :table-column-titles manipel-spalten
@@ -103,7 +104,7 @@
    :width "100%"
    :data-id :name
    :id-fn symbol
-   :dataset-exists-fn manipel-mit-namen
+   :dataset-exists-fn (partial aender-manipel studienrichtungen-namen)
    :update-fn aender-manipel}) 
 
 ;; Examples
@@ -132,3 +133,6 @@
                (->Quartal 2 2) 4 (->Quartal 4 2) 5 (->Quartal 3 3) 6
                (->Quartal 4 3) 7})
  (->Quartal 3 2018))
+
+(sieben-semester->quartstrng (->Quartal 4 0)
+                             {{:nr 1, :jahr 1} 1, {:nr 3, :jahr 1} 2, {:nr 1, :jahr 2} 3, {:nr 2, :jahr 2} 4, {:nr 4, :jahr 2} 5, {:nr 3, :jahr 3} 6, {:nr 4, :jahr 3} 7})

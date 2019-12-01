@@ -5,7 +5,7 @@
             [dep.model.modul  :refer [->Modul]]
             [dep.model.quartal :refer [quartale-fuer-jahr ->Quartal]]
             [dep.model.dozent  :refer [erzeuge-dozenten ]]
-            [dep.model.studienrichtung :refer [erzeuge-studienrichtungen]]
+            ;; [dep.model.studienrichtung :refer [erzeuge-studienrichtungen]]
             [dep.helpers.manipelaussixx :refer [manipel-aus-datei]]
             [dep.helpers.moduleaussixx :refer [module-aus-datei module-aus-sixx]]
             [dep.helpers.drop-file-stream :refer [list-folder]]
