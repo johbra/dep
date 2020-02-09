@@ -16,11 +16,12 @@
                  :manipels []
                  :studienrichtungen []
                  :dozenten []
-                 :geschaeftsjahr 2016
-                 :quartal (->Quartal 4 2015)
-                 :jahre [2016 2017 2018 2019]
-                 :lven {}
+                 :geschaeftsjahr 2020
+                 :quartal  (->Quartal 4 2019)
+                 :jahre [2020] 
+                 :lven [] 
                  }))
+
 
 ;; Einlesen von provisorischen Testdaten
 ;; (def moduls (atom []))

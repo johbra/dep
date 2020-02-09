@@ -24,8 +24,6 @@ dep.core.mount_app_element = (function dep$core$mount_app_element(){
 var temp__5457__auto__ = dep.core.get_app_element.call(null);
 if(cljs.core.truth_(temp__5457__auto__)){
 var el = temp__5457__auto__;
-dep.components.planung.initialisiere_planung.call(null,dep.state.WELT);
-
 return reagent.core.render.call(null,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [dep.core.dozenteneinsatzplanung,dep.state.WELT], null),el);
 } else {
 return null;

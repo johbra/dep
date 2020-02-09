@@ -1,6 +1,6 @@
 (ns dep.model.dozent
   (:require [dep.model.quartal :refer [geschaeftsjahreszahl ->Quartal]]
-            [dep.helpers.helpers :refer [round1]]))
+            [dep.helpers.helpers :refer [round1 input-frmctrl]]))
 
 
 ;; Konstruktor
@@ -63,58 +63,15 @@
   [dozenten string]
   (first (filter #(= (:name %) string) dozenten)))
 
-;; View
-(defn row [label input]
-  "Komponente für eine Zeile im Bearbeitungsformular."
-  [:div.row
-   [:div.col-md-3 [:label label]]
-   [:div.col-md-5 input]])
-
-(def dozent-form-template
-  "Komponente für das Bearbeitungsformular."
-  [:div
-   (row "Nachname" [:input {:field :text :id :Name}])
-   (row "Vorname" [:input {:field :text :id :Vorname}])
-   (row "ins Menü" [:input {:field :checkbox :id :ins-Menue}])
-   (row "Sollstunden" [:input {:field :numeric :id :Stundensoll}])])
-
 (def dozent-spalten-attribute
   "Zuordnung von Spaltenüberschriften zu Dozent-Attributen."
   {:Name :name, :Vorname :vorname, :ins-Menue :insMenue, :Stundensoll :sollStunden})
-
-(def dozent-spalten
-  "Die Spaltenüberschriften der Dozenttabelle."
-  [:Name :Vorname :ins-Menue :Stundensoll])
-
-(defn dozenten->table
-  "Wandelt die dozenten für die Darstellung als Tabelle um. "
-  [dozenten]
-  (mapv #(hash-map :Name (:name %)
-                   :Vorname (:vorname %)
-                   :ins-Menue (if (:insMenue %) "ja" "nein")
-                   :Stundensoll (:sollStunden %))
-        dozenten))
 
 (defn aender-dozent 
   "Erzeugt einen neuen Dozenten aus den in aenderungen gegebenen Daten."
   [dozent aenderungen]
   (merge dozent (clojure.set/rename-keys aenderungen dozent-spalten-attribute)))
 
-(defn dozenten-verwaltung
-  "Liefert die Infos für die Dozententabelle und das Bearbeitungsformular."
-  [buttons]
-  {:data (fn [s] [:dozenten])
-   :title "Dozenten"
-   :table-column-titles dozent-spalten
-   :table-row-fn dozenten->table
-   :table-key-column :Name
-   :edit-component dozent-form-template
-   :title-buttons {:modal-title "Dozent" :buttons buttons}
-   :width nil
-   :data-id :name
-   :id-fn identity
-   :dataset-exists-fn dozent-mit-namen
-   :update-fn aender-dozent})
 
 ;; Erzeugen von Beispieldaten
 (defn erzeuge-dozenten

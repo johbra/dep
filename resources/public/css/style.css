@@ -13,7 +13,7 @@
 
 /* CSS-Tables */
 .rTable {
-    width: 75%;
+    /* width: 75%; */
     font-family:   Georgia, "Times New Roman", Times, serif; 
     font-size:   small;
     max-height: 600px;

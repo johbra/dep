@@ -91,7 +91,7 @@
 (defn process-form
   "Funktion zur Ausführung der in einem modalen Formular ausgewählten action."
   [action form-dataset world world-key form-key key id-clicked-dataset
-   dataset-exists change-dataset] 
+   dataset-exists change-dataset]
   (let [id-form-dataset  (if (:Id form-dataset) (:Id form-dataset)
                              (form-key form-dataset))]
     (do (case action
@@ -148,9 +148,9 @@
 
 (defn table-ui
   "Komponente für die Darstellung einer sortierbaren Tabelle."
-  [cols table row-key table-state form click-action width] 
-  (let [rel (sorted-contents table-state table)]    
-    [:div.rTable {:style (when width {:width width})}
+  [cols table row-key table-state form click-action] 
+  (let [rel (sorted-contents table-state table)]
+    [:div.rTable 
      [:div.rTableHeading
       [:div.rTableRow
        (for [col cols]

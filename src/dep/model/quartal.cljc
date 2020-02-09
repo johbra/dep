@@ -60,12 +60,10 @@
 
 (defn sieben-semester->quartstrng
   "Liefert Quartals-Strings für die 7 Semester eines Manipels."
-  [stb jsz]
+  [stb jsz] 
   (apply merge (for [sem (range 1 8)]
                  {(keyword (str "Sem-" sem))
                   (quartal->string (semester->quartal sem stb jsz))})))
-
-
 
 ;; Examples
 ;; (geschaeftsjahreszahl (->Quartal 4 2017))

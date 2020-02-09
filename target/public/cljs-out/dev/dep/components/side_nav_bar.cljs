@@ -2,18 +2,13 @@
   (:require 
    [reagent.core :as r]
    [dep.components.datamanagement :refer [data-management]]
-   [dep.model.manipel :refer [manipel-verwaltung]]
-   [dep.model.dozent :refer [dozenten-verwaltung]]
-   [dep.model.studienrichtung :refer [studienrichtungen-verwaltung]]
-   [dep.model.modul :refer  [module-verwaltung]]
+   [dep.components.dozenten :refer [dozenten]]
+   [dep.components.module :refer [module]]   
+   [dep.components.studienrichtungen :refer [studienrichtungen]]
+   [dep.components.manipels :refer [manipels]]
    [dep.model.quartal :refer [quartale-fuer-jahr quartal->string string->quartal]]
    [dep.components.datensicherung :refer [datensicherung]]
    [dep.components.planung :refer [planung plane-quartal neuesGeschaeftjahr]]))
-
-(def default-buttons ;; für die Datenmanagement-Komponenten
-  [{:action nil :label "schließen"}
-   {:action :save :label "speichern"}
-   {:action :delete :label "entfernen"}])
 
 (defn set-value!
   "Setzt das WELT-Attribut id auf value."
@@ -45,21 +40,13 @@
   [welt]
   (if (:selected @welt)
     ((:selected @welt)  
-     {:manipel [data-management welt (manipel-verwaltung
-                                      default-buttons
-                                      (map :name (:studienrichtungen @welt)))] 
-      :module [data-management welt (module-verwaltung
-                                     [{:action nil :label "schließen"}
-                                      {:action :duplicate :label "duplizieren"}
-                                      {:action :save-per-id :label "speichern"}
-                                      {:action :delete :label "entfernen"}]
-                                     (map :name (:studienrichtungen @welt)))]
-      :dozenten [data-management welt (dozenten-verwaltung default-buttons)]
-      :studienrichtungen [data-management welt
-                          (studienrichtungen-verwaltung default-buttons)]
+     {:manipel [manipels welt]      
+      :module [module welt]
+      :dozenten [dozenten welt]
+      :studienrichtungen [studienrichtungen welt]
       :datensicherung [datensicherung welt]
       :hauptseite [planung welt]})
-    [planung welt]))
+    [planung welt])) 
 
 
 ;; Die drei folgenden Funktionen erzeugen eine "menu toggle" Schaltfläche
@@ -99,7 +86,8 @@
     "Geschäftsjahr:"
     [:select {:on-change
               #(do
-                 (set-value! welt :geschaeftsjahr (js/parseInt(-> % .-target .-value)))
+                 (set-value! welt :geschaeftsjahr
+                             (js/parseInt(-> % .-target .-value)))
                  (set-value! welt :quartal
                              (first (quartale-fuer-jahr (:geschaeftsjahr @welt)))))}
      (for [j (:jahre @welt)] 

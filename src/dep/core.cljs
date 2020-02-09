@@ -9,9 +9,9 @@
    [reagent.core :as r]   
    [dep.state :refer [WELT]]
    [dep.components.side-nav-bar :as bar]
-   [dep.components.planung :refer [planung initialisiere-planung aktualisiere-plan]]))
+   [dep.components.planung :refer [planung initialisiere-planung]]))
 
-(defn dozenteneinsatzplanung
+(defn dozenteneinsatzplanung 
   "Hauptkomponente der Dozenteneinsatzplanung."
   [welt] 
   [:div#wrapper {:class "d-flex"}
@@ -33,7 +33,7 @@
 
 (defn mount-app-element [] 
   (when-let [el (get-app-element)]
-    (initialisiere-planung WELT)
+    ;(initialisiere-planung WELT)
     (r/render [dozenteneinsatzplanung WELT] el)))
 
 ;; conditionally start your application based on the presence of an "app" element
