@@ -4,7 +4,6 @@ goog.require('cljs.core');
 goog.require('reagent.core');
 goog.require('potpuri.core');
 goog.require('dep.model.studienrichtung');
-goog.require('dep.model.quartal');
 goog.require('dep.components.datamanagement');
 goog.require('dep.helpers.helpers');
 dep.components.studienrichtungen.row = (function dep$components$studienrichtungen$row(label,input){
@@ -14,75 +13,25 @@ return new cljs.core.PersistentVector(null, 3, 5, cljs.core.PersistentVector.EMP
 /**
  * Komponente für das Bearbeitungsformular.
  */
-dep.components.studienrichtungen.studienrichtung_form_template = new cljs.core.PersistentVector(null, 9, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.components.studienrichtungen.row.call(null,"Bezeichnung",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820))),dep.components.studienrichtungen.row.call(null,"Semester 1",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Sem-1","Sem-1",1701521289))),dep.components.studienrichtungen.row.call(null,"Semester 2",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Sem-2","Sem-2",-296574083))),dep.components.studienrichtungen.row.call(null,"Semester 3",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Sem-3","Sem-3",1888976619))),dep.components.studienrichtungen.row.call(null,"Semester 4",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Sem-4","Sem-4",331149550))),dep.components.studienrichtungen.row.call(null,"Semester 5",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Sem-5","Sem-5",-1347053144))),dep.components.studienrichtungen.row.call(null,"Semester 6",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Sem-6","Sem-6",-134351187))),dep.components.studienrichtungen.row.call(null,"Semester 7",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Sem-7","Sem-7",305908823)))], null);
+dep.components.studienrichtungen.studienrichtung_form_template = new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"div","div",1057191632),dep.components.studienrichtungen.row.call(null,"Bezeichnung",dep.helpers.helpers.input_frmctrl.call(null,false,new cljs.core.Keyword(null,"text","text",-1790561697),new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820)))], null);
 /**
  * Erzeugt eine neue Studienrichtung aus den in aenderungen gegebenen Daten.
  */
 dep.components.studienrichtungen.aender_studienrichtung = (function dep$components$studienrichtungen$aender_studienrichtung(studienrichtung,aenderungen){
-var qsz = cljs.core.dissoc.call(null,aenderungen,new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820));
-var qsz__$1 = potpuri.core.map_vals.call(null,dep.model.quartal.string__GT_quartal,qsz);
-var qsz__$2 = clojure.set.map_invert.call(null,qsz__$1);
-var qsz__$3 = potpuri.core.map_vals.call(null,((function (qsz,qsz__$1,qsz__$2){
-return (function (p1__20203_SHARP_){
-return dep.model.quartal.parse_int.call(null,cljs.core.last.call(null,clojure.string.split.call(null,[cljs.core.str.cljs$core$IFn$_invoke$arity$1(p1__20203_SHARP_)].join(''),/-/)));
-});})(qsz,qsz__$1,qsz__$2))
-,qsz__$2);
-return cljs.core.assoc.call(null,studienrichtung,new cljs.core.Keyword(null,"quartal-semester-zuordnung","quartal-semester-zuordnung",1647659850),qsz__$3,new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820).cljs$core$IFn$_invoke$arity$1(aenderungen));
+return cljs.core.assoc.call(null,studienrichtung,new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820).cljs$core$IFn$_invoke$arity$1(aenderungen));
 });
 /**
  * Wandelt die studienrichtungen für die Darstellung als Tabelle um. 
  */
 dep.components.studienrichtungen.studienrichtungen__GT_table = (function dep$components$studienrichtungen$studienrichtungen__GT_table(studienrichtungen){
-return cljs.core.mapv.call(null,(function (p1__20204_SHARP_){
-return cljs.core.merge.call(null,cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__20204_SHARP_)]),dep.model.quartal.sieben_semester__GT_quartstrng.call(null,dep.model.quartal.__GT_Quartal.call(null,(4),(0)),new cljs.core.Keyword(null,"quartal-semester-zuordnung","quartal-semester-zuordnung",1647659850).cljs$core$IFn$_invoke$arity$1(p1__20204_SHARP_)));
+return cljs.core.mapv.call(null,(function (p1__18888_SHARP_){
+return cljs.core.PersistentHashMap.fromArrays([new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820)],[new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__18888_SHARP_)]);
 }),studienrichtungen);
 });
 /**
  * Die Spaltenüberschriften der Studienrichtungstabelle.
  */
-dep.components.studienrichtungen.studienrichtung_spalten = cljs.core.concat.call(null,new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820)], null),cljs.core.vec.call(null,(function (){var iter__4324__auto__ = (function dep$components$studienrichtungen$iter__20205(s__20206){
-return (new cljs.core.LazySeq(null,(function (){
-var s__20206__$1 = s__20206;
-while(true){
-var temp__5457__auto__ = cljs.core.seq.call(null,s__20206__$1);
-if(temp__5457__auto__){
-var s__20206__$2 = temp__5457__auto__;
-if(cljs.core.chunked_seq_QMARK_.call(null,s__20206__$2)){
-var c__4322__auto__ = cljs.core.chunk_first.call(null,s__20206__$2);
-var size__4323__auto__ = cljs.core.count.call(null,c__4322__auto__);
-var b__20208 = cljs.core.chunk_buffer.call(null,size__4323__auto__);
-if((function (){var i__20207 = (0);
-while(true){
-if((i__20207 < size__4323__auto__)){
-var sem = cljs.core._nth.call(null,c__4322__auto__,i__20207);
-cljs.core.chunk_append.call(null,b__20208,cljs.core.keyword.call(null,["Sem-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sem)].join('')));
-
-var G__20209 = (i__20207 + (1));
-i__20207 = G__20209;
-continue;
-} else {
-return true;
-}
-break;
-}
-})()){
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__20208),dep$components$studienrichtungen$iter__20205.call(null,cljs.core.chunk_rest.call(null,s__20206__$2)));
-} else {
-return cljs.core.chunk_cons.call(null,cljs.core.chunk.call(null,b__20208),null);
-}
-} else {
-var sem = cljs.core.first.call(null,s__20206__$2);
-return cljs.core.cons.call(null,cljs.core.keyword.call(null,["Sem-",cljs.core.str.cljs$core$IFn$_invoke$arity$1(sem)].join('')),dep$components$studienrichtungen$iter__20205.call(null,cljs.core.rest.call(null,s__20206__$2)));
-}
-} else {
-return null;
-}
-break;
-}
-}),null,null));
-});
-return iter__4324__auto__.call(null,cljs.core.range.call(null,(1),(8)));
-})()));
+dep.components.studienrichtungen.studienrichtung_spalten = new cljs.core.PersistentVector(null, 1, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"Bezeichnung","Bezeichnung",1945244820)], null);
 /**
  * Liefert die Infos für die Studienrichtungstabelle und das Bearbeitungsformular.
  */

@@ -1,11 +1,9 @@
 (ns dep.components.lehrveranstaltungen
   (:require [reagent.core :refer [atom]]
             [dep.components.dozentenauslastung
-             :refer [aktualisiere-plan ]] 
+             :refer [aktualisiere-dozentenauslastung ]] 
             [dep.model.lehrveranstaltung
-             :refer [->Lehrveranstaltung lehrveranstaltungen-fuer-quartal 
-                     lv-mit-id semesterWochenstunden semester]] 
-            [dep.model.dozent :refer [dozent-mit-namen initialisiereAuslastungenIn]] 
+             :refer [->Lehrveranstaltung lv-mit-id semesterWochenstunden semester]]
             [dep.components.datamanagement :refer [data-management]]
             [dep.helpers.helpers :refer [input-frmctrl]]))
 
@@ -37,7 +35,6 @@
   [:div.row
    [:label.col-sm-3 label]
    [:div.col-sm-9 input]])
-
 
 (defn lv-form-template 
   "Komponente für das Bearbeitungsformular."
@@ -77,7 +74,7 @@
   Quartals." 
   [welt]
   (fn [welt]
-    (let [_ (aktualisiere-plan welt)] 
+    (let [_ (aktualisiere-dozentenauslastung welt)] 
       [:div.container
        [data-management welt
         (lven-verwaltung [{:action nil :label "schließen"}
@@ -87,5 +84,3 @@
                          (map :name (:dozenten @welt))
                          (partial filter #(= (:quartal %) (:quartal @welt)))
                          )]])))
-
-

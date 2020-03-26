@@ -1,0 +1,32 @@
+* LoC-Berechnung
+
+| Datei                    | def's |  LoC |
+|--------------------------+-------+------|
+| core.cljs                |     4 |   50 |
+| state.cljs               |     1 |   20 |
+|--------------------------+-------+------|
+| datamanagement.cljs      |     2 |   80 |
+| datensicherung.cljs      |    11 |  105 |
+| dozenten.cljs            |     8 |   65 |
+| dozentenauslastung.cljs  |    10 |  100 |
+| lehrveranstaltungen.cljs |     7 |   85 |
+| manipels.cljs            |    10 |  110 |
+| module.cljs              |    10 |  100 |
+| planung.cljs             |    10 |  100 |
+| side-nav-bar.cljs        |     8 |  110 |
+| studienrichtungen.cljs   |     7 |   55 |
+|--------------------------+-------+------|
+| drop_file_stream.cljs    |     3 |   80 |
+| sortable_csstable.cljs   |    13 |  160 |
+| helpers.cljc             |     2 |   10 |
+|--------------------------+-------+------|
+| dozent.cljc              |    11 |   65 |
+| lehrveranstaltung.cljc   |     8 |   65 |
+| manipel.cljc             |     6 |   45 |
+| modul.cljc               |     5 |   45 |
+| quartal.cljc             |     7 |   65 |
+| studienrichtung.cljc     |     2 |   15 |
+|                          |       |      |
+|--------------------------+-------+------|
+|                          |   145 | 1530 |
+#+TBLFM: @24$2=vsum(@2..@23)::@24$3=vsum(@2..@23)

@@ -97,33 +97,30 @@ React-Komponenten im Browser.
 *** Zahlen
 Bei den in der Folge genannten Definitionen handelt es überwiegend um
 Funktionen ergänzt um ein paar Variablendefinitionen.
-+ Model: 5 cljc-Dateien mit 71 Definitionen; ca. 550 LoC
++ Model: 6 cljc-Dateien mit 39 Definitionen; ca. 300 LoC
 + Weboberfläche (cljs-Dateien):
-  + core.cljs - 4 Definitionen; 45 LoC
-  + state.cljs - 4 Definitionen; 40 LoC
-  + 5 Reagent-Komponenten mit 21 Definitionen; ca. 360 LoC
-  + 12 Hilfsfunktionen; ca. 230 LoC
+  + core.cljs - 4 Definitionen; 50 LoC
+  + state.cljs - 1 Definition; 20 LoC
+  + 10 Reagent-Komponenten mit 83 Definitionen; ca. 910 LoC
+  + 18 Hilfsfunktionen; ca. 250 LoC
 ** Vergleich der Eckdaten
 
 |            |     Smalltalk |      |     ClojureScript |      |
 |------------+---------------+------+-------------------+------|
 |            | Anz. Methoden |  LoC | Anz. Definitionen |  LoC |
 |------------+---------------+------+-------------------+------|
-| Model      |           220 | 1500 |                71 |  550 |
-| Oberfläche |           199 | 2600 |                47 |  675 |
+| Model      |           220 | 1500 |                39 |  300 |
+| Oberfläche |           199 | 2600 |               106 | 1230 |
 |------------+---------------+------+-------------------+------|
-| Summe LoC  |               | 4100 |                   | 1225 |
+| Summe LoC  |               | 4100 |                   | 1530 |
 |------------+---------------+------+-------------------+------|
 
 Selbst wenn man berücksichtigt, dass
 + der ClojureScript-Variante noch ein paar Kleinigkeiten fehlen (Der
   aktuelle Prototyp kann unter https://johbra.github.io/dep/ besichtigt
   werden), so z.\nbsp{}B. 
-  + eine Auswahlbox für Dozenten in Lehrveranstaltungen,
-  + das Anlegen eines neuen Geschäftsjahres,
   + ein paar Sicherheitsabfragen z.\nbsp{}B. beim Löschen von Moduln
     oder Manipeln oder der Neuplanung eines Quartals sowie
-  + der Änderung der Semesterzuordnung für Manipel
 + ein Redesign der Smalltalk-Variante hier und dort Einsparungen
   erbringen könnte,
 dürfte die Smalltalk-Variante sicherlich um den Faktor 2 bezogen auf
@@ -145,7 +142,7 @@ erstellende Anwendung die Java-Interoperabilität von besonderer
 Bedeutung ist.
 
 Der Beschränkung auf die grundständigen Clojure-Datenstrukturen (Neben
-den Hashmaps ist noch von Vektoren Gebrauch gemacht) worden, hat auch bei
+den Hashmaps ist noch von Vektoren Gebrauch gemacht.) worden, hat auch bei
 der Implementierung der Dozenteneinsatzplanung keinerlei
 Schwierigkeiten bereitet. Im Gegenteil bietet die Vorgehensweise
 einige Vorteile:
@@ -189,7 +186,7 @@ zwischen den Objekte programmtechnisch bequem navigiert werden.
 
 Allerdings hat dies zur Folge, dass dem Anwender nicht so ohne
 weiteres gestattet werden kann, z.\nbsp{}B. ein nach aktuellen
-Studienplänen nicht mehr gültiges Modul zu löschen, solange des noch
+Studienplänen nicht mehr gültiges Modul zu löschen, solange es noch
 Lehrveranstaltungs-Objekte gibt, die auf das Modul verweisen. Der
 Benutzer bekommt daher den Hinweis, dass das Modul nicht gelöscht werden
 kann, solange es noch Lehrveranstaltungen gibt, die den Modul-Verweis
@@ -304,11 +301,10 @@ die der Bindungsmechanismus nach Belieben ausgestaltet werden kann.
 
 Hier gibt es eigentlich nichts Bedeutendes zu berichten. Aber wenn
 auch die Arbeit mit der REPL einen dynamischen und produktiven
-Entwicklungsprozess erlaubt, so ist dem
-Autor zum wiederholten Male deutlich geworden, dass die
-Leistungsfähigkeit einer Smalltalk-Entwicklungsumgebung, wie sie von
-VisualWorks oder Pharo bereitgestellt wird, unerreicht ist.
-
+Entwicklungsprozess erlaubt, so ist dem Autor zum wiederholten Male
+deutlich geworden, dass die Leistungsfähigkeit einer
+Smalltalk-Entwicklungsumgebung, wie sie von VisualWorks oder Pharo
+bereitgestellt wird, unerreicht ist.
 
 # Like the creators of sitcoms or junk food or package tours, Java's
 # designers were consciously designing a product for people not as smart
@@ -323,5 +319,3 @@ VisualWorks oder Pharo bereitgestellt wird, unerreicht ist.
 + Object oriented programs are offered as alternatives to correct ones…
   
   Edsger W. Dijkstra, pioneer of computer science
-
-

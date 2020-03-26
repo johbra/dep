@@ -9,9 +9,9 @@
 + Gel. Dozent wird in Lven weiterhin angezeigt.
 + beim Ändern einer Lv mit gelöschten Dozent muss in der Dozentauswahl
   die Selektion betätigt werden.
+**** Beim Ändern von Manipeln prüfen der Plausibilität der Jahrsemesterzuordnung
 *** TODO Sicherheitsabfrage für "Plane Quartal"
 *** DONE Die Änderung der Semesterzuordnung für Manipel
-**** geschieht über Studienrichtungen
 *** DONE Datensicherung
 **** DONE Dateianzeige reparieren
 ** DONE Git-Projekt anlegen

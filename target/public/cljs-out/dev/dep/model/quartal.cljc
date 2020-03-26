@@ -2,6 +2,7 @@
 
 ;; Konstruktor
 (defn ->Quartal [nr jahr]
+  "Erzeugt ein Quartalsexemplar."
   {:pre [(contains? #{1 2 3 4} nr)]}
   {:nr nr :jahr jahr})
 

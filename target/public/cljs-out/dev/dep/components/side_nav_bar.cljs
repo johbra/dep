@@ -12,7 +12,7 @@
 
 (defn set-value!
   "Setzt das WELT-Attribut id auf value."
-  [welt id value] 
+  [welt id value]
   (swap! welt assoc id value))
 
 (defn sidebar
@@ -80,8 +80,7 @@
 (defn geschaeftjahr-quartal-form 
   "Die Auswahlboxen für Geschäftsjahr und Quartal und die Planungsschaltfläche."
   [welt]
-  [:div.row.col-lg-11
-                                        ;[:div.form-inline
+  [:div.row.col-lg-11   
    (input
     "Geschäftsjahr:"
     [:select {:on-change

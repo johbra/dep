@@ -1,6 +1,6 @@
 (ns dep.model.dozent
   (:require [dep.model.quartal :refer [geschaeftsjahreszahl ->Quartal]]
-            [dep.helpers.helpers :refer [round1 input-frmctrl]]))
+            [dep.helpers.helpers :refer [round1]]))
 
 
 ;; Konstruktor
@@ -49,29 +49,19 @@
   [dozent stunden quartal]
   (let [auslastungen-in-quartal
         ((:auslastungen dozent) (geschaeftsjahreszahl quartal))
-        index (if (= (:nr quartal) 4) 0 (:nr quartal))]""
-       (if auslastungen-in-quartal
-         (assoc-in dozent [:auslastungen (geschaeftsjahreszahl quartal)]
-                   (assoc auslastungen-in-quartal index (round1 stunden)))
-         #?(:clj (throw (Exception. (str "Geschäftsjahr existiert nicht: "
-                                         (geschaeftsjahreszahl quartal))))
-            :cljs (throw (js/Error. (str "Geschäftsjahr existiert nicht: "
-                                         (geschaeftsjahreszahl quartal))))))))
+        index (if (= (:nr quartal) 4) 0 (:nr quartal))]
+    (if auslastungen-in-quartal
+      (assoc-in dozent [:auslastungen (geschaeftsjahreszahl quartal)]
+                (assoc auslastungen-in-quartal index (round1 stunden)))
+      #?(:clj (throw (Exception. (str "Geschäftsjahr existiert nicht: "
+                                      (geschaeftsjahreszahl quartal))))
+         :cljs (throw (js/Error. (str "Geschäftsjahr existiert nicht: "
+                                      (geschaeftsjahreszahl quartal))))))))
 
 (defn dozent-mit-namen
   "Liefert den Dozenten mit dem Namen string aus der Liste dozenten."
   [dozenten string]
   (first (filter #(= (:name %) string) dozenten)))
-
-(def dozent-spalten-attribute
-  "Zuordnung von Spaltenüberschriften zu Dozent-Attributen."
-  {:Name :name, :Vorname :vorname, :ins-Menue :insMenue, :Stundensoll :sollStunden})
-
-(defn aender-dozent 
-  "Erzeugt einen neuen Dozenten aus den in aenderungen gegebenen Daten."
-  [dozent aenderungen]
-  (merge dozent (clojure.set/rename-keys aenderungen dozent-spalten-attribute)))
-
 
 ;; Erzeugen von Beispieldaten
 (defn erzeuge-dozenten

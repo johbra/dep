@@ -1,6 +1,6 @@
 (ns dep.components.dozenten
   (:require [reagent.core :refer [atom]]
-            [dep.model.dozent :refer [dozent-mit-namen aender-dozent]]
+            [dep.model.dozent :refer [dozent-mit-namen]]
             [dep.components.datamanagement :refer [data-management]]
             [dep.helpers.helpers :refer [input-frmctrl]]))
 
@@ -32,6 +32,14 @@
    (row "ins Menü"    (input-frmctrl false :checkbox :insMenue))
    (row "Sollstunden" (input-frmctrl false :numeric :Stundensoll))])
 
+(def dozent-spalten-attribute
+  "Zuordnung von Spaltenüberschriften zu Dozent-Attributen."
+  {:Name :name, :Vorname :vorname, :ins-Menue :insMenue, :Stundensoll :sollStunden})
+
+(defn aender-dozent 
+  "Erzeugt einen neuen Dozenten aus den in aenderungen gegebenen Daten."
+  [dozent aenderungen]
+  (merge dozent (clojure.set/rename-keys aenderungen dozent-spalten-attribute)))
 
 (defn dozenten-verwaltung
   "Liefert die Infos für die Dozententabelle und das Bearbeitungsformular."

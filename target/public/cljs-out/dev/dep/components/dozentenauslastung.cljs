@@ -54,31 +54,40 @@
    (map (fn [lv] (lvStunden lv))
         (filter #(= (:dozent %) doz-nam) lven))))
 
-(defn dozentenstunden
+(defn dozentenstunden-quartal
   "Ermittelt die Unterrichtstunden für jeden Dozenten aus dozenten für die
-  Lehrveranstaltungen in lvn"
+  Lehrveranstaltungen in lvn für das quartal"
   [lvn dozenten quartal] 
   (mapv #(schreiben-stunden-auf-quartal
           %
           (lvstunden-dozent (filter (fn [lv] (= (:quartal lv) quartal)) lvn)
                             (:name %))
           quartal)
-        dozenten)) 
+        dozenten))
+
+(defn dozentenstunden-jahr
+  "Ermittelt die Unterrichtstunden für jeden Dozenten aus dozenten für die
+  Lehrveranstaltungen in lvn für ein Geschäftsjahr"
+  [lvn dozenten jahr]   
+  (for [d dozenten]
+    (assoc-in d [:auslastungen jahr]
+              (mapv 
+               #(lvstunden-dozent (filter (fn [lv] (= (:quartal lv) %)) lvn)
+                                  (:name d)) 
+               (quartale-fuer-jahr jahr)))))
 
 (defn lven-fuer-aktuelles-geschaeftsjahr
   "Ermittelt alle Lehrveranstaltungen des aktuellen Geschäftsjahrs"
   [lvn jahr]
-  (let [quartale (quartale-fuer-jahr jahr)
-        lven (into
-              []
-              (reduce concat []
-                      (mapv (fn [q] (filter #(= (:quartal %) q) lvn)) quartale)))]
-    lven))
+  (let [quartale (quartale-fuer-jahr jahr)]
+    (into
+     []
+     (mapcat (fn [q] (filter #(= (:quartal %) q) lvn)) quartale))))
 
-(defn aktualisiere-plan
+(defn aktualisiere-dozentenauslastung 
   "Nach Änderungen an der Lv-Planung wird die Dozentenauslastung neu berechnet."
   [welt] 
-  (let [dzntn (dozentenstunden 
+  (let [dzntn (dozentenstunden-quartal 
                (lven-fuer-aktuelles-geschaeftsjahr
                 (:lven @welt) (:geschaeftsjahr @welt))
                (:dozenten @welt)
@@ -86,8 +95,8 @@
     (swap! welt assoc :dozenten dzntn))
   ) 
 
-
 (defn dozentenauslastung
+  "Komponente für die Anzeige der Dozentenauslastung."
   [welt] 
   [:div.container 
    [data-management welt (dozenten-anzeige welt)]])

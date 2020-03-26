@@ -1,10 +1,8 @@
 (ns dep.components.manipels
   (:require [reagent.core :refer [atom]]
             [potpuri.core :as p]
-            [dep.model.manipel
-             :refer [->Manipel manipel-mit-namen]]
+            [dep.model.manipel :refer [->Manipel manipel-mit-namen]]
             [dep.components.datamanagement :refer [data-management]]
-            [dep.model.studienrichtung :refer [studienrichtung-mit-namen]]
             [dep.model.quartal
              :refer [quartal->string string->quartal sieben-semester->quartstrng
                      parse-int]]
@@ -28,16 +26,16 @@
 (defn formular-daten->jahr-semester-zuordung
   "erzeugt aus den Strings des Formulars eine jahrsemesterzuordnung"
   [formulardaten]
-  (let [jsz (select-keys formulardaten (for [i (range 1 8)] (keyword (str "Sem-" i))))
-        jsz (->> jsz
-                 (p/map-vals string->quartal)
-                 (clojure.set/map-invert) 
-                 (p/map-vals #(parse-int (last (clojure.string/split (str %) #"-")))) 
-                 (p/map-keys
-                  #(assoc % :jahr
-                          (- (:jahr %)
-                             (:jahr (string->quartal(:Beginn formulardaten)))))))]
-    jsz))
+  (let
+      [jsz (select-keys formulardaten (for [i (range 1 8)] (keyword (str "Sem-" i))))]
+    (->> jsz
+         (p/map-vals string->quartal)
+         (clojure.set/map-invert) 
+         (p/map-vals #(parse-int (last (clojure.string/split (str %) #"-")))) 
+         (p/map-keys
+          #(assoc % :jahr
+                  (- (:jahr %)
+                     (:jahr (string->quartal(:Beginn formulardaten)))))))))
 
 (defn aender-manipel 
   "Erzeugt ein neues Manipel aus den in aenderungen gegebenen Daten."

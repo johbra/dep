@@ -13,8 +13,8 @@ return new cljs.core.PersistentArrayMap(null, 5, [new cljs.core.Keyword(null,"na
  * Initialisiert die Auslastungen für dozent in den geschaeftsjahren.
  */
 dep.model.dozent.initialisiereAuslastungenIn = (function dep$model$dozent$initialisiereAuslastungenIn(dozent,geschaeftsjahre){
-return cljs.core.assoc.call(null,dozent,new cljs.core.Keyword(null,"auslastungen","auslastungen",-1035018324),cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,(function (p1__20242_SHARP_){
-return cljs.core.PersistentHashMap.fromArrays([p1__20242_SHARP_],[new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),(0),(0),(0)], null)]);
+return cljs.core.assoc.call(null,dozent,new cljs.core.Keyword(null,"auslastungen","auslastungen",-1035018324),cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.map.call(null,(function (p1__18422_SHARP_){
+return cljs.core.PersistentHashMap.fromArrays([p1__18422_SHARP_],[new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [(0),(0),(0),(0)], null)]);
 }),geschaeftsjahre)));
 });
 /**
@@ -52,7 +52,6 @@ return dep.helpers.helpers.round1.call(null,cljs.core.reduce.call(null,cljs.core
 dep.model.dozent.schreiben_stunden_auf_quartal = (function dep$model$dozent$schreiben_stunden_auf_quartal(dozent,stunden,quartal){
 var auslastungen_in_quartal = new cljs.core.Keyword(null,"auslastungen","auslastungen",-1035018324).cljs$core$IFn$_invoke$arity$1(dozent).call(null,dep.model.quartal.geschaeftsjahreszahl.call(null,quartal));
 var index = ((cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"nr","nr",289850932).cljs$core$IFn$_invoke$arity$1(quartal),(4)))?(0):new cljs.core.Keyword(null,"nr","nr",289850932).cljs$core$IFn$_invoke$arity$1(quartal));
-
 if(cljs.core.truth_(auslastungen_in_quartal)){
 return cljs.core.assoc_in.call(null,dozent,new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [new cljs.core.Keyword(null,"auslastungen","auslastungen",-1035018324),dep.model.quartal.geschaeftsjahreszahl.call(null,quartal)], null),cljs.core.assoc.call(null,auslastungen_in_quartal,index,dep.helpers.helpers.round1.call(null,stunden)));
 } else {
@@ -63,19 +62,9 @@ throw (new Error(["Gesch\u00E4ftsjahr existiert nicht: ",cljs.core.str.cljs$core
  * Liefert den Dozenten mit dem Namen string aus der Liste dozenten.
  */
 dep.model.dozent.dozent_mit_namen = (function dep$model$dozent$dozent_mit_namen(dozenten,string){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__20243_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__20243_SHARP_),string);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__18423_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__18423_SHARP_),string);
 }),dozenten));
-});
-/**
- * Zuordnung von Spaltenüberschriften zu Dozent-Attributen.
- */
-dep.model.dozent.dozent_spalten_attribute = new cljs.core.PersistentArrayMap(null, 4, [new cljs.core.Keyword(null,"Name","Name",-131211369),new cljs.core.Keyword(null,"name","name",1843675177),new cljs.core.Keyword(null,"Vorname","Vorname",327484912),new cljs.core.Keyword(null,"vorname","vorname",-451998086),new cljs.core.Keyword(null,"ins-Menue","ins-Menue",-1215736250),new cljs.core.Keyword(null,"insMenue","insMenue",723765954),new cljs.core.Keyword(null,"Stundensoll","Stundensoll",2136971867),new cljs.core.Keyword(null,"sollStunden","sollStunden",-1175543891)], null);
-/**
- * Erzeugt einen neuen Dozenten aus den in aenderungen gegebenen Daten.
- */
-dep.model.dozent.aender_dozent = (function dep$model$dozent$aender_dozent(dozent,aenderungen){
-return cljs.core.merge.call(null,dozent,clojure.set.rename_keys.call(null,aenderungen,dep.model.dozent.dozent_spalten_attribute));
 });
 dep.model.dozent.erzeuge_dozenten = (function dep$model$dozent$erzeuge_dozenten(){
 return new cljs.core.PersistentVector(null, 4, 5, cljs.core.PersistentVector.EMPTY_NODE, [dep.model.dozent.__GT_Dozent.call(null,"Gans","Gustav",cljs.core.PersistentArrayMap.EMPTY,true,(600)),dep.model.dozent.__GT_Dozent.call(null,"Duck","Donald",cljs.core.PersistentArrayMap.EMPTY,true,(500)),dep.model.dozent.__GT_Dozent.call(null,"D\u00FCsentrieb","Daniel",cljs.core.PersistentArrayMap.EMPTY,true,(600)),dep.model.dozent.__GT_Dozent.call(null,"NN","NN",cljs.core.PersistentArrayMap.EMPTY,false,(0))], null);

@@ -1,4 +1,4 @@
-% Created 2019-08-28 Wed 14:14
+% Created 2020-03-26 Thu 18:50
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -13,7 +13,9 @@
 \usepackage{textcomp}
 \usepackage{amssymb}
 \usepackage{capt-of}
+\usepackage[greek, ngerman, english]{babel}
 \usepackage{hyperref}
+\usepackage{minted}
 \author{Johannes Brauer}
 \date{\today}
 \title{Portierung der Dozenteneinsatzplanung\\\medskip
@@ -23,13 +25,13 @@
  pdftitle={Portierung der Dozenteneinsatzplanung},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 25.3.50.1 (Org mode 9.2.5)}, 
+ pdfcreator={Emacs 25.3.50.1 (Org mode 9.3.2)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 \section*{Warum?}
-\label{sec:org979a519}
+\label{sec:org6ae1840}
 Im Rahmen der Diskussionsrunde \emph{Wozu brauchen wir OOP?}, die auf dem
 Pamphlet mit dem Titel \href{https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0}{Brauchen wir objektorientierte Programmierung?}
 basierte, wurde vereinbart, dass der Autor versucht, die Erfahrungen, die in
@@ -44,7 +46,7 @@ der NAK benutzte Dozenteneinsatzplanung gewählt. Dabei sollte
 insbesondere auch die Erstellung einer Web-Oberfläche einbezogen
 werden, auf die bei der NoNopoly-Portierung verzichtet wurde.
 \section*{Ausgangspunkt}
-\label{sec:orge7ee835}
+\label{sec:org9624157}
 Die Dozenteneinsatzplanung in der heute im Fachbereich benutzen Form
 ist um 2004 in einer ersten Fassung mit VisualWorks-Smalltalk
 entstanden. Sie ist nach dem Model-View-Controller-Prinzip entwickelt
@@ -57,24 +59,24 @@ an den Model-Klassen vollzogen werden.
 Der letzte größere Entwicklungsschritt war dann die Portierung nach
 Pharo-Smalltalk (open source).
 \subsubsection*{Eckdaten der Smalltalk-Version}
-\label{sec:orgb27fc60}
+\label{sec:orgafbb9fc}
 \begin{itemize}
 \item 8 Model-Klassen mit ca. 220 Methoden; ca. 1500 LoC
 \item keine Hierarchie unter den Model-Klassen
 \item 19 Seaside-Klassen (Komponenten) mit 199 Methoden; ca. 2600 LoC
 \end{itemize}
 \section*{Ziel}
-\label{sec:org413ab4c}
+\label{sec:org137cd80}
 Wesentliche Komponenten der Dozenteneinsatzplanung sollten von
 Smalltalk (Pharo) nach Clojure/ClojureScript (s.~u.) portiert werden.
 \section*{Zur Wahl der Zielsprache}
-\label{sec:org849b6e5}
+\label{sec:org4f74e09}
 Die Begründung, als funktionale Sprache Clojure(script) zu verwenden,
 ist hauptsächlich in den Vorkenntnisse des Autors zu sehen. Ein
 irgendwie geartetes Auswahlverfahren hat nicht stattgefunden, wenn man
 von einigen Versuchen mit der Sprache \emph{\href{https://elm-lang.org}{Elm}} absieht.
 \subsection*{Exkurs: Stichworte zu den Versuchen mit \href{https://elm-lang.org}{Elm}}
-\label{sec:org8d95680}
+\label{sec:orga462a3a}
 \begin{itemize}
 \item Eigenschaften:
 \begin{itemize}
@@ -89,17 +91,17 @@ etwas ausprobieren“ ist nicht möglich.
 \item Diskussion über die Architektur größerer Elm-Anwendungen im vollen Gange
 \item Elm noch nicht sehr stabil
 \item Ein Minibeispiel für eine Dozenten-Pflege existiert: \href{./Dozent-V0.elm}{Quelltext}
-\begin{verbatim}
+\begin{minted}[]{sh}
     cd /Users/jb/Dropbox/elm/dep 
     elm reactor
     ... Go to <http://localhost:8000> to see your project dashboard.
-\end{verbatim}
+\end{minted}
 \end{itemize}
 \end{itemize}
 \subsection*{Eckdaten der Clojure/ClojureScript-Version}
-\label{sec:orge31df31}
+\label{sec:org387cef8}
 \subsubsection*{Vorbemerkung zu Clojure vs. ClojureScript}
-\label{sec:org27de1e0}
+\label{sec:org8e9fbe2}
 \href{https://clojure.org}{Clojure} ist ein Lisp-Dialekt, der auf der JVM läuft. \href{https://clojurescript.org}{ClojureScript}
 hingegen ist ein Compiler für Clojure, der nach JavaScript übersetzt.
 Die erste Idee für die Portierung der Dozenteneinsatzplanung bestand
@@ -117,7 +119,7 @@ für den Model-Part konnten dabei im Wesentlichen unverändert übernommen
 werden. (Die Dateiendungen müssen von .clj in .cljc geändert werden.)
 
 \subsubsection*{Web-Technologie}
-\label{sec:orgc6af341}
+\label{sec:org047a50e}
 Für die Entwicklung der Single-Page-Application lag es nun nahe, diese
 nach dem Konzept des \emph{\href{https://en.wikipedia.org/wiki/Functional\_reactive\_programming}{Functional Reactive Programming}} zu bauen. Für
 JavaScript gibt es dafür verschiedene Bibliotheken (z.~B. \href{https://reactjs.org}{React},
@@ -135,21 +137,21 @@ speichern. Sollte sich durch Benutzer-Interkation dieser Zustand
 React-Komponenten im Browser. 
 
 \subsubsection*{Zahlen}
-\label{sec:org9946ac7}
+\label{sec:org2165500}
 Bei den in der Folge genannten Definitionen handelt es überwiegend um
 Funktionen ergänzt um ein paar Variablendefinitionen.
 \begin{itemize}
-\item Model: 5 cljc-Dateien mit 71 Definitionen; ca. 550 LoC
+\item Model: 6 cljc-Dateien mit 39 Definitionen; ca. 300 LoC
 \item Weboberfläche (cljs-Dateien):
 \begin{itemize}
-\item core.cljs - 4 Definitionen; 45 LoC
-\item state.cljs - 4 Definitionen; 40 LoC
-\item 5 Reagent-Komponenten mit 21 Definitionen; ca. 360 LoC
-\item 12 Hilfsfunktionen; ca. 230 LoC
+\item core.cljs - 4 Definitionen; 50 LoC
+\item state.cljs - 1 Definition; 20 LoC
+\item 10 Reagent-Komponenten mit 83 Definitionen; ca. 910 LoC
+\item 18 Hilfsfunktionen; ca. 250 LoC
 \end{itemize}
 \end{itemize}
 \subsection*{Vergleich der Eckdaten}
-\label{sec:org29abe02}
+\label{sec:orga038923}
 
 \begin{center}
 \begin{tabular}{lrrrr}
@@ -157,10 +159,10 @@ Funktionen ergänzt um ein paar Variablendefinitionen.
 \hline
  & Anz. Methoden & LoC & Anz. Definitionen & LoC\\
 \hline
-Model & 220 & 1500 & 71 & 550\\
-Oberfläche & 199 & 2600 & 47 & 675\\
+Model & 220 & 1500 & 39 & 300\\
+Oberfläche & 199 & 2600 & 106 & 1230\\
 \hline
-Summe LoC &  & 4100 &  & 1225\\
+Summe LoC &  & 4100 &  & 1530\\
 \hline
 \end{tabular}
 \end{center}
@@ -171,11 +173,8 @@ Selbst wenn man berücksichtigt, dass
 aktuelle Prototyp kann unter \url{https://johbra.github.io/dep/} besichtigt
 werden), so z.~B. 
 \begin{itemize}
-\item eine Auswahlbox für Dozenten in Lehrveranstaltungen,
-\item das Anlegen eines neuen Geschäftsjahres,
 \item ein paar Sicherheitsabfragen z.~B. beim Löschen von Moduln
 oder Manipeln oder der Neuplanung eines Quartals sowie
-\item der Änderung der Semesterzuordnung für Manipel
 \end{itemize}
 \item ein Redesign der Smalltalk-Variante hier und dort Einsparungen
 erbringen könnte,
@@ -184,7 +183,7 @@ dürfte die Smalltalk-Variante sicherlich um den Faktor 2 bezogen auf
 die LoC größer bleiben.
 
 \section*{Erfahrungen mit Clojure/ClojureScript}
-\label{sec:orgf35563c}
+\label{sec:org9510fa9}
 Wie bereits in \href{https://www.dropbox.com/s/36vsbdk1bn4w17o/oop-wozu.pdf?dl=0}{Brauchen wir objektorientierte Programmierung?}
 ausgeführt, lautet die Standard-Antwort von Clojure-Entwicklern
 bezüglich der Frage „Was machen wir mit den Objekten/Klassen?“: Man
@@ -200,7 +199,7 @@ erstellende Anwendung die Java-Interoperabilität von besonderer
 Bedeutung ist.
 
 Der Beschränkung auf die grundständigen Clojure-Datenstrukturen (Neben
-den Hashmaps ist noch von Vektoren Gebrauch gemacht) worden, hat auch bei
+den Hashmaps ist noch von Vektoren Gebrauch gemacht.) worden, hat auch bei
 der Implementierung der Dozenteneinsatzplanung keinerlei
 Schwierigkeiten bereitet. Im Gegenteil bietet die Vorgehensweise
 einige Vorteile:
@@ -240,7 +239,7 @@ Lehrveranstaltungen) erstellt, „auf die Spitze getrieben worden“, was
 dazu führte, dass die Funktion zwar kompakt aber auch sehr komplex
 ist.
 \subsection*{Objektgeflechte}
-\label{sec:org009efe7}
+\label{sec:org220f75f}
 Bei der Entwicklung der Smalltalk-Variante schien es dem Autor
 naheliegend, immer wieder mit Objektgeflechten zu arbeiten. So hat ein
 Lehrveranstaltungs-Objekt je einen Verweis auf ein Dozenten-, ein
@@ -249,7 +248,7 @@ zwischen den Objekte programmtechnisch bequem navigiert werden.
 
 Allerdings hat dies zur Folge, dass dem Anwender nicht so ohne
 weiteres gestattet werden kann, z.~B. ein nach aktuellen
-Studienplänen nicht mehr gültiges Modul zu löschen, solange des noch
+Studienplänen nicht mehr gültiges Modul zu löschen, solange es noch
 Lehrveranstaltungs-Objekte gibt, die auf das Modul verweisen. Der
 Benutzer bekommt daher den Hinweis, dass das Modul nicht gelöscht werden
 kann, solange es noch Lehrveranstaltungen gibt, die den Modul-Verweis
@@ -269,7 +268,7 @@ auf direkte Objektverweise verzichten. Aber wäre das nicht ein
 weiteres Argument dafür, auf Objekte zu verzichten?
 
 \subsection*{Web-Oberfläche}
-\label{sec:orgd8a178f}
+\label{sec:orge76b0c0}
 Bei der Erstellung der Web-Oberfläche unter Verwendung der Bibliothek
 Reagent kann natürlich nicht im engeren Sinne von einer Portierung der
 Smalltalk-Seaside-Oberfläche gesprochen werden. Dafür sind die
@@ -292,7 +291,7 @@ HTML in Clojure-Syntax aufzuschreiben. HTML-Tags werden als Vektoren
 und Attribute als Hashmaps aufgeschrieben.
 
 \section*{Vorläufiges Fazit (sehr vorläufig)}
-\label{sec:org779759d}
+\label{sec:org23a0823}
 Der Autor hat sich im Verlauf der Arbeiten an der Portierung gefragt,
 welches der die Objektorientierung kennzeichnenden Prinzipien
 (Klassenprinzip, Kapselung, Polymorhie und Vererbung) er vielleicht in
@@ -313,7 +312,7 @@ ist durchaus denkbar, dass in einem anderen Kontext -- z.~B. in
 einer Simulation, bei der man vielleicht reale Objekte im Rechner
 rekonstruieren möchte -- andere Erkenntnisse gewonnen werden könnten.
 \subsection*{Kapselung}
-\label{sec:org9bf0d36}
+\label{sec:org6464970}
 Kapselung von Strukturdetails von Hashmaps ist in der funktionalen
 Programmierung generell und auch in Clojure/ClojureScript kein
 Thema. Begrenzungen der Sichtbarkeit von Definitionen sind an
@@ -321,7 +320,7 @@ Modulgrenzen möglich. Davon wurde in der Dozenteneinsatzplanung aber
 kein Gebrauch gemacht.
 
 \subsection*{Klassen, Vererbung}
-\label{sec:orga26c071}
+\label{sec:org0ee5930}
 Wie oben bereits erläutert, sind Klassen als Baupläne für Objekte
 vollkommen entbehrlich. Zu der Frage, ob Klassen als Elemente von
 Hierarchien nützlich sind, liefert die Portierung keine Anhaltspunkte,
@@ -351,7 +350,7 @@ von OOP:
 \end{itemize}
 
 \subsection*{Polymorphie}
-\label{sec:org1a482f0}
+\label{sec:orgf71734a}
 Die gängigen objektorientierten Sprachen kennen dynamische Bindung nur
 in der primitiven Form der Unterklassen-Polymorphie. Da in den
 Model-Klassen der Smalltalk-Variante keine Klassenhierarchien
@@ -368,20 +367,20 @@ eine Multimethod \texttt{f} mit einer Dispatcher-Funktion ausgestattet, über
 die der Bindungsmechanismus nach Belieben ausgestaltet werden kann.
 
 \subsection*{Entwicklungswerkzeuge}
-\label{sec:orga40a768}
+\label{sec:org93ef10d}
 
 Hier gibt es eigentlich nichts Bedeutendes zu berichten. Aber wenn
 auch die Arbeit mit der REPL einen dynamischen und produktiven
-Entwicklungsprozess erlaubt, so ist dem
-Autor zum wiederholten Male deutlich geworden, dass die
-Leistungsfähigkeit einer Smalltalk-Entwicklungsumgebung, wie sie von
-VisualWorks oder Pharo bereitgestellt wird, unerreicht ist.
+Entwicklungsprozess erlaubt, so ist dem Autor zum wiederholten Male
+deutlich geworden, dass die Leistungsfähigkeit einer
+Smalltalk-Entwicklungsumgebung, wie sie von VisualWorks oder Pharo
+bereitgestellt wird, unerreicht ist.
 \section*{Zum Schluss \ldots{}}
-\label{sec:orgbcf11e0}
+\label{sec:org04c2325}
 \ldots{} noch zwei „Zitate”: 
 \begin{itemize}
 \item \begin{center}
-\includegraphics[width=.5\linewidth]{./problemfactory.jpeg}
+\includegraphics[width=.9\linewidth]{./problemfactory.jpeg}
 \end{center}
 \item Object oriented programs are offered as alternatives to correct ones…
 

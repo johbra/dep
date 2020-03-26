@@ -20,8 +20,8 @@ return cljs.core.contains_QMARK_.call(null,new cljs.core.Keyword(null,"jahrSemes
  *   zu unterrichten sind.
  */
 dep.model.manipel.zu_unterrichtende_manipels_quartal = (function dep$model$manipel$zu_unterrichtende_manipels_quartal(manipels,quartal){
-return cljs.core.filter.call(null,(function (p1__19771_SHARP_){
-return dep.model.manipel.wirdUnterrichtetIn_QMARK_.call(null,p1__19771_SHARP_,quartal);
+return cljs.core.filter.call(null,(function (p1__18390_SHARP_){
+return dep.model.manipel.wirdUnterrichtetIn_QMARK_.call(null,p1__18390_SHARP_,quartal);
 }),manipels);
 });
 /**
@@ -40,16 +40,16 @@ return (0);
  * Bestimmt aus der jahrsemesterzuordnung eines Manipels das Quartal eines Semesters
  */
 dep.model.manipel.quartal_aus_jsz_fuer_semester = (function dep$model$manipel$quartal_aus_jsz_fuer_semester(jsz,semester){
-return cljs.core.key.call(null,cljs.core.first.call(null,cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__19772_SHARP_){
-return cljs.core._EQ_.call(null,cljs.core.val.call(null,p1__19772_SHARP_),semester);
+return cljs.core.key.call(null,cljs.core.first.call(null,cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,(function (p1__18391_SHARP_){
+return cljs.core._EQ_.call(null,cljs.core.val.call(null,p1__18391_SHARP_),semester);
 }),jsz))));
 });
 /**
  * Liefert das Manipel mit dem Namen string aus der Liste manipels.
  */
 dep.model.manipel.manipel_mit_namen = (function dep$model$manipel$manipel_mit_namen(manipels,string){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__19773_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__19773_SHARP_),string);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__18392_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"name","name",1843675177).cljs$core$IFn$_invoke$arity$1(p1__18392_SHARP_),string);
 }),manipels));
 });
 

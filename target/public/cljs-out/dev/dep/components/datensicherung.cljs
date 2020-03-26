@@ -89,7 +89,6 @@
           s (r/atom "pldaten.edn")
           dateien (r/atom [])
           _ (go (reset! dateien (<! (list-folder))))]
-      ;@forcer ; um das Rerendering zu ermöglichen
       [:div.row 
        [:div.col-md-6
         [:h4 "Planungsdaten in Datei speichern"]

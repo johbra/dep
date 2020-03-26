@@ -1,11 +1,7 @@
 (ns dep.components.studienrichtungen
   (:require [reagent.core :refer [atom]]
             [potpuri.core :as p]
-            [dep.model.studienrichtung
-             :refer [studienrichtung-mit-namen sieben-semester->quartstrng]]
-            [dep.model.quartal
-             :refer [quartal->string sieben-semester->quartstrng minus
-                     ->Quartal string->quartal parse-int]]
+            [dep.model.studienrichtung :refer [studienrichtung-mit-namen]]
             [dep.components.datamanagement :refer [data-management]]
             [dep.helpers.helpers :refer [input-frmctrl]]))
 
@@ -19,38 +15,21 @@
 (def studienrichtung-form-template
   "Komponente für das Bearbeitungsformular."
   [:div
-   (row "Bezeichnung" (input-frmctrl false :text :Bezeichnung))
-   (row "Semester 1" (input-frmctrl false :text :Sem-1))
-   (row "Semester 2" (input-frmctrl false :text :Sem-2))
-   (row "Semester 3" (input-frmctrl false :text :Sem-3))
-   (row "Semester 4" (input-frmctrl false :text :Sem-4))
-   (row "Semester 5" (input-frmctrl false :text :Sem-5))
-   (row "Semester 6" (input-frmctrl false :text :Sem-6))
-   (row "Semester 7" (input-frmctrl false :text :Sem-7))])
+   (row "Bezeichnung" (input-frmctrl false :text :Bezeichnung))])
 
 (defn aender-studienrichtung 
   "Erzeugt eine neue Studienrichtung aus den in aenderungen gegebenen Daten."
-  [studienrichtung aenderungen]
-  (let [qsz (dissoc aenderungen :Bezeichnung)
-        qsz (p/map-vals string->quartal qsz)
-        qsz (clojure.set/map-invert qsz)
-        qsz (p/map-vals #(parse-int (last (clojure.string/split (str %) #"-"))) qsz)]
-    (assoc studienrichtung :quartal-semester-zuordnung qsz
-           :name (:Bezeichnung aenderungen))))
+  [studienrichtung aenderungen] 
+  (assoc studienrichtung :name (:Bezeichnung aenderungen)))
 
 (defn studienrichtungen->table
   "Wandelt die studienrichtungen für die Darstellung als Tabelle um. "
   [studienrichtungen]
-  (mapv #(merge (hash-map :Bezeichnung (:name %))
-                (sieben-semester->quartstrng (->Quartal 4 0)
-                                             (:quartal-semester-zuordnung %)))
-        studienrichtungen))
+  (mapv #(hash-map :Bezeichnung (:name %)) studienrichtungen))
 
 (def studienrichtung-spalten
   "Die Spaltenüberschriften der Studienrichtungstabelle."
-  (concat [:Bezeichnung]
-          (vec (for [sem (range 1 8)]
-                 (keyword (str "Sem-" sem))))))
+  [:Bezeichnung])
 
 (defn studienrichtungen-verwaltung
   "Liefert die Infos für die Studienrichtungstabelle und das Bearbeitungsformular."

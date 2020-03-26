@@ -19,8 +19,6 @@
     max-height: 600px;
     overflow-y: auto;
 }
-
-
 .rTableRow {
     display: table-row;
 }
@@ -44,8 +42,7 @@
     background-color: #ddd;
 }
 .rTableBody {
-    display: table-row-group;
-    height: 380px; overflow-y: scroll;
+    display: table-row-group; 
 }
 
 

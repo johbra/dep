@@ -5,7 +5,6 @@ goog.require('goog.dom');
 goog.require('reagent.core');
 goog.require('dep.state');
 goog.require('dep.components.side_nav_bar');
-goog.require('dep.components.planung');
 /**
  * Hauptkomponente der Dozenteneinsatzplanung.
  */

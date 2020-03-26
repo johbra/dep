@@ -22,14 +22,14 @@ return dep.model.modul.wochenStundenInSemester.call(null,new cljs.core.Keyword(n
 dep.model.lehrveranstaltung.manipel_modullisten_map_fuer_quartal = (function dep$model$lehrveranstaltung$manipel_modullisten_map_fuer_quartal(manipels,module,quartal){
 var modulliste = cljs.core.second;
 return cljs.core.into.call(null,cljs.core.PersistentArrayMap.EMPTY,cljs.core.filter.call(null,((function (modulliste){
-return (function (p1__21059_SHARP_){
-return !(cljs.core.empty_QMARK_.call(null,modulliste.call(null,p1__21059_SHARP_)));
+return (function (p1__18429_SHARP_){
+return !(cljs.core.empty_QMARK_.call(null,modulliste.call(null,p1__18429_SHARP_)));
 });})(modulliste))
 ,cljs.core.map.call(null,((function (modulliste){
 return (function (mpl){
 return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [mpl,cljs.core.filter.call(null,((function (modulliste){
-return (function (p1__21060_SHARP_){
-return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(null,p1__21060_SHARP_,mpl,quartal);
+return (function (p1__18430_SHARP_){
+return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(null,p1__18430_SHARP_,mpl,quartal);
 });})(modulliste))
 ,module)], null);
 });})(modulliste))
@@ -41,8 +41,8 @@ return dep.model.modul.mussModulUnterrichtetWerdenFuer_inQuartal_QMARK_.call(nul
  */
 dep.model.lehrveranstaltung.lven_vector = (function dep$model$lehrveranstaltung$lven_vector(lv_map,quartal){
 return cljs.core.into.call(null,cljs.core.PersistentVector.EMPTY,cljs.core.mapcat.call(null,(function (ml){
-return cljs.core.map.call(null,(function (p1__21061_SHARP_){
-return dep.model.lehrveranstaltung.__GT_Lehrveranstaltung.call(null,p1__21061_SHARP_,quartal,"NN",(1),cljs.core.key.call(null,ml));
+return cljs.core.map.call(null,(function (p1__18431_SHARP_){
+return dep.model.lehrveranstaltung.__GT_Lehrveranstaltung.call(null,p1__18431_SHARP_,quartal,"NN",(1),cljs.core.key.call(null,ml));
 }),cljs.core.val.call(null,ml));
 }),lv_map));
 });
@@ -57,8 +57,8 @@ return dep.model.lehrveranstaltung.lven_vector.call(null,dep.model.lehrveranstal
  * Liefert die Lehrveranstaltung mit der gegebenen id.
  */
 dep.model.lehrveranstaltung.lv_mit_id = (function dep$model$lehrveranstaltung$lv_mit_id(lven,id){
-return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__21062_SHARP_){
-return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__21062_SHARP_),id);
+return cljs.core.first.call(null,cljs.core.filter.call(null,(function (p1__18432_SHARP_){
+return cljs.core._EQ_.call(null,new cljs.core.Keyword(null,"id","id",-1388402092).cljs$core$IFn$_invoke$arity$1(p1__18432_SHARP_),id);
 }),lven));
 });
 /**

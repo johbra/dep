@@ -2,8 +2,7 @@
   (:require [reagent.core :as r]
             [reagent-modals.modals :as reagent-modals]
             [dep.helpers.sortable-csstable
-             :refer [table-ui modal-form remove-dataset
-                     save-dataset process-form process-simple-form]]))
+             :refer [table-ui modal-form process-form process-simple-form]]))
 
 (defn data-management
   "Erzeugt eine Datenanzeige und -verwaltungskomponente für einen Teil der Welt.
