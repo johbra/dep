@@ -1,6 +1,6 @@
 (ns dep.components.studienrichtungen
   (:require [reagent.core :refer [atom]]
-            [potpuri.core :as p]
+            [medley.core :as p]
             [dep.model.studienrichtung :refer [studienrichtung-mit-namen]]
             [dep.components.datamanagement :refer [data-management]]
             [dep.helpers.helpers :refer [input-frmctrl]]))

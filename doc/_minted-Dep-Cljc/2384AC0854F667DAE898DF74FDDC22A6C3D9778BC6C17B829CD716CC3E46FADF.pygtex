@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-    \PYG{n+nb}{cd} /Users/jb/Dropbox/elm/dep
-    elm reactor
-    ... Go to \PYGZlt{}http://localhost:8000\PYGZgt{} to see your project dashboard.
-\end{Verbatim}
